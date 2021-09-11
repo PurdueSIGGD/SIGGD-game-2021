@@ -1,11 +1,7 @@
-# SIGGD-Unity-Template
-Template for creating new Unity GitHub repositories.
-How to setup:
-  1) Click the "Use this template" button to make your own duplicate repository on GitHub
-  2) Download and setup the new reposotory to your computer (Using GitHub Desktop is reccomended)
-  3) Create a new Unity project in the repository folder
-  4) Commit the changes to the Master branch
-  5) The repository should now be ready for use
+# SIGGD-game-2021
+The repository for The Purdue Association for Computing Machinery's Special Interest Group for Game Design's 2021 video game project.
+
+This project will be a Top Down Boss-Battle Stealth Game which SIGGD will work on during the 2021-2022 school year.
 
 General use:
   1) Have members of your team each create branches for all new changes after this to avoid overwriting anyone's work
