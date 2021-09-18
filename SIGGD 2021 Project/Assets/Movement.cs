@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         rigidbody.MovePosition(rigidbody.position + movement * moveSpeed * Time.fixedDeltaTime);
-        soundHitbox.radius = moveSpeed;
+        soundHitbox.radius = rigidbody.velocity.magnitude;
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
