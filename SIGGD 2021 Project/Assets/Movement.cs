@@ -11,6 +11,15 @@ public class Movement : MonoBehaviour
     public CircleCollider2D soundHitbox;
 
     Vector2 movement;
+    Vector2 old_pos;
+    Vector2 new_pos;
+
+    public double velocity;
+
+    void Start()
+    {
+        old_pos = rigidbody.position;
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,7 +32,9 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         rigidbody.MovePosition(rigidbody.position + movement * moveSpeed * Time.fixedDeltaTime);
-        soundHitbox.radius = rigidbody.velocity.magnitude;
+        new_pos = rigidbody.position;
+
+        velocity = Vector2.Distance(old_pos, new_pos) / Time.fixedDeltaTime;
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -37,5 +48,16 @@ public class Movement : MonoBehaviour
         {
             moveSpeed = 5f;
         }
+
+        if (velocity != 0)
+        {
+            soundHitbox.radius = moveSpeed;
+        }
+        else
+        {
+            soundHitbox.radius = 0;
+        }
+
+        old_pos = rigidbody.position;
     }
 }

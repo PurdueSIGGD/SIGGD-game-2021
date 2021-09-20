@@ -8,6 +8,8 @@ public class SoundDetection : MonoBehaviour
 
     public BoxCollider2D enemyHitbox;
 
+    int index = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,13 +32,8 @@ public class SoundDetection : MonoBehaviour
         Debug.Log("The enemy detects the player.");
     }
 
-    void OnTriggerStay2D(Collider2D playerSound)
-    {
-
-    }
-
     void OnTriggerLeft2D(Collider2D playerSound)
     {
-
+        Debug.Log("You exit the enemy's hearing range");
     }
 }
