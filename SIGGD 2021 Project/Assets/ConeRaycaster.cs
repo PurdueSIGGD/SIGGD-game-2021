@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ConeRaycaster : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class ConeRaycaster : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Transform rayOrigin;
     [Range(0.1f, 30f)] [SerializeField] private float maxDistance;
+
+    [SerializeField] private UnityEvent hit;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,7 @@ public class ConeRaycaster : MonoBehaviour
 
             if (result) {
                 Debug.DrawRay(rayOrigin.position, rayDir * result.distance, Color.red);
+                hit.Invoke();
                 return true;
             }
             Debug.DrawRay(rayOrigin.position, rayDir * maxDistance, Color.green);
