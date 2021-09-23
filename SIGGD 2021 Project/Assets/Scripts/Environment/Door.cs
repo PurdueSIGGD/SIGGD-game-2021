@@ -12,13 +12,9 @@ public class Door : MonoBehaviour
     // # of seconds to close the door
     public float closeDelay = 0.5f;
 
-    // Game Event to trigger when opened, closed, or both
+    // Game Event to trigger when opened, closed
     public GameEvent openEvent, closeEvent;
-
-
     SpriteRenderer sprite;
-    
-
 
 
     // Start is called before the first frame update
@@ -27,34 +23,22 @@ public class Door : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (open)
-        {
-            Open();
-        } else
-        {
-            Close();
-        }
-    }
-
-    // Starts/finishes the opening process
-    void Open()
+    // Starts/finishes the opening process. Called by events.
+    public void Open()
     {
         open = true;
-        openEvent.Invoke();
+        openEvent?.Invoke();
     }
 
-    // Starts/finishes the closing process
-    void Close()
+    // Starts/finishes the closing process. Called by events.
+    public void Close()
     {
         open = false;
-        closeEvent.Invoke();
+        closeEvent?.Invoke();
     }
 
-    // Toggles the door
-    void Toggle()
+    // Toggles the door. Called by events.
+    public void Toggle()
     {
         if (open)
         {
