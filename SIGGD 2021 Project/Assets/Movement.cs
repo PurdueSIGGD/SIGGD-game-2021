@@ -26,12 +26,11 @@ public class Movement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-       
     }
 
     void FixedUpdate()
     {
-        rigidbody.MovePosition(rigidbody.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rigidbody.MovePosition(rigidbody.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
         new_pos = rigidbody.position;
 
         velocity = Vector2.Distance(old_pos, new_pos) / Time.fixedDeltaTime;
@@ -52,10 +51,16 @@ public class Movement : MonoBehaviour
         if (velocity != 0)
         {
             soundHitbox.radius = moveSpeed;
+            
         }
         else
         {
             soundHitbox.radius = 0;
+        }
+
+        if ((movement.x != 0) || (movement.y != 0))
+        {
+            rigidbody.MoveRotation(Vector2.SignedAngle(Vector2.right, movement));
         }
 
         old_pos = rigidbody.position;
