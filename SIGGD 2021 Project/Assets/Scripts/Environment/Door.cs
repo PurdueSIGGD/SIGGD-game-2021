@@ -7,10 +7,6 @@ public class Door : MonoBehaviour
     public bool startOpen = false;
     private bool open = false;
 
-    // # of seconds to open/close the door (currently unused)
-    public float openDelay = 0.5f;
-    public float closeDelay = 0.5f;
-
     // Optional Game Event to trigger when opened, closed (if you want the door to trigger something else)
     public GameEvent openEvent, closeEvent;
     SpriteRenderer sprite;
@@ -36,7 +32,6 @@ public class Door : MonoBehaviour
     // Starts/finishes the opening process. Called by events.
     public void Open()
     {
-        
         openEvent?.Invoke();
 
         OpenInternal();
@@ -45,7 +40,6 @@ public class Door : MonoBehaviour
     // Starts/finishes the closing process. Called by events.
     public void Close()
     {
-        open = false;
         closeEvent?.Invoke();
 
         CloseInternal();
@@ -54,6 +48,8 @@ public class Door : MonoBehaviour
     // Opens the door without triggering events. Used for resetting.
     private void OpenInternal()
     {
+        open = true;
+
         // Just disable the sprite right now
         sprite.enabled = false;
     }
@@ -61,6 +57,8 @@ public class Door : MonoBehaviour
     // Closes the door without triggering events. Used for resetting.
     private void CloseInternal()
     {
+        open = false;
+
         // Just re-enable the sprite right now
         sprite.enabled = true;
     }
