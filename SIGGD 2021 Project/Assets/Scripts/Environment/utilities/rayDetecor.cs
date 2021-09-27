@@ -36,7 +36,8 @@ public class rayDetecor : MonoBehaviour
                 {
                     eventToCall.Invoke();
                 }
-            } else
+            }
+            else
             {
                 if (onEnter)
                 {
