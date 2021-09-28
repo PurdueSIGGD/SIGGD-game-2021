@@ -6,11 +6,12 @@ public class Attack : MonoBehaviour
 {
     public Transform attackHitbox;
     public Transform playerLocation;
-    public float range = .8f;
     public LayerMask enemyLayers;
 
+    public float range = .8f;
     float delay = .5f;
     float timeElapsed = 0f;
+    int attackDamage = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,8 @@ public class Attack : MonoBehaviour
 
                 foreach (Collider2D enemy in enemiesHit)
                 {
-                    Debug.Log("We hit" + enemy.name);
+                    Debug.Log("We hit " + enemy.name);
+                    enemy.GetComponent<EnemyScript>().TakeDamage(attackDamage);
                 }
 
                 timeElapsed = 0;

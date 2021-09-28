@@ -311,6 +311,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &361471987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3319456225106768785, guid: 656e04a75f3aa43408797c73d16da79a, type: 3}
+  m_PrefabInstance: {fileID: 595772278}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &361471988 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3319456225106768787, guid: 656e04a75f3aa43408797c73d16da79a, type: 3}
+  m_PrefabInstance: {fileID: 595772278}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &361471992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361471987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb1a938a65a12445962a9d2d107d5bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSound: {fileID: 1326460143}
+  enemyHitbox: {fileID: 361471988}
+  maxHP: 100
 --- !u!1001 &595772278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -375,6 +400,11 @@ PrefabInstance:
 --- !u!4 &850518702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6599404643187351301, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+  m_PrefabInstance: {fileID: 293017056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1326460143 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5314529853658650852, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
   m_PrefabInstance: {fileID: 293017056}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1407082373 stripped
