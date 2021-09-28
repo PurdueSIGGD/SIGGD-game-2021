@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public Transform attackHitbox;
+    public Transform playerLocation;
     public float range = .8f;
     public LayerMask enemyLayers;
 
@@ -14,11 +15,11 @@ public class Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (timeElapsed > delay)
         {

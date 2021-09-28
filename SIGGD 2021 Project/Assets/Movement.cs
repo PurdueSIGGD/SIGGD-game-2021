@@ -10,15 +10,19 @@ public class Movement : MonoBehaviour
 
     public CircleCollider2D soundHitbox;
 
+    public Transform attackHitbox;
+
     Vector2 movement;
     Vector2 old_pos;
     Vector2 new_pos;
+    Vector2 point;
 
     public double velocity;
 
     void Start()
     {
         old_pos = rigidbody.position;
+        
     }
 
     // Update is called once per frame
@@ -30,7 +34,8 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody.MovePosition(rigidbody.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+        Vector2 unitMovement = movement.normalized;
+        rigidbody.MovePosition(rigidbody.position + unitMovement * moveSpeed * Time.fixedDeltaTime);
         new_pos = rigidbody.position;
 
         velocity = Vector2.Distance(old_pos, new_pos) / Time.fixedDeltaTime;
@@ -60,7 +65,9 @@ public class Movement : MonoBehaviour
 
         if ((movement.x != 0) || (movement.y != 0))
         {
-            rigidbody.MoveRotation(Vector2.SignedAngle(Vector2.right, movement));
+            float x = rigidbody.position.x + unitMovement.x * 0.65f;
+            float y = rigidbody.position.y + unitMovement.y * 0.65f;
+            attackHitbox.position = new Vector2(x,y);
         }
 
         old_pos = rigidbody.position;
