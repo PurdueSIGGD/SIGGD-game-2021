@@ -6,15 +6,15 @@ public class Route : MonoBehaviour
 {
     private bool navigatable = true;
 
-    public Vector3[] nodes;
-    public bool isLoop = true;
+    public Vector3[] nodes; //the nodes in this route
+    public bool isLoop = true; //if the route should loop around back to the starting position
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected() //draw the route
     {
         LayerMask playerMask = (int)Mathf.Pow(2, 6); //layer 6
         LayerMask enemyMask = (int)Mathf.Pow(2, 7); //layer 7
 
-        for(int i = 0; i < nodes.Length; i++)
+        for(int i = 0; i < nodes.Length; i++) 
         {
             Vector3 node = nodes[i];
             Gizmos.color = Color.white;
@@ -29,7 +29,7 @@ public class Route : MonoBehaviour
             {
                 LayerMask layerMask = ~(playerMask | enemyMask); //collide with all layers that are not the enemy or the player
                 RaycastHit2D hit = Physics2D.Linecast(node, nextNode, layerMask);
-                if (hit)
+                if (hit) //do raycasts to decide if next node is navigatable. it might be a bit improper to do this in gizmos so maybe move this later to start
                 {
                     string hitTag = hit.transform.gameObject.tag;
                     if (hitTag != "Player" && hitTag != "Enemy")

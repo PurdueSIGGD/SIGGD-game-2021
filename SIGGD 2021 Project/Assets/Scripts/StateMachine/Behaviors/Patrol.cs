@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Patrol : EnemyBehavior
+public class Patrol : Behavior
 {
     public Route route = null; //the route that the enemy will follow
     public float enemyPatrolSpeed = 1f; //the speed that the enemy moves when patrolling
@@ -12,7 +12,7 @@ public class Patrol : EnemyBehavior
 
     private bool invalidRoute = false; //if the route is invalid. if it is then the behavior shouldn't happen
 
-    public override void doBehavior()
+    public override void run()
     {
         if (invalidRoute) { return; } //don't do anything if the route is invalid
 
@@ -84,7 +84,7 @@ public class Patrol : EnemyBehavior
 
     }
 
-    public override void OnStateEnter()
+    public override void OnBehaviorEnter()
     {
         //error checking
         invalidRoute = false;
@@ -113,8 +113,9 @@ public class Patrol : EnemyBehavior
         }
     }
 
-    public override void OnStateExit()
+    public override void OnBehaviorExit()
     {
+        //reset variables
         currentNode = -1;
     }
 }
