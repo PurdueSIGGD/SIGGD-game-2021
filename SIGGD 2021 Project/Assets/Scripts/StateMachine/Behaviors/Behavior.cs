@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Behavior : MonoBehaviour
 {
-    public abstract void run();
+    public virtual void run() {}
 
-    public abstract void OnBehaviorEnter();
+    public virtual void OnBehaviorEnter() {}
 
-    public abstract void OnBehaviorExit();
+    public virtual void OnBehaviorExit() {}
 }

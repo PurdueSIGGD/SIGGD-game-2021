@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Route : MonoBehaviour
 {
     private bool navigatable = true;
 
-    public Vector3[] nodes; //the nodes in this route
+    public Transform[] transformNodes; //the nodes in this route
     public bool isLoop = true; //if the route should loop around back to the starting position
+
+    public Vector3[] positionNodes()
+    {
+        return transformNodes.Select(x => x.position).ToArray();
+    }
 
     private void OnDrawGizmosSelected() //draw the route
     {
         LayerMask playerMask = (int)Mathf.Pow(2, 6); //layer 6
         LayerMask enemyMask = (int)Mathf.Pow(2, 7); //layer 7
+
+        var nodes = this.positionNodes();
 
         for(int i = 0; i < nodes.Length; i++) 
         {

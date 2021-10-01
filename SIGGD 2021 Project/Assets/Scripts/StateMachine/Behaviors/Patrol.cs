@@ -16,14 +16,14 @@ public class Patrol : Behavior
     {
         if (invalidRoute) { return; } //don't do anything if the route is invalid
 
-        Vector3[] routeNodes = route.nodes; //the nodes in the route
+        Vector3[] routeNodes = route.positionNodes(); //the nodes in the route
 
         //if there is no current node then make current node the closest route node to the enemy 
         if (currentNode == -1)
         {
             //find closest node on the route and make that your current node
             int closestNode = 0;
-            float closestNodeDistance = Vector3.Distance(transform.position, route.nodes[closestNode]);
+            float closestNodeDistance = Vector3.Distance(transform.position, routeNodes[closestNode]);
             for (int i = 1; i < routeNodes.Length; i++)
             {
                 Vector3 node = routeNodes[i];
@@ -37,11 +37,11 @@ public class Patrol : Behavior
             currentNode = closestNode;
         }
         //if you are at the target node then go to the next node (or the last node depending on things)
-        if (Vector2.Distance(transform.position, route.nodes[currentNode]) <= 0.5f) //arbitrary float value for determining when you are close enough to a node to be consitered at that node
+        if (Vector2.Distance(transform.position, routeNodes[currentNode]) <= 0.5f) //arbitrary float value for determining when you are close enough to a node to be consitered at that node
         {
             if (patrolDirection == 1) //patrol through the nodes list in the forward direction
             {
-                if (currentNode + 1 >= route.nodes.Length) //if you are at the end of the route
+                if (currentNode + 1 >= routeNodes.Length) //if you are at the end of the route
                 {
                     if (route.isLoop) //if it's a loop then just loop back to the start 
                     {
@@ -55,7 +55,7 @@ public class Patrol : Behavior
                 }
                 else
                 {
-                    currentNode++;
+                    currentNode += patrolDirection;
                 }
             }
             else //patrol through the nodes list in the backwards direction
@@ -64,7 +64,7 @@ public class Patrol : Behavior
                 {
                     if (route.isLoop) //if it's a loop then just loop back to the start 
                     {
-                        currentNode = route.nodes.Length - 1;
+                        currentNode = routeNodes.Length - 1;
                     }
                     else //if it's not a loop then change directions and go the other way
                     {
@@ -94,8 +94,8 @@ public class Patrol : Behavior
             invalidRoute = true;
             return;
         }
-        Vector3[] routeNodes = route.nodes;
-        if (route.nodes.Length == 0)
+        Vector3[] routeNodes = route.positionNodes();
+        if (routeNodes.Length == 0)
         {
             Debug.Log("Can't patrol because there are no nodes in the route!");
             invalidRoute = true;
