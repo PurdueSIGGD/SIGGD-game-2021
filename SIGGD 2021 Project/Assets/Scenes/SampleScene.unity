@@ -1024,6 +1024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Door
       objectReference: {fileID: 0}
+    - target: {fileID: 3137266814161364696, guid: c1d37be4b59b0d24a84cc84cf4f29dc2, type: 3}
+      propertyPath: gameEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: d86641e42c747fe4c918f763a631e465, type: 2}
     - target: {fileID: 3137266814161364699, guid: c1d37be4b59b0d24a84cc84cf4f29dc2, type: 3}
       propertyPath: m_RootOrder
       value: 5
