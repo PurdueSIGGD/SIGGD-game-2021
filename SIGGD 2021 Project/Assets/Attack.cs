@@ -31,7 +31,7 @@ public class Attack : MonoBehaviour
                 foreach (Collider2D enemy in enemiesHit)
                 {
                     Debug.Log("We hit " + enemy.name);
-                    enemy.GetComponent<EnemyScript>().TakeDamage(attackDamage);
+                    enemy.GetComponent<Health>().TakeDamage(attackDamage);
                 }
 
                 timeElapsed = 0;
