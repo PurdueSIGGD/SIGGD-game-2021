@@ -34,7 +34,7 @@ public class EnemyScript : MonoBehaviour
         {
             Debug.Log("The enemy detects the player.");
         }
-        else if (string.Equals(collider.name, "AlertEnemy"))
+        else if (string.Equals(collider.name, "Enemy"))
         {
             Debug.Log("Another enemy sounded an alarm.");
         }
