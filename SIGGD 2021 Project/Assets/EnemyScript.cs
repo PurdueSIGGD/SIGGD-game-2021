@@ -48,15 +48,4 @@ public class EnemyScript : MonoBehaviour
         }
         
     }
-
-    public void TakeDamage(int damage)
-    {
-        currHP -= damage;
-
-        if (currHP <= 0)
-        {
-            Debug.Log("The enemy is dead");
-            // Code to handle enemy's death here
-        }
-    }
 }
