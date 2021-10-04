@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public CircleCollider2D playerSound;
 
     public BoxCollider2D enemyHitbox;
 
@@ -29,24 +28,24 @@ public class EnemyScript : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D playerSound)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("The enemy detects the player.");
-    }
-
-    void OnTriggerLeft2D(Collider2D playerSound)
-    {
-        Debug.Log("You exit the enemy's hearing range");
-    }
-
-    public void TakeDamage(int damage)
-    {
-        currHP -= damage;
-
-        if (currHP <= 0)
+        if (string.Equals(collider.name, "Player"))
         {
-            Debug.Log("The enemy is dead");
-            // Code to handle enemy's death here
+            Debug.Log("The enemy detects the player.");
         }
+        else if (string.Equals(collider.name, "Enemy"))
+        {
+            Debug.Log("Another enemy sounded an alarm.");
+        }
+    }
+
+    void OnTriggerLeft2D(Collider2D collider)
+    {
+        if (string.Equals(collider.name, "Player"))
+        {
+            Debug.Log("You exit the enemy's hearing range");
+        }
+        
     }
 }
