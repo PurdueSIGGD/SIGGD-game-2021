@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7621818520450466198}
   - component: {fileID: 7621818520450466199}
   - component: {fileID: 7621818520450466192}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,3 +126,6 @@ MonoBehaviour:
   onEnter: 1
   onStay: 0
   onExit: 1
+  layers:
+    serializedVersion: 2
+    m_Bits: 128
