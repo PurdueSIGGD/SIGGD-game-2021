@@ -128,4 +128,4 @@ MonoBehaviour:
   onExit: 1
   layers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 383

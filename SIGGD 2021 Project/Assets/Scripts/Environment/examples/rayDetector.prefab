@@ -131,7 +131,7 @@ MonoBehaviour:
   length: 4
   layers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 383
 --- !u!1 &5753118927683910106
 GameObject:
   m_ObjectHideFlags: 0
