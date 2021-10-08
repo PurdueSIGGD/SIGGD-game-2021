@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public Material redMaterialRef; // Color of the heart when full
     public int healthRemaining = 3;
     public bool playerAlive = true;
+    public int maxHealth = 3;
 
     public GameObject[] hearts;
 
@@ -22,7 +23,14 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HealthToSee();
+        if (playerAlive)
+        {
+            HealthToSee();
+        }
+        else
+        {
+            // Death event
+        }
     }
 
     public void HealthToSee()
@@ -36,9 +44,12 @@ public class Health : MonoBehaviour
 
         for (int i = healthRestored; i > 0; i--)
         {
-            hearts[healthRemaining].GetComponent<Renderer>().material = redMaterialRef;
-            healthRemaining = healthRemaining + 1;
-            healthRestored--;
+            if (healthRemaining != maxHealth)
+            {
+                hearts[healthRemaining].GetComponent<Renderer>().material = redMaterialRef;
+                healthRemaining = healthRemaining + 1;
+                healthRestored--;
+            }   
         }
 
         if(healthRemaining == 0)
