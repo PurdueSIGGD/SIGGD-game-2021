@@ -144,7 +144,6 @@ GameObject:
   - component: {fileID: 215546833}
   - component: {fileID: 215546832}
   - component: {fileID: 215546834}
-  - component: {fileID: 215546830}
   - component: {fileID: 215546831}
   - component: {fileID: 215546835}
   m_Layer: 0
@@ -154,22 +153,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &215546830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215546829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff65838c0a9f0514f877df50d6a0896f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rigidbody: {fileID: 215546834}
-  soundHitbox: {fileID: 0}
-  velocity: 0
 --- !u!61 &215546831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -301,6 +284,7 @@ MonoBehaviour:
   healthRemaining: 3
   playerAlive: 1
   maxHealth: 3
+  maxIncrease: 0
   hearts:
   - {fileID: 187458632}
   - {fileID: 1660611804}
@@ -333,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39d2f7675a4ad624d8f7931c7fd37005, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -345.8251
+      value: -340
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39d2f7675a4ad624d8f7931c7fd37005, type: 3}
       propertyPath: m_LocalPosition.y
@@ -806,7 +790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39d2f7675a4ad624d8f7931c7fd37005, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -503
+      value: -500
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39d2f7675a4ad624d8f7931c7fd37005, type: 3}
       propertyPath: m_LocalPosition.y
@@ -879,7 +863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39d2f7675a4ad624d8f7931c7fd37005, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -428.5487
+      value: -420
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39d2f7675a4ad624d8f7931c7fd37005, type: 3}
       propertyPath: m_LocalPosition.y
