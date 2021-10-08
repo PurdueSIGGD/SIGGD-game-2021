@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public int healthRemaining = 3;
     public bool playerAlive = true;
     public int maxHealth = 3;
+    public int maxIncrease; // Increase in max health
 
     public GameObject[] hearts;
 
@@ -44,17 +45,32 @@ public class Health : MonoBehaviour
 
         for (int i = healthRestored; i > 0; i--)
         {
-            if (healthRemaining != maxHealth)
+            if(healthRemaining != maxHealth)
             {
                 hearts[healthRemaining].GetComponent<Renderer>().material = redMaterialRef;
                 healthRemaining = healthRemaining + 1;
                 healthRestored--;
             }   
+
+            if(healthRemaining == maxHealth)
+            {
+                healthRestored = 0;
+            }
         }
 
         if(healthRemaining == 0)
         {
             playerAlive = false;
+        }
+    }
+
+    public void MaxHealth(int maxHealthIncreased)
+    {
+        for (int i = maxHealthIncreased; i > 0; i--)
+        {
+            hearts[maxHealth] = hearts[maxHealth - 1];
+            hearts[maxHealth].transform.position = new Vector3(hearts[maxHealth - 1].transform.position.x - 80, hearts[maxHealth - 1].transform.position.y, hearts[maxHealth - 1].transform.position.z);
+            maxHealth++;
         }
     }
 }

@@ -299,10 +299,15 @@ MonoBehaviour:
   blankMaterialRef: {fileID: 2100000, guid: 377b4022463d92c4dbd6024bc800c173, type: 2}
   redMaterialRef: {fileID: 2100000, guid: 163dc5ab3a0260a48bab0a163bd29275, type: 2}
   healthRemaining: 3
+  playerAlive: 1
+  maxHealth: 3
   hearts:
   - {fileID: 187458632}
   - {fileID: 1660611804}
   - {fileID: 2111111919}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &279379671
 PrefabInstance:
   m_ObjectHideFlags: 0
