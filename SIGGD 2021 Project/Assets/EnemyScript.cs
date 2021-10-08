@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public CircleCollider2D playerSound;
+    const int player = 3;
+    const int enemy = 6;
 
     public BoxCollider2D enemyHitbox;
     private Health health;
@@ -26,7 +27,7 @@ public class EnemyScript : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D playerSound)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         if (!health.IsDead())
             Debug.Log("The enemy detects the player.");
@@ -36,5 +37,21 @@ public class EnemyScript : MonoBehaviour
     {
         if (!health.IsDead())
             Debug.Log("You exit the enemy's hearing range");
+        if (collider.gameObject.layer == player)
+        {
+            Debug.Log("The enemy detects the player.");
+        }
+        else if (collider.gameObject.layer == enemy)
+        {
+            Debug.Log("Another enemy sounded an alarm.");
+        }
+    }
+
+    void OnTriggerLeft2D(Collider2D collider)
+    {
+        if (string.Equals(collider.name, "Player"))
+        {
+            Debug.Log("You exit the enemy's hearing range");
+        }
     }
 }
