@@ -5,20 +5,22 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public Transform attackHitbox;
-    public float range = .8f;
+    public Transform playerLocation;
     public LayerMask enemyLayers;
 
+    public float range = .8f;
     float delay = .5f;
     float timeElapsed = 0f;
+    int attackDamage = 20;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (timeElapsed > delay)
         {
@@ -28,7 +30,8 @@ public class Attack : MonoBehaviour
 
                 foreach (Collider2D enemy in enemiesHit)
                 {
-                    Debug.Log("We hit" + enemy.name);
+                    Debug.Log("We hit " + enemy.name);
+                    
                 }
 
                 timeElapsed = 0;

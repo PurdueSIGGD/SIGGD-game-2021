@@ -27,6 +27,7 @@ public class Health : MonoBehaviour
         if (playerAlive)
         {
             HealthToSee();
+            //MaxHealth(maxIncrease);
         }
         else
         {
@@ -64,7 +65,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void MaxHealth(int maxHealthIncreased)
+    /*public void MaxHealth(int maxHealthIncreased)
     {
         for (int i = maxHealthIncreased; i > 0; i--)
         {
@@ -73,4 +74,5 @@ public class Health : MonoBehaviour
             maxHealth++;
         }
     }
+    */
 }
