@@ -33,25 +33,20 @@ public class EnemyScript : MonoBehaviour
             Debug.Log("The enemy detects the player.");
     }
 
-    void OnTriggerLeft2D(Collider2D playerSound)
-    {
-        if (!health.IsDead())
-            Debug.Log("You exit the enemy's hearing range");
-        if (collider.gameObject.layer == player)
-        {
-            Debug.Log("The enemy detects the player.");
-        }
-        else if (collider.gameObject.layer == enemy)
-        {
-            Debug.Log("Another enemy sounded an alarm.");
-        }
-    }
-
     void OnTriggerLeft2D(Collider2D collider)
     {
         if (string.Equals(collider.name, "Player"))
         {
-            Debug.Log("You exit the enemy's hearing range");
+            if (!health.IsDead())
+                Debug.Log("You exit the enemy's hearing range");
+            if (collider.gameObject.layer == player)
+            {
+                Debug.Log("The enemy detects the player.");
+            }
+            else if (collider.gameObject.layer == enemy)
+            {
+                Debug.Log("Another enemy sounded an alarm.");
+            }
         }
     }
 }
