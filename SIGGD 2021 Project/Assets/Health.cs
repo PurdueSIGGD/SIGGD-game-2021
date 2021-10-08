@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public Material blankMaterialRef; // Color of the heart when taken damage
     public Material redMaterialRef; // Color of the heart when full
     public int healthRemaining = 3;
+    public bool playerAlive = true;
 
     public GameObject[] hearts;
 
@@ -40,5 +41,9 @@ public class Health : MonoBehaviour
             healthRestored--;
         }
 
+        if(healthRemaining == 0)
+        {
+            playerAlive = false;
+        }
     }
 }
