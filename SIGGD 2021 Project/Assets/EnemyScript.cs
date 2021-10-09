@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    const int player = 3;
+    const int enemy = 6;
 
     public BoxCollider2D enemyHitbox;
 
@@ -30,11 +32,11 @@ public class EnemyScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (string.Equals(collider.name, "Player"))
+        if (collider.gameObject.layer == player)
         {
             Debug.Log("The enemy detects the player.");
         }
-        else if (string.Equals(collider.name, "Enemy"))
+        else if (collider.gameObject.layer == enemy)
         {
             Debug.Log("Another enemy sounded an alarm.");
         }
