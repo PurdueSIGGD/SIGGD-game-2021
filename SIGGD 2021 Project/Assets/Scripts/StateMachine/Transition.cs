@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class Transition
@@ -9,6 +10,9 @@ public class Transition
 
     [SerializeField]
     public Trigger[] triggers;
+
+    [SerializeField]
+    public UnityEvent unityEvent;
 
     /*
      * gets called each frame to check if this transition should happen. If any triggers are true
@@ -21,6 +25,7 @@ public class Transition
         {
             if (trigger.isActive())
             {
+                unityEvent.Invoke();
                 return true;
             }
         }
