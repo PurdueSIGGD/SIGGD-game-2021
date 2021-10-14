@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        old_pos = rigidbody.position;
+        old_pos = GetComponent<Rigidbody>().position;
         
     }
 
@@ -35,8 +35,8 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 unitMovement = movement.normalized;
-        rigidbody.MovePosition(rigidbody.position + unitMovement * moveSpeed * Time.fixedDeltaTime);
-        new_pos = rigidbody.position;
+        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + unitMovement * moveSpeed * Time.fixedDeltaTime);
+        new_pos = GetComponent<Rigidbody>().position;
 
         velocity = Vector2.Distance(old_pos, new_pos) / Time.fixedDeltaTime;
 
@@ -65,11 +65,11 @@ public class Movement : MonoBehaviour
 
         if ((movement.x != 0) || (movement.y != 0))
         {
-            float x = rigidbody.position.x + unitMovement.x * 0.65f;
-            float y = rigidbody.position.y + unitMovement.y * 0.65f;
+            float x = GetComponent<Rigidbody>().position.x + unitMovement.x * 0.65f;
+            float y = GetComponent<Rigidbody>().position.y + unitMovement.y * 0.65f;
             attackHitbox.position = new Vector2(x,y);
         }
 
-        old_pos = rigidbody.position;
+        old_pos = GetComponent<Rigidbody>().position;
     }
 }
