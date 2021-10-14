@@ -532,7 +532,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1951449059570744471}
         m_TargetAssemblyTypeName: PlayerHealthGraphics, Assembly-CSharp
         m_MethodName: healthGraphicUpdate
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -557,7 +557,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 508372120129800236}
-  healthPerHeart: 1
   blankSpriteRef: {fileID: 21300000, guid: 839ce0a160e8ea043990b096a0c8723b, type: 3}
   redSpriteRef: {fileID: 21300000, guid: 73a98cbecf8bcd04d87ffd83a522aa70, type: 3}
   hearts:

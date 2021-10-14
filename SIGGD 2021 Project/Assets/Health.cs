@@ -12,39 +12,30 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int maxHealth;
-    private int currHealth;
-    [SerializeField] private UnityEvent healthChangeEvent;
+    // DO NOT CHANGE currHealth OUTSIDE OF THE SET METHOD
+    private int currHealth = 0; // changed at start method
+    [SerializeField] private UnityEvent<int> healthChangeEvent;
     [SerializeField] private UnityEvent deathEvent;
-    private bool dead = false;
 
     private void Start()
     {
-        currHealth = maxHealth;
+        SetCurrHealth(maxHealth);
     }
 
     //takes damage and/or heals if the damage is negative also invokes the death event when health is <= 0
     public void TakeDamage(int damage)
     {
-        if (dead)
+        if (IsDead())
         {
             return;
         }
 
-        currHealth -= damage;
-        if (healthChangeEvent != null)
-        {
-            healthChangeEvent.Invoke();
-        }
+        SetCurrHealth(currHealth - damage);
         
         if (IsDead())
         {
-            currHealth = 0;
-            if (deathEvent != null)
-            {
-                deathEvent.Invoke();
-            }
+            deathEvent?.Invoke();
             Debug.Log(string.Format("{0} is dead", name));
-            dead = true;
         }
     }
 
@@ -67,33 +58,18 @@ public class Health : MonoBehaviour
     //sets max and current health (minimum = 1)
     public void SetMaxHealth(int maxHealth)
     {
-        this.maxHealth = maxHealth;
-        if (this.maxHealth < 1)
-        {
-            this.maxHealth = 1;
-        }
-        currHealth = maxHealth;
-        if (healthChangeEvent != null)
-        {
-            healthChangeEvent.Invoke();
-        }
+        this.maxHealth = Mathf.Clamp(maxHealth, 1, int.MaxValue);
+        SetCurrHealth(this.maxHealth);
     }
 
     //sets current health (minimum = 1, maximum = maxHealth)
     public void SetCurrHealth(int currHealth)
     {
-        this.currHealth = currHealth;
-        if (this.currHealth > maxHealth)
+        int newHealth = Mathf.Clamp(currHealth, 0, maxHealth);
+        if (this.currHealth != newHealth) 
         {
-            this.currHealth = maxHealth;
-        }
-        if (this.currHealth < 1)
-        {
-            this.currHealth = 1;
-        }
-        if (healthChangeEvent != null)
-        {
-            healthChangeEvent.Invoke();
+            this.currHealth = newHealth;
+            healthChangeEvent?.Invoke(this.currHealth);
         }
     }
 }

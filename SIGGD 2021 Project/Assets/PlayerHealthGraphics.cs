@@ -3,28 +3,17 @@ using UnityEngine.UI;
 
 public class PlayerHealthGraphics : MonoBehaviour
 {
-    [SerializeField] private Health playerHealth;
-
-    [SerializeField] private int healthPerHeart = 1;
-
     [SerializeField] private Sprite blankSpriteRef; // Color of the heart when taken damage
     [SerializeField] private Sprite redSpriteRef; // Color of the heart when full
 
     [SerializeField] private Image[] hearts;
 
-    private void Start()
+    public void healthGraphicUpdate(int health)
     {
-        int max = Mathf.Clamp(playerHealth.GetMaxHealth() / healthPerHeart, 1, hearts.Length); //Clamp is to avoid errors as the array has a set length
+        var healthComp = GetComponent<Health>();
+        int max = Mathf.Clamp(healthComp.GetMaxHealth(), 1, hearts.Length); //Clamp is to avoid errors as the array has a set length
 
-        changeTextures(max, max);
-    }
-
-    public void healthGraphicUpdate()
-    {
-        int max = Mathf.Clamp(playerHealth.GetMaxHealth()/healthPerHeart, 1, hearts.Length); //Clamp is to avoid errors as the array has a set length
-        int curr = playerHealth.GetCurrHealth()/healthPerHeart;
-
-        changeTextures(curr, max);
+        changeTextures(health, max);
     }
 
     private void changeTextures(int curr, int max)
