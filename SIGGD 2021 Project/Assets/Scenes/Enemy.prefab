@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3319456225106768789}
   - component: {fileID: 3319456225106768788}
   - component: {fileID: 3319456225106768787}
-  - component: {fileID: 79925324}
+  - component: {fileID: 6773603564446622268}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &79925324
+--- !u!114 &6773603564446622268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,9 +141,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3319456225106768785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb1a938a65a12445962a9d2d107d5bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 32adf3e900452c94ca6f97780dd493a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSound: {fileID: 0}
-  enemyHitbox: {fileID: 3319456225106768787}
-  maxHP: 100
+  maxHealth: 100
+  healthChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []

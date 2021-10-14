@@ -8,15 +8,12 @@ public class EnemyScript : MonoBehaviour
     const int enemy = 6;
 
     public BoxCollider2D enemyHitbox;
-
-    public int maxHP = 100;
-
-    int currHP;
+    private Health health;
 
     // Start is called before the first frame update
     void Start()
     {
-        currHP = maxHP;
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -32,22 +29,24 @@ public class EnemyScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.layer == player)
-        {
+        if (!health.IsDead())
             Debug.Log("The enemy detects the player.");
-        }
-        else if (collider.gameObject.layer == enemy)
-        {
-            Debug.Log("Another enemy sounded an alarm.");
-        }
     }
 
     void OnTriggerLeft2D(Collider2D collider)
     {
         if (string.Equals(collider.name, "Player"))
         {
-            Debug.Log("You exit the enemy's hearing range");
+            if (!health.IsDead())
+                Debug.Log("You exit the enemy's hearing range");
+            if (collider.gameObject.layer == player)
+            {
+                Debug.Log("The enemy detects the player.");
+            }
+            else if (collider.gameObject.layer == enemy)
+            {
+                Debug.Log("Another enemy sounded an alarm.");
+            }
         }
-        
     }
 }
