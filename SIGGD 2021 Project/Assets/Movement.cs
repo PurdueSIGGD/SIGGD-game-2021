@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 unitMovement = movement.normalized;
-        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + unitMovement * moveSpeed * Time.fixedDeltaTime);
+        GetComponent<Rigidbody>().MovePosition((Vector2)GetComponent<Rigidbody>().position + unitMovement * moveSpeed * Time.fixedDeltaTime);
         new_pos = GetComponent<Rigidbody>().position;
 
         velocity = Vector2.Distance(old_pos, new_pos) / Time.fixedDeltaTime;
