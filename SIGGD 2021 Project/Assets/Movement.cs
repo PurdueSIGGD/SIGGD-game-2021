@@ -22,7 +22,6 @@ public class Movement : MonoBehaviour
     void Start()
     {
         old_pos = GetComponent<Rigidbody>().position;
-        
     }
 
     // Update is called once per frame
@@ -37,14 +36,13 @@ public class Movement : MonoBehaviour
         Vector2 unitMovement = movement.normalized;
         GetComponent<Rigidbody>().MovePosition((Vector2)GetComponent<Rigidbody>().position + unitMovement * moveSpeed * Time.fixedDeltaTime);
         new_pos = GetComponent<Rigidbody>().position;
-
         velocity = Vector2.Distance(old_pos, new_pos) / Time.fixedDeltaTime;
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (isRunning())
         {
             moveSpeed = 8f;
         }
-        else if (Input.GetKey(KeyCode.LeftControl))
+        else if (isSneaking())
         {
             moveSpeed = 2.5f;
         }
@@ -63,7 +61,7 @@ public class Movement : MonoBehaviour
             soundHitbox.radius = 0;
         }
 
-        if ((movement.x != 0) || (movement.y != 0))
+        if (isMoving())
         {
             float x = GetComponent<Rigidbody>().position.x + unitMovement.x * 0.65f;
             float y = GetComponent<Rigidbody>().position.y + unitMovement.y * 0.65f;
@@ -71,5 +69,25 @@ public class Movement : MonoBehaviour
         }
 
         old_pos = GetComponent<Rigidbody>().position;
+    }
+
+    public bool isRunning() {
+        return Input.GetKey(KeyCode.LeftShift);
+    } 
+
+    public bool isSneaking() {
+        return Input.GetKey(KeyCode.LeftControl);
+    }
+
+    public bool isMoving() {
+        return (movement.x != 0) || (movement.y != 0);
+    }
+
+    public bool isMovingRight() {
+        return movement.x > 0;
+    }
+
+    public bool isMovingLeft() {
+        return movement.x < 0;
     }
 }
