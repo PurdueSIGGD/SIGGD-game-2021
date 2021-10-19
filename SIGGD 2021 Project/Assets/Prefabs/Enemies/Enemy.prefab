@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1757387362516074875}
   - component: {fileID: 8116314242034874973}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Alarm Turn On
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8547610840114601660}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Timers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6667570181396303740}
   - component: {fileID: 6387196145684840365}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Alarm Turn Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7422e23b50543fe468e6b6b9e308463a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 0.5
+  period: 5
   loop: 0
   OnPeriodDone:
     m_PersistentCalls:
@@ -170,7 +170,8 @@ GameObject:
   - component: {fileID: 3096915415634252049}
   - component: {fileID: 3096915415634252046}
   - component: {fileID: 3096915415634252044}
-  m_Layer: 0
+  - component: {fileID: 5511109920005140471}
+  m_Layer: 7
   m_Name: AI Behaviors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,6 +234,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad640557bcdc0af4b90bf7f1018aac7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5511109920005140471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3096915415634252045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2aea933f7dc6ee44b8f33cb0ead9908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3096915416147130269
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,8 +255,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3096915416147130271}
-  - component: {fileID: 3096915416147130268}
-  m_Layer: 0
+  - component: {fileID: 8094228418332029633}
+  m_Layer: 7
   m_Name: AI Triggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +279,7 @@ Transform:
   m_Father: {fileID: 3096915416999905406}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3096915416147130268
+--- !u!114 &8094228418332029633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,10 +288,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3096915416147130269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c67e8a4a98392054bb5e27f4ba51378c, type: 3}
+  m_Script: {fileID: 11500000, guid: ddf3d628eb863234fa867bd4f3b0e7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToWait: 10
+  timer: {fileID: 6387196145684840365}
 --- !u!1 &3096915416999905402
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +304,7 @@ GameObject:
   - component: {fileID: 3096915416999905407}
   - component: {fileID: 3096915416999905347}
   - component: {fileID: 1180397433}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,6 +412,26 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+  - behavior: {fileID: 3096915415634252046}
+    transitions:
+    - toState: 2
+      triggers:
+      - {fileID: 2533982180629978247}
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6387196145684840365}
+            m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+            m_MethodName: set_enabled
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 1
+            m_CallState: 2
           - m_Target: {fileID: 6387196145684840365}
             m_TargetAssemblyTypeName: Timer, Assembly-CSharp
             m_MethodName: StartTimer
@@ -409,16 +442,8 @@ MonoBehaviour:
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
-              m_BoolArgument: 0
+              m_BoolArgument: 1
             m_CallState: 2
-  - behavior: {fileID: 3096915415634252046}
-    transitions:
-    - toState: 2
-      triggers:
-      - {fileID: 2533982180629978247}
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
   - behavior: {fileID: 3096915415634252044}
     transitions:
     - toState: 1
@@ -426,10 +451,22 @@ MonoBehaviour:
       - {fileID: 8902929117155781407}
       unityEvent:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 6387196145684840365}
+            m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+            m_MethodName: set_enabled
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - toState: 0
       triggers:
-      - {fileID: 3096915416147130268}
+      - {fileID: 8094228418332029633}
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -459,7 +496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1423133167252590900}
   - component: {fileID: 2533982180629978247}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Not See Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,6 +532,9 @@ MonoBehaviour:
   player: {fileID: 0}
   NOT: 1
   eyeTransform: {fileID: 3096915416999905406}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!1 &7087646224261478870
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3842753527887988296}
   - component: {fileID: 8902929117155781407}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: See Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,3 +581,6 @@ MonoBehaviour:
   player: {fileID: 0}
   NOT: 0
   eyeTransform: {fileID: 3096915416999905406}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 65

@@ -214,6 +214,9 @@ MonoBehaviour:
   player: {fileID: 444009222}
   NOT: 1
   eyeTransform: {fileID: 1584038879}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &289291328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +232,9 @@ MonoBehaviour:
   player: {fileID: 444009222}
   NOT: 0
   eyeTransform: {fileID: 1584038879}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &444009220
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,38 +786,6 @@ PrefabInstance:
       propertyPath: route
       value: 
       objectReference: {fileID: 2143902935}
-    - target: {fileID: 3096915416999905347, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
-      propertyPath: states.Array.data[1].transitions.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3096915416999905347, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
-      propertyPath: states.Array.data[1].transitions.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3096915416999905347, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
-      propertyPath: states.Array.data[1].transitions.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 784173558}
-    - target: {fileID: 3096915416999905347, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
-      propertyPath: states.Array.data[1].transitions.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3096915416999905347, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
-      propertyPath: states.Array.data[1].transitions.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 3096915416999905347, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
-      propertyPath: states.Array.data[1].transitions.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3096915416999905347, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
-      propertyPath: states.Array.data[1].transitions.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3096915416999905347, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
-      propertyPath: states.Array.data[1].transitions.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3096915416999905402, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
       propertyPath: m_Name
       value: AlarmEnemy
@@ -859,10 +833,6 @@ PrefabInstance:
     - target: {fileID: 3096915416999905406, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6387196145684840365, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
-      propertyPath: period
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8902929117155781407, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
       propertyPath: player
