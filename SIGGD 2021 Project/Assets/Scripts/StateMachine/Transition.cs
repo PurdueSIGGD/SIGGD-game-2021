@@ -12,7 +12,7 @@ public class Transition
     public Trigger[] triggers;
 
     [SerializeField]
-    public UnityEvent unityEvent;
+    public UnityEvent onTriggered;
 
     /*
      * gets called each frame to check if this transition should happen. If any triggers are true
@@ -25,7 +25,7 @@ public class Transition
         {
             if (trigger.isActive())
             {
-                unityEvent.Invoke();
+                onTriggered.Invoke();
                 return true;
             }
         }

@@ -392,7 +392,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - behavior: {fileID: 3096915415634252049}
+  - name: Default State, Patrol
+    behavior: {fileID: 3096915415634252049}
     transitions:
     - toState: 1
       triggers:
@@ -412,7 +413,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-  - behavior: {fileID: 3096915415634252046}
+  - name: Approach Player
+    behavior: {fileID: 3096915415634252046}
     transitions:
     - toState: 2
       triggers:
@@ -444,7 +446,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 1
             m_CallState: 2
-  - behavior: {fileID: 3096915415634252044}
+  - name: Search for Player
+    behavior: {fileID: 3096915415634252044}
     transitions:
     - toState: 1
       triggers:
