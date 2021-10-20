@@ -1,163 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &43876234931683135
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1757387362516074875}
-  - component: {fileID: 8116314242034874973}
-  m_Layer: 7
-  m_Name: Alarm Turn On
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1757387362516074875
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43876234931683135}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8547610840114601660}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8116314242034874973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43876234931683135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7422e23b50543fe468e6b6b9e308463a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  period: 1
-  loop: 0
-  OnPeriodDone:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1180397433}
-        m_TargetAssemblyTypeName: UnityEngine.CircleCollider2D, UnityEngine
-        m_MethodName: set_radius
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 5
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &1140766214325334080
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8547610840114601660}
-  m_Layer: 7
-  m_Name: Timers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8547610840114601660
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140766214325334080}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1757387362516074875}
-  - {fileID: 6667570181396303740}
-  m_Father: {fileID: 3096915416999905406}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2887718341791558718
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6667570181396303740}
-  - component: {fileID: 6387196145684840365}
-  m_Layer: 7
-  m_Name: Alarm Turn Off
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6667570181396303740
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2887718341791558718}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8547610840114601660}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6387196145684840365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2887718341791558718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7422e23b50543fe468e6b6b9e308463a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  period: 5
-  loop: 0
-  OnPeriodDone:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1180397433}
-        m_TargetAssemblyTypeName: UnityEngine.CircleCollider2D, UnityEngine
-        m_MethodName: set_radius
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3096915415634252045
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,8 +12,7 @@ GameObject:
   - component: {fileID: 3096915415634252049}
   - component: {fileID: 3096915415634252046}
   - component: {fileID: 3096915415634252044}
-  - component: {fileID: 5511109920005140471}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: AI Behaviors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,18 +75,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad640557bcdc0af4b90bf7f1018aac7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5511109920005140471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3096915415634252045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2aea933f7dc6ee44b8f33cb0ead9908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3096915416147130269
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,8 +84,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3096915416147130271}
-  - component: {fileID: 8094228418332029633}
-  m_Layer: 7
+  - component: {fileID: 305071457853564917}
+  - component: {fileID: 305071457853564808}
+  - component: {fileID: 305071457853564919}
+  m_Layer: 0
   m_Name: AI Triggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,13 +104,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1423133167252590900}
-  - {fileID: 3842753527887988296}
+  m_Children: []
   m_Father: {fileID: 3096915416999905406}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8094228418332029633
+--- !u!114 &305071457853564917
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,10 +117,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 3096915416147130269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf3d628eb863234fa867bd4f3b0e7b9, type: 3}
+  m_Script: {fileID: 11500000, guid: c67e8a4a98392054bb5e27f4ba51378c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 6387196145684840365}
+  timeToWait: 10
+--- !u!114 &305071457853564808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3096915416147130269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e90ab2b71ecdd4fabf03df1b216151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  NOT: 0
+  eyeTransform: {fileID: 3096915416999905406}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &305071457853564919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3096915416147130269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e90ab2b71ecdd4fabf03df1b216151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  NOT: 1
+  eyeTransform: {fileID: 3096915416999905406}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &3096915416999905402
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,14 +168,14 @@ GameObject:
   - component: {fileID: 3096915416999905406}
   - component: {fileID: 3096915416999905407}
   - component: {fileID: 3096915416999905347}
-  - component: {fileID: 1180397433}
-  m_Layer: 7
+  - component: {fileID: 6610367539848925904}
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3096915416999905406
 Transform:
   m_ObjectHideFlags: 0
@@ -319,12 +184,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3096915416999905402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.64, y: 2.38, z: 0}
+  m_LocalPosition: {x: 3.45, y: 7.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3096915415634252047}
   - {fileID: 3096915416147130271}
-  - {fileID: 8547610840114601660}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -396,82 +260,34 @@ MonoBehaviour:
     transitions:
     - toState: 1
       triggers:
-      - {fileID: 8902929117155781407}
+      - {fileID: 305071457853564808}
       unityEvent:
         m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 8116314242034874973}
-            m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-            m_MethodName: StartTimer
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
+          m_Calls: []
   - behavior: {fileID: 3096915415634252046}
     transitions:
     - toState: 2
       triggers:
-      - {fileID: 2533982180629978247}
+      - {fileID: 305071457853564919}
       unityEvent:
         m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 6387196145684840365}
-            m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-            m_MethodName: set_enabled
-            m_Mode: 6
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 1
-            m_CallState: 2
-          - m_Target: {fileID: 6387196145684840365}
-            m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-            m_MethodName: StartTimer
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 1
-            m_CallState: 2
+          m_Calls: []
   - behavior: {fileID: 3096915415634252044}
     transitions:
     - toState: 1
       triggers:
-      - {fileID: 8902929117155781407}
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 6387196145684840365}
-            m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-            m_MethodName: set_enabled
-            m_Mode: 6
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - toState: 0
-      triggers:
-      - {fileID: 8094228418332029633}
+      - {fileID: 305071457853564808}
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
---- !u!58 &1180397433
-CircleCollider2D:
+    - toState: 0
+      triggers:
+      - {fileID: 305071457853564917}
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+--- !u!61 &6610367539848925904
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -480,107 +296,19 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.0001
---- !u!1 &6295561933396421570
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1423133167252590900}
-  - component: {fileID: 2533982180629978247}
-  m_Layer: 7
-  m_Name: Not See Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1423133167252590900
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6295561933396421570}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3096915416147130271}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2533982180629978247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6295561933396421570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e90ab2b71ecdd4fabf03df1b216151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  NOT: 1
-  eyeTransform: {fileID: 3096915416999905406}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 65
---- !u!1 &7087646224261478870
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3842753527887988296}
-  - component: {fileID: 8902929117155781407}
-  m_Layer: 7
-  m_Name: See Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3842753527887988296
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7087646224261478870}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3096915416147130271}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8902929117155781407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7087646224261478870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e90ab2b71ecdd4fabf03df1b216151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  NOT: 0
-  eyeTransform: {fileID: 3096915416999905406}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 65
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
