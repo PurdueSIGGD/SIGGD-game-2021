@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        old_pos = GetComponent<Rigidbody>().position;
+        old_pos = GetComponent<Rigidbody2D>().position;
     }
 
     // Update is called once per frame
@@ -34,8 +34,8 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 unitMovement = movement.normalized;
-        GetComponent<Rigidbody>().MovePosition((Vector2)GetComponent<Rigidbody>().position + unitMovement * moveSpeed * Time.fixedDeltaTime);
-        new_pos = GetComponent<Rigidbody>().position;
+        GetComponent<Rigidbody2D>().MovePosition((Vector2)GetComponent<Rigidbody2D>().position + unitMovement * moveSpeed * Time.fixedDeltaTime);
+        new_pos = GetComponent<Rigidbody2D>().position;
         velocity = Vector2.Distance(old_pos, new_pos) / Time.fixedDeltaTime;
 
         if (isRunning())
@@ -63,12 +63,12 @@ public class Movement : MonoBehaviour
 
         if (isMoving())
         {
-            float x = GetComponent<Rigidbody>().position.x + unitMovement.x * 0.65f;
-            float y = GetComponent<Rigidbody>().position.y + unitMovement.y * 0.65f;
+            float x = GetComponent<Rigidbody2D>().position.x + unitMovement.x * 0.65f;
+            float y = GetComponent<Rigidbody2D>().position.y + unitMovement.y * 0.65f;
             attackHitbox.position = new Vector2(x,y);
         }
 
-        old_pos = GetComponent<Rigidbody>().position;
+        old_pos = GetComponent<Rigidbody2D>().position;
     }
 
     public bool isRunning() {
