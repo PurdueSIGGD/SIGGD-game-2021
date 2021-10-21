@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    Attack attack;
     Movement movement;
     SpriteRenderer spriteRenderer;
 
-    public Sprite idle;
-    public Sprite sneak;
-    public Sprite walk;
-    public Sprite run;
-    public Sprite attack;
+    public Sprite idleSprite;
+    public Sprite sneakSprite;
+    public Sprite walkSprite;
+    public Sprite runSprite;
+    public Sprite attackSprite;
 
     bool isFacingRight = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        attack = GetComponent<Attack>();
         movement = GetComponent<Movement>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -25,22 +27,25 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Setting sprites based on player movement
-        if (movement.isRunning()) 
+        // Setting sprites based on player movement and attacking
+        if (attack.isAttacking()) {
+            spriteRenderer.sprite = attackSprite;
+        }
+        else if (movement.isRunning()) 
         {
-            spriteRenderer.sprite = run;   
+            spriteRenderer.sprite = runSprite;   
         } 
         else if (movement.isSneaking()) 
         {
-            spriteRenderer.sprite = sneak;
+            spriteRenderer.sprite = sneakSprite;
         } 
         else if (movement.isMoving()) 
         {
-            spriteRenderer.sprite = walk;
+            spriteRenderer.sprite = walkSprite;
         } 
         else 
         {
-            spriteRenderer.sprite = idle;
+            spriteRenderer.sprite = idleSprite;
         }
 
         // Flipping sprites based on player movement direction

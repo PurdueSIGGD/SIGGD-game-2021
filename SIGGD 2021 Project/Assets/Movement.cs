@@ -22,6 +22,8 @@ public class Movement : MonoBehaviour
     void Start()
     {
         old_pos = GetComponent<Rigidbody2D>().position;
+        soundHitbox = GetComponent<CircleCollider2D>();
+        attackHitbox = GetComponent<Transform>();
     }
 
     // Update is called once per frame
