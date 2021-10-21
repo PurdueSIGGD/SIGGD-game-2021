@@ -392,13 +392,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - name: Default State, Patrol
+  - name: '0: Default State, Patrol'
     behavior: {fileID: 3096915415634252049}
     transitions:
     - toState: 1
       triggers:
       - {fileID: 8902929117155781407}
-      unityEvent:
+      onTriggered:
         m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 8116314242034874973}
@@ -413,13 +413,13 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-  - name: Approach Player
+  - name: '1: Approach Player'
     behavior: {fileID: 3096915415634252046}
     transitions:
     - toState: 2
       triggers:
       - {fileID: 2533982180629978247}
-      unityEvent:
+      onTriggered:
         m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 6387196145684840365}
@@ -444,15 +444,15 @@ MonoBehaviour:
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
-              m_BoolArgument: 1
+              m_BoolArgument: 0
             m_CallState: 2
-  - name: Search for Player
+  - name: '2: Search for Player'
     behavior: {fileID: 3096915415634252044}
     transitions:
     - toState: 1
       triggers:
       - {fileID: 8902929117155781407}
-      unityEvent:
+      onTriggered:
         m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 6387196145684840365}
@@ -470,9 +470,13 @@ MonoBehaviour:
     - toState: 0
       triggers:
       - {fileID: 8094228418332029633}
-      unityEvent:
+      onTriggered:
         m_PersistentCalls:
           m_Calls: []
+  activeState:
+    name: 
+    behavior: {fileID: 0}
+    transitions: []
 --- !u!58 &1180397433
 CircleCollider2D:
   m_ObjectHideFlags: 0
