@@ -11,6 +11,7 @@ public class Patrol : Behavior
     private int patrolDirection = 1; //the direction that the enemy will patrol in (must be either -1 or 1)
 
     private bool invalidRoute = false; //if the route is invalid. if it is then the behavior shouldn't happen
+    [SerializeField] private Transform enemyTransform;
 
     public override void run()
     {
@@ -23,11 +24,11 @@ public class Patrol : Behavior
         {
             //find closest node on the route and make that your current node
             int closestNode = 0;
-            float closestNodeDistance = Vector3.Distance(transform.position, routeNodes[closestNode]);
+            float closestNodeDistance = Vector3.Distance(enemyTransform.position, routeNodes[closestNode]);
             for (int i = 1; i < routeNodes.Length; i++)
             {
                 Vector3 node = routeNodes[i];
-                float dist = Vector3.Distance(transform.position, node);
+                float dist = Vector3.Distance(enemyTransform.position, node);
                 if (dist < closestNodeDistance)
                 {
                     closestNodeDistance = dist;
@@ -37,7 +38,7 @@ public class Patrol : Behavior
             currentNode = closestNode;
         }
         //if you are at the target node then go to the next node (or the last node depending on things)
-        if (Vector2.Distance(transform.position, routeNodes[currentNode]) <= 0.5f) //arbitrary float value for determining when you are close enough to a node to be consitered at that node
+        if (Vector2.Distance(enemyTransform.position, routeNodes[currentNode]) <= 0.5f) //arbitrary float value for determining when you are close enough to a node to be consitered at that node
         {
             if (patrolDirection == 1) //patrol through the nodes list in the forward direction
             {
@@ -79,8 +80,8 @@ public class Patrol : Behavior
             }
         }
         //navigate towards the current node 
-        Vector3 dirToNode = (routeNodes[currentNode] - transform.position).normalized;
-        transform.Translate(dirToNode * Time.deltaTime * enemyPatrolSpeed);
+        Vector3 dirToNode = (routeNodes[currentNode] - enemyTransform.position).normalized;
+        enemyTransform.Translate(dirToNode * Time.deltaTime * enemyPatrolSpeed);
 
     }
 
