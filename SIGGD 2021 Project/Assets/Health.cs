@@ -20,22 +20,20 @@ public class Health : MonoBehaviour
     private void Start()
     {
         SetCurrHealth(maxHealth);
+        Debug.Log("Health set to (currHealth)" + GetCurrHealth());
     }
 
-    //takes damage and/or heals. if the damage is negative also invokes the death event when health is <= 0
+    //takes damage and/or heals if the damage is negative also invokes the death event when health is <= 0
     public void TakeDamage(int damage)
     {
+        Debug.Log("Damage: " + damage + "\ncurrHealth: " + GetCurrHealth());
         if (IsDead())
         {
             return;
         }
 
         SetCurrHealth(currHealth - damage);
-        if (healthChangeEvent != null)
-        {
-            healthChangeEvent.Invoke(1);
-        }
-        
+
         if (IsDead())
         {
             deathEvent?.Invoke();
@@ -43,26 +41,20 @@ public class Health : MonoBehaviour
         }
     }
 
-    // Code ran when dead
-    public void Die()
-    {
-        Debug.Log("Dying...");
-    }
-
     //returns whether the health is <= 0
     public bool IsDead()
     {
-        return this.currHealth <= 0;
+        return currHealth <= 0;
     }
 
     public int GetMaxHealth()
     {
-        return this.maxHealth;
+        return maxHealth;
     }
 
     public int GetCurrHealth()
     {
-        return this.currHealth;
+        return currHealth;
     }
 
     //sets max and current health (minimum = 1)
@@ -76,10 +68,16 @@ public class Health : MonoBehaviour
     public void SetCurrHealth(int currHealth)
     {
         int newHealth = Mathf.Clamp(currHealth, 0, maxHealth);
-        if (this.currHealth != newHealth) 
+        if (this.currHealth != newHealth)
         {
             this.currHealth = newHealth;
             healthChangeEvent?.Invoke(this.currHealth);
         }
+    }
+
+    // debugging game event implementation
+    public void PrintCurrHealth()
+    {
+        Debug.Log("CurrHealth: " + GetCurrHealth() + "\nMaxHealth: " + GetMaxHealth());
     }
 }
