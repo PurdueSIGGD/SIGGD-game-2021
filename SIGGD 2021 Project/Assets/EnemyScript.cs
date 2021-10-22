@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public CircleCollider2D playerSound;
+    const int player = 3;
+    const int enemy = 6;
 
     public BoxCollider2D enemyHitbox;
-
-    public int maxHP = 100;
-
-    int currHP;
+    private Health health;
 
     // Start is called before the first frame update
     void Start()
     {
-        currHP = maxHP;
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -29,24 +27,26 @@ public class EnemyScript : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D playerSound)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("The enemy detects the player.");
+        if (!health.IsDead())
+            Debug.Log("The enemy detects the player.");
     }
 
-    void OnTriggerLeft2D(Collider2D playerSound)
+    void OnTriggerLeft2D(Collider2D collider)
     {
-        Debug.Log("You exit the enemy's hearing range");
-    }
-
-    public void TakeDamage(int damage)
-    {
-        currHP -= damage;
-
-        if (currHP <= 0)
+        if (string.Equals(collider.name, "Player"))
         {
-            Debug.Log("The enemy is dead");
-            // Code to handle enemy's death here
+            if (!health.IsDead())
+                Debug.Log("You exit the enemy's hearing range");
+            if (collider.gameObject.layer == player)
+            {
+                Debug.Log("The enemy detects the player.");
+            }
+            else if (collider.gameObject.layer == enemy)
+            {
+                Debug.Log("Another enemy sounded an alarm.");
+            }
         }
     }
 }
