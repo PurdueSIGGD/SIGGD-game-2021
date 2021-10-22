@@ -12,25 +12,27 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int maxHealth;
-    private int currHealth;
+    [SerializeField] private int currHealth;
     [SerializeField] private UnityEvent healthChangeEvent;
     [SerializeField] private UnityEvent deathEvent;
     private bool dead = false;
 
     private void Start()
     {
-        currHealth = maxHealth;
+        this.currHealth = this.maxHealth;
+        Debug.Log("Current Health: " + this.currHealth + "set to max Health: " + this.maxHealth);
     }
 
-    //takes damage and/or heals if the damage is negative also invokes the death event when health is <= 0
+    //takes damage and/or heals. if the damage is negative also invokes the death event when health is <= 0
     public void TakeDamage(int damage)
     {
+        Debug.Log("damage taken:" + damage + " CurrHealth:" + this.currHealth);
         if (dead)
         {
             return;
         }
 
-        currHealth -= damage;
+        this.currHealth -= damage;
         if (healthChangeEvent != null)
         {
             healthChangeEvent.Invoke();
@@ -48,20 +50,26 @@ public class Health : MonoBehaviour
         }
     }
 
+    // Code ran when dead
+    public void Die()
+    {
+        Debug.Log("Dying...");
+    }
+
     //returns whether the health is <= 0
     public bool IsDead()
     {
-        return currHealth <= 0;
+        return this.currHealth <= 0;
     }
 
     public int GetMaxHealth()
     {
-        return maxHealth;
+        return this.maxHealth;
     }
 
     public int GetCurrHealth()
     {
-        return currHealth;
+        return this.currHealth;
     }
 
     //sets max and current health (minimum = 1)
