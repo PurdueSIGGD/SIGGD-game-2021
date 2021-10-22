@@ -12,7 +12,6 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int maxHealth;
-    [SerializeField] private UnityEvent healthChangeEvent;
     // DO NOT CHANGE currHealth OUTSIDE OF THE SET METHOD
     private int currHealth = 0; // changed at start method
     [SerializeField] private UnityEvent<int> healthChangeEvent;
@@ -34,7 +33,7 @@ public class Health : MonoBehaviour
         SetCurrHealth(currHealth - damage);
         if (healthChangeEvent != null)
         {
-            healthChangeEvent.Invoke();
+            healthChangeEvent.Invoke(1);
         }
         
         if (IsDead())
