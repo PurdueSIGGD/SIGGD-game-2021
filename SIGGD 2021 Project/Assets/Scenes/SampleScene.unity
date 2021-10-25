@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!58 &144284284 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 5314529853658650852, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
-  m_PrefabInstance: {fileID: 1019899616}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &392931484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 79925324, guid: 656e04a75f3aa43408797c73d16da79a, type: 3}
       propertyPath: playerSound
       value: 
-      objectReference: {fileID: 144284284}
+      objectReference: {fileID: 0}
     - target: {fileID: 3319456225106768785, guid: 656e04a75f3aa43408797c73d16da79a, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -279,6 +274,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 126379831145171876, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5314529853658650849, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
       propertyPath: m_RootOrder
       value: 2

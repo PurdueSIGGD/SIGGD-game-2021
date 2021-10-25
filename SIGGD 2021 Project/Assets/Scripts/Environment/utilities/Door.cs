@@ -4,29 +4,28 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public bool startOpen = false;
+    [SerializeField]
     private bool open = false;
+    [SerializeField]
+    private SpriteRenderer sprite;
 
     // Optional Game Event to trigger when opened, closed (if you want the door to trigger something else)
-    public GameEvent openEvent, closeEvent;
-    SpriteRenderer sprite;
+    [SerializeField]
+    private GameEvent openEvent;
+    [SerializeField]
+    private GameEvent closeEvent;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+    }
 
-        // Open or close the door so its state
-        if (startOpen != open)
-        {
-            if (open)
-            {
-                CloseInternal();
-            } else
-            {
-                OpenInternal();
-            }
-        }
+    // Public-facing open query
+    public bool IsOpen()
+    {
+        return open;
     }
 
     // Starts/finishes the opening process. Called by events.
@@ -34,7 +33,10 @@ public class Door : MonoBehaviour
     {
         openEvent?.Invoke();
 
-        OpenInternal();
+        open = true;
+
+        // Just disable the sprite right now
+        sprite.enabled = false;
     }
 
     // Starts/finishes the closing process. Called by events.
@@ -42,21 +44,6 @@ public class Door : MonoBehaviour
     {
         closeEvent?.Invoke();
 
-        CloseInternal();
-    }
-
-    // Opens the door without triggering events. Used for resetting.
-    private void OpenInternal()
-    {
-        open = true;
-
-        // Just disable the sprite right now
-        sprite.enabled = false;
-    }
-
-    // Closes the door without triggering events. Used for resetting.
-    private void CloseInternal()
-    {
         open = false;
 
         // Just re-enable the sprite right now
