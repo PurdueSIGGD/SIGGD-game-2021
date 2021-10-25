@@ -35,12 +35,15 @@ public class rayDetecor : MonoBehaviour
                 if (onStay)
                 {
                     eventToCall.Invoke();
+                    Debug.Log("Detected by ray");
                 }
-            } else
+            }
+            else
             {
                 if (onEnter)
                 {
                     eventToCall.Invoke();
+                    Debug.Log("Detected by ray");
                 }
                 staying = true;
             }
@@ -52,6 +55,7 @@ public class rayDetecor : MonoBehaviour
                 if (onExit)
                 {
                     eventToCall.Invoke();
+                    Debug.Log("Detected by ray");
                 }
                 staying = false;
             }

@@ -14,27 +14,33 @@ public class areaDetector : MonoBehaviour
     [SerializeField]
     private bool onExit = true;
 
+    [SerializeField]
+    private LayerMask layers;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (onEnter)
+        if (onEnter && (layers.value & (1 << collision.gameObject.layer)) > 0)
         {
             eventToCall.Invoke();
+            Debug.Log("Detected in area");
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (onStay)
+        if (onStay && (layers.value & (1 << collision.gameObject.layer)) > 0)
         {
             eventToCall.Invoke();
+            Debug.Log("Detected in area");
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (onExit)
+        if (onExit && (layers.value & (1 << collision.gameObject.layer)) > 0)
         {
             eventToCall.Invoke();
+            Debug.Log("Detected in area");
         }
     }
 }
