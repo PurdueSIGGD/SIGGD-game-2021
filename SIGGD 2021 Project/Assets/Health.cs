@@ -20,25 +20,17 @@ public class Health : MonoBehaviour
     private void Start()
     {
         SetCurrHealth(maxHealth);
-        Debug.Log("Health set to (currHealth)" + GetCurrHealth());
     }
 
     //takes damage and/or heals if the damage is negative also invokes the death event when health is <= 0
     public void TakeDamage(int damage)
     {
-        Debug.Log("Damage: " + damage + "\ncurrHealth: " + GetCurrHealth());
         if (IsDead())
         {
             return;
         }
 
         SetCurrHealth(currHealth - damage);
-
-        if (IsDead())
-        {
-            deathEvent?.Invoke();
-            Debug.Log(string.Format("{0} is dead", name));
-        }
     }
 
     //returns whether the health is <= 0
@@ -72,6 +64,9 @@ public class Health : MonoBehaviour
         {
             this.currHealth = newHealth;
             healthChangeEvent?.Invoke(this.currHealth);
+            if (IsDead()) {
+                deathEvent?.Invoke();
+            }
         }
     }
 
