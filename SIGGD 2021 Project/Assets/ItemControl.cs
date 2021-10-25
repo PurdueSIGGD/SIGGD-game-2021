@@ -10,6 +10,7 @@ public class ItemControl : MonoBehaviour
     public UnityEvent dequip;
 
     public bool canUse() {
+        // all components must be true to return true
         foreach (var comp in GetComponentsInChildren<ICanUse>()) {
             if (comp.canUse() == false) {
                 return false;
