@@ -50,6 +50,7 @@ public class NavmeshAgent : MonoBehaviour
             }
             currentNode++; //if at node then go to next node
         }
+
         Vector2 dirToCurrentNode = (currentPath[currentNode] - new Vector2(transform.position.x, transform.position.y)).normalized; //direction to next node
         transform.Translate(dirToCurrentNode * Time.deltaTime * agentSpeed); //go in direction to next node
 
@@ -65,17 +66,25 @@ public class NavmeshAgent : MonoBehaviour
      */
     public void navigateTo(Vector2 target)
     {
-        if (target != currentTarget)
+        if (target != currentTarget) //if the target is not the location that you are currently navigating to
         {
             currentTarget = target;
             currentPath = getPathTo(target);
             currentNode = 0;
+            int nextNode = currentNode + 1;
+
+            //if the distance from the player to the next node is less than the distance from the current node to the next node then go to the next node instead 
+            float distFromPlayerToNextNode = Vector2.Distance(transform.position, currentPath[nextNode]);
+            float distFromCurrentNodeToNextNode = Vector2.Distance(currentPath[currentNode], currentPath[nextNode]);
+            if (distFromPlayerToNextNode < distFromCurrentNodeToNextNode)
+            {
+                currentNode++;
+            }
+
             atTarget = false;
-        } else
-        {
-            if (atTarget) { return; }
-            navigatePath(currentPath);
-        }
+        } 
+        if (atTarget) { return; } //if target == current target and you are at that target then don't do anything
+        navigatePath(currentPath);
     }
 
     /**
