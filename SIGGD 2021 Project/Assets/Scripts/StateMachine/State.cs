@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class State
 {
+    [SerializeField] private string name;
     public Behavior behavior; //the behaviour that will be run while this state is active
 
     [SerializeField]

@@ -6,6 +6,8 @@ public class Timer : MonoBehaviour
 {
     public float period;
     public float time {get {return _time;} set {_time = value; OnValueChanged.Invoke(value);}}
+    [SerializeField]
+    [ReadOnly]
     private float _time;
     public bool loop = false;
     public UnityEngine.Events.UnityEvent OnPeriodDone;
