@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   period: 5
+  _time: 0
   loop: 0
   OnPeriodDone:
     m_PersistentCalls:
@@ -196,12 +197,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - behavior: {fileID: 1991591120177205052}
+  - name: 
+    behavior: {fileID: 1991591120177205052}
     transitions:
     - toState: 1
       triggers:
       - {fileID: 1491325411096970082}
-      unityEvent:
+      onTriggered:
         m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 3723172871545807872}
@@ -216,12 +218,13 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-  - behavior: {fileID: 1991591120177205027}
+  - name: 
+    behavior: {fileID: 1991591120177205027}
     transitions:
     - toState: 2
       triggers:
       - {fileID: 5013566057690164789}
-      unityEvent:
+      onTriggered:
         m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 7440610531545144261}
@@ -248,12 +251,13 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-  - behavior: {fileID: 1991591120177205025}
+  - name: 
+    behavior: {fileID: 1991591120177205025}
     transitions:
     - toState: 1
       triggers:
       - {fileID: 1491325411096970082}
-      unityEvent:
+      onTriggered:
         m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 7440610531545144261}
@@ -271,9 +275,13 @@ MonoBehaviour:
     - toState: 0
       triggers:
       - {fileID: 7031576933734387246}
-      unityEvent:
+      onTriggered:
         m_PersistentCalls:
           m_Calls: []
+  activeState:
+    name: 
+    behavior: {fileID: 0}
+    transitions: []
 --- !u!61 &7702641880525458685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -602,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   period: 1
+  _time: 0
   loop: 0
   OnPeriodDone:
     m_PersistentCalls:
