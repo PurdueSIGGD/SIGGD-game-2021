@@ -302,7 +302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - behavior: {fileID: 3096915415634252049}
+  - name: '0: Default State, Patrol'
+    behavior: {fileID: 3096915415634252049}
     transitions:
     - toState: 1
       triggers:

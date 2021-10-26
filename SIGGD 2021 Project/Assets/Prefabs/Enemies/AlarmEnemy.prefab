@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   period: 5
+  _time: 0
   loop: 0
   OnPeriodDone:
     m_PersistentCalls:
@@ -196,36 +197,91 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - behavior: {fileID: 1991591120177205052}
+  - name: 
+    behavior: {fileID: 1991591120177205052}
     transitions:
     - toState: 1
       triggers:
-      - {fileID: 0}
-      unityEvent:
+      - {fileID: 1491325411096970082}
+      onTriggered:
         m_PersistentCalls:
-          m_Calls: []
-  - behavior: {fileID: 1991591120177205027}
+          m_Calls:
+          - m_Target: {fileID: 3723172871545807872}
+            m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+            m_MethodName: StartTimer
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  - name: 
+    behavior: {fileID: 1991591120177205027}
     transitions:
     - toState: 2
       triggers:
-      - {fileID: 0}
-      unityEvent:
+      - {fileID: 5013566057690164789}
+      onTriggered:
         m_PersistentCalls:
-          m_Calls: []
-  - behavior: {fileID: 1991591120177205025}
+          m_Calls:
+          - m_Target: {fileID: 7440610531545144261}
+            m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+            m_MethodName: set_enabled
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 7440610531545144261}
+            m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+            m_MethodName: StartTimer
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  - name: 
+    behavior: {fileID: 1991591120177205025}
     transitions:
     - toState: 1
       triggers:
-      - {fileID: 0}
-      unityEvent:
+      - {fileID: 1491325411096970082}
+      onTriggered:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 7440610531545144261}
+            m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+            m_MethodName: set_enabled
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - toState: 0
       triggers:
-      - {fileID: 0}
-      unityEvent:
+      - {fileID: 7031576933734387246}
+      onTriggered:
         m_PersistentCalls:
           m_Calls: []
+  activeState:
+    name: 
+    behavior: {fileID: 0}
+    transitions: []
 --- !u!61 &7702641880525458685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -554,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   period: 1
+  _time: 0
   loop: 0
   OnPeriodDone:
     m_PersistentCalls:

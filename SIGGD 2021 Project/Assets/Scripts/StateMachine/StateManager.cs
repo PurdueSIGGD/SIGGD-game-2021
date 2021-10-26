@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
+
     [SerializeField]
     public State[] states; //the different states that make up this state manager.
 
+    [SerializeField]
+    [ReadOnly]
     private State activeState; //the state that is currently active
+
 
     private void Start()
     {
