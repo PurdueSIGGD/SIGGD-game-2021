@@ -8,6 +8,7 @@ public class Navmesh : MonoBehaviour
     public int width = 2; //the width, in tiles, of the navmesh
     public int height = 2; //the height, in tiles, of  the navmesh
     public float tileSize = 1f; //the size of the tiles
+    [SerializeField] private LayerMask layerMask;
 
     private List<NavmeshNode> navmeshNodes; //list of nodes in the navmesh
 
@@ -110,7 +111,7 @@ public class Navmesh : MonoBehaviour
             if (isInBounds(arrPoint.x, arrPoint.y, navmeshNodes.GetLength(0), navmeshNodes.GetLength(1)))
             {
                 NavmeshNode adjNode = navmeshNodes[arrPoint.x, arrPoint.y];
-                RaycastHit2D hit = Physics2D.Linecast(navmeshNodes[x, y].pos , adjNode.pos); //linecast from this node's position to adjacent node's position
+                RaycastHit2D hit = Physics2D.Linecast(navmeshNodes[x, y].pos , adjNode.pos, layerMask); //linecast from this node's position to adjacent node's position
                 if (!hit) //if you did not hit anything then the node is accessible and can be added 
                 {
                     adjNodes.Add(adjNode);
@@ -256,6 +257,7 @@ public class Navmesh : MonoBehaviour
         }
         return closestNode;
     }
+    /*
     private void OnDrawGizmos() //draw things
     {
         
@@ -288,4 +290,5 @@ public class Navmesh : MonoBehaviour
         }
         
     }
+    */
 }

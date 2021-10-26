@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class ApproachSound : Behavior
 {
-    public Transform soundTransform;
-    [SerializeField] private Transform enemyTransform;
+    [SerializeField] private Transform soundTransform;
+    [SerializeField] private Transform currentLocation;
+    [SerializeField] private NavmeshAgent navmeshAgent;
 
-    public float approachSpeed = 1f;
     private Transform soundOrigin;
-    Vector3 dirToSound = new Vector3(0, 0, 0);
 
     public override void run()
     {
-        dirToSound = (soundOrigin.position - enemyTransform.position).normalized;
-        enemyTransform.Translate(dirToSound * Time.deltaTime * approachSpeed);
+        Vector2[] dirToSound = navmeshAgent.getPathTo(soundTransform.position);
+        navmeshAgent.navigatePath(dirToSound);
     }
 
     public override void OnBehaviorEnter()
     {
         soundOrigin = soundTransform;
+        
     }
 
     public override void OnBehaviorExit()
@@ -29,7 +29,7 @@ public class ApproachSound : Behavior
 
     public bool destinationReached()
     {
-        if (dirToSound.Equals(new Vector3(0, 0, 0)))
+        if (soundOrigin.position == currentLocation.position)
         {
             return true;
         }

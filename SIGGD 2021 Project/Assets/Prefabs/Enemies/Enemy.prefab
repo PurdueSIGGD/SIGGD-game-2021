@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3096915415634252049}
   - component: {fileID: 3096915415634252046}
   - component: {fileID: 3096915415634252044}
+  - component: {fileID: 366362041997514759}
   m_Layer: 0
   m_Name: AI Behaviors
   m_TagString: Untagged
@@ -62,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   enemyTransform: {fileID: 3096915416999905406}
+  navmeshAgent: {fileID: 6181692813868332617}
   approachSpeed: 2
 --- !u!114 &3096915415634252044
 MonoBehaviour:
@@ -75,6 +77,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad640557bcdc0af4b90bf7f1018aac7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &366362041997514759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3096915415634252045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1135b4779cd6ad24e9fafbab819b2cf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTransform: {fileID: 0}
+  currentLocation: {fileID: 3096915416999905406}
+  navmeshAgent: {fileID: 6181692813868332617}
 --- !u!1 &3096915416147130269
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +104,8 @@ GameObject:
   - component: {fileID: 305071457853564917}
   - component: {fileID: 305071457853564808}
   - component: {fileID: 305071457853564919}
+  - component: {fileID: 366362041997514758}
+  - component: {fileID: 7888870238110291062}
   m_Layer: 0
   m_Name: AI Triggers
   m_TagString: Untagged
@@ -138,7 +157,7 @@ MonoBehaviour:
   eyeTransform: {fileID: 3096915416999905406}
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 449
 --- !u!114 &305071457853564919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +175,33 @@ MonoBehaviour:
   eyeTransform: {fileID: 3096915416999905406}
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 449
+--- !u!114 &366362041997514758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3096915416147130269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48b0b3f6d06ecd43add274693f24c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NOT: 0
+--- !u!114 &7888870238110291062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3096915416147130269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 444a384ba01616b47b0aa7ccda1e98e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  approachSound: {fileID: 366362041997514759}
 --- !u!1 &3096915416999905402
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,13 +214,14 @@ GameObject:
   - component: {fileID: 3096915416999905407}
   - component: {fileID: 3096915416999905347}
   - component: {fileID: 6610367539848925904}
+  - component: {fileID: 6181692813868332617}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3096915416999905406
 Transform:
   m_ObjectHideFlags: 0
@@ -184,7 +230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3096915416999905402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.45, y: 7.97, z: 0}
+  m_LocalPosition: {x: 3.69, y: 2.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3096915415634252047}
@@ -272,17 +318,23 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
-  - behavior: {fileID: 3096915415634252044}
+  - behavior: {fileID: 366362041997514759}
     transitions:
-    - toState: 1
+    - toState: 2
       triggers:
-      - {fileID: 305071457853564808}
+      - {fileID: 7888870238110291062}
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
-    - toState: 0
+    - toState: 3
       triggers:
-      - {fileID: 305071457853564917}
+      - {fileID: 366362041997514758}
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+    - toState: 1
+      triggers:
+      - {fileID: 305071457853564808}
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -312,3 +364,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6181692813868332617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3096915416999905402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d985bd50130cd8d43aaa7f9324453949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentSpeed: 1
