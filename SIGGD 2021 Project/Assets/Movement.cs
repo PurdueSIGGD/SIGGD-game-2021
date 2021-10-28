@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    public Rigidbody2D rigidbody;
+    public Rigidbody2D rigidBody;
 
     public CircleCollider2D soundHitbox;
 
@@ -17,13 +17,12 @@ public class Movement : MonoBehaviour
     Vector2 new_pos;
     Vector2 point;
 
-    public double velocity;
-
     void Start()
     {
         old_pos = GetComponent<Rigidbody2D>().position;
         soundHitbox = GetComponent<CircleCollider2D>();
         attackHitbox = GetComponent<Transform>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -35,10 +34,10 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Move the player
         Vector2 unitMovement = movement.normalized;
-        GetComponent<Rigidbody2D>().MovePosition((Vector2)GetComponent<Rigidbody2D>().position + unitMovement * moveSpeed * Time.fixedDeltaTime);
-        new_pos = GetComponent<Rigidbody2D>().position;
-        velocity = Vector2.Distance(old_pos, new_pos) / Time.fixedDeltaTime;
+        rigidBody.MovePosition(rigidBody.position + unitMovement * moveSpeed * Time.fixedDeltaTime);
+        new_pos = rigidBody.position;
 
         if (isRunning())
         {
@@ -53,24 +52,17 @@ public class Movement : MonoBehaviour
             moveSpeed = 5f;
         }
 
-        if (velocity != 0)
+        if (isMoving())
         {
             soundHitbox.radius = moveSpeed;
-            
-        }
-        else
+            attackHitbox.position = new Vector2(rigidBody.position.x, rigidBody.position.y);
+        } 
+        else 
         {
             soundHitbox.radius = 0;
         }
 
-        if (isMoving())
-        {
-            float x = GetComponent<Rigidbody2D>().position.x + unitMovement.x * 0.65f;
-            float y = GetComponent<Rigidbody2D>().position.y + unitMovement.y * 0.65f;
-            attackHitbox.position = new Vector2(x,y);
-        }
-
-        old_pos = GetComponent<Rigidbody2D>().position;
+        old_pos = rigidBody.position;
     }
 
     public bool isRunning() {
