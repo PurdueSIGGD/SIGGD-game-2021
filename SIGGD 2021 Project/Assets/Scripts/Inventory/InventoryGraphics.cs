@@ -21,11 +21,6 @@ public class InventoryGraphics : MonoBehaviour
         inv = GetComponent<Inventory>();
     }
 
-    private void Update()
-    {
-        UpdateDisplayedItem();
-    }
-
     // Used for when the displayed item needs to be updated
     public void UpdateDisplayedItem()
     {
@@ -38,12 +33,6 @@ public class InventoryGraphics : MonoBehaviour
         // Recalculate the item sprite
         ICanUse item = inv.equippedItem.GetComponent<ICanUse>();
         
-        if (item is Stackable)
-        {
-            Debug.Log("Item is stackable to size "+((Stackable)item).count);
-        } else
-        {
-            Debug.Log("Item is not stackable");
-        }
+        
     }
 }
