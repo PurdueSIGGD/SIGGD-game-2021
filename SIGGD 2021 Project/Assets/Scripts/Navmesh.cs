@@ -134,8 +134,8 @@ public class Navmesh : MonoBehaviour
         NavmeshNode startNode = getClosestNodeTo(start);
         NavmeshNode endNode = getClosestNodeTo(end);
 
-        Debug.Log("Start Node Pos: " + startNode.pos);
-        Debug.Log("End Node Pos: " + endNode.pos);
+        // Debug.Log("Start Node Pos: " + startNode.pos);
+        // Debug.Log("End Node Pos: " + endNode.pos);
 
         List<PathfindingNode> openList = new List<PathfindingNode>();
         List<PathfindingNode> closedList = new List<PathfindingNode>();

@@ -93,7 +93,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 7440610531545144261}
           m_TargetAssemblyTypeName: Timer, Assembly-CSharp
@@ -181,9 +181,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1991591118802146899}
   - component: {fileID: 1991591118802146898}
-  - component: {fileID: 1991591118802146926}
   - component: {fileID: 5288467462734181564}
   - component: {fileID: 4433215482751365458}
+  - component: {fileID: 5780798489376039242}
+  - component: {fileID: 7027549526086520167}
   m_Layer: 0
   m_Name: AlarmEnemy
   m_TagString: Untagged
@@ -260,104 +261,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1991591118802146926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991591118802146903}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fd01f0677326d24984efa71c6f45ba4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  states:
-  - name: 
-    behavior: {fileID: 1991591120177205052}
-    transitions:
-    - toState: 1
-      triggers:
-      - {fileID: 1491325411096970082}
-      onTriggered:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 3723172871545807872}
-            m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-            m_MethodName: StartTimer
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-  - name: 
-    behavior: {fileID: 1991591120177205027}
-    transitions:
-    - toState: 2
-      triggers:
-      - {fileID: 5013566057690164789}
-      onTriggered:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 7440610531545144261}
-            m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-            m_MethodName: set_enabled
-            m_Mode: 6
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 7440610531545144261}
-            m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-            m_MethodName: StartTimer
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-  - name: 
-    behavior: {fileID: 1991591120177205025}
-    transitions:
-    - toState: 1
-      triggers:
-      - {fileID: 1491325411096970082}
-      onTriggered:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 7440610531545144261}
-            m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-            m_MethodName: set_enabled
-            m_Mode: 6
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - toState: 0
-      triggers:
-      - {fileID: 7031576933734387246}
-      onTriggered:
-        m_PersistentCalls:
-          m_Calls: []
-  activeState:
-    name: 
-    behavior: {fileID: 0}
-    transitions: []
 --- !u!114 &5288467462734181564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,7 +289,33 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.0001
+--- !u!114 &5780798489376039242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991591118802146903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14ba8e06a6e90744a1ef36b53d8bdd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <faction>k__BackingField: 1
+--- !u!114 &7027549526086520167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991591118802146903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d985bd50130cd8d43aaa7f9324453949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentSpeed: 1
 --- !u!1 &1991591119931238832
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   enemyTransform: {fileID: 1991591118802146899}
-  navmeshAgent: {fileID: 0}
+  navmeshAgent: {fileID: 7027549526086520167}
   approachSpeed: 2
 --- !u!114 &1991591120177205025
 MonoBehaviour:
@@ -631,7 +560,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4190038293102074979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e90ab2b71ecdd4fabf03df1b216151, type: 3}
+  m_Script: {fileID: 11500000, guid: d0bbd111926ec76458cdd32c6e0d65ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
@@ -639,7 +568,8 @@ MonoBehaviour:
   eyeTransform: {fileID: 1991591118802146899}
   layerMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 448
+  factionComp: {fileID: 5780798489376039242}
 --- !u!1 &4703319480824035285
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +706,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7937419037640096940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e90ab2b71ecdd4fabf03df1b216151, type: 3}
+  m_Script: {fileID: 11500000, guid: d0bbd111926ec76458cdd32c6e0d65ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
@@ -784,7 +714,8 @@ MonoBehaviour:
   eyeTransform: {fileID: 1991591118802146899}
   layerMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 448
+  factionComp: {fileID: 5780798489376039242}
 --- !u!1 &8054966755512231173
 GameObject:
   m_ObjectHideFlags: 0
