@@ -7,33 +7,23 @@ public class ApproachSound : Behavior
     [SerializeField] private Transform soundTransform;
     [SerializeField] private Transform currentLocation;
     [SerializeField] private NavmeshAgent navmeshAgent;
+    [SerializeField] private DestinationReached destinationReached;
 
-    private Transform soundOrigin;
+    private Vector2 soundOrigin;
 
     public override void run()
     {
-        Vector2[] dirToSound = navmeshAgent.getPathTo(soundTransform.position);
-        navmeshAgent.navigatePath(dirToSound);
+        navmeshAgent.navigateTo(soundOrigin);
     }
 
     public override void OnBehaviorEnter()
     {
-        soundOrigin = soundTransform;
-        
+        soundOrigin = soundTransform.position;
+        destinationReached.setDestination(soundOrigin);
     }
 
     public override void OnBehaviorExit()
     {
 
-    }
-
-    public bool destinationReached()
-    {
-        if (soundOrigin.position == currentLocation.position)
-        {
-            return true;
-        }
-
-        return false;
     }
 }
