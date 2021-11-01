@@ -11,8 +11,13 @@ public class Toggleable : MonoBehaviour, ICanUse
         toggled = !toggled;
     }
 
-    public bool canUse()
+    public bool CanUse()
     {
         return toggled;
+    }
+
+    public void UseItem()
+    {
+
     }
 }

@@ -9,18 +9,28 @@ public class ItemControl : MonoBehaviour
     public UnityEvent equip;
     public UnityEvent dequip;
 
-    public bool canUse() {
+    public bool CanUse() {
         // all components must be true to return true
         foreach (var comp in GetComponentsInChildren<ICanUse>()) {
-            if (comp.canUse() == false) {
+            if (comp.CanUse() == false) {
                 return false;
             }
         }
 
         return true;
     }
+
+    public void UseItem()
+    {
+        // all components get used (decrement stack, etc)
+        foreach (var comp in GetComponentsInChildren<ICanUse>())
+        {
+            comp.UseItem();
+        }
+    }
 }
 
 public interface ICanUse {
-    bool canUse();
+    bool CanUse();
+    void UseItem();
 }

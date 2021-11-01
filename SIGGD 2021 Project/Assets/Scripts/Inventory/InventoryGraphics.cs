@@ -31,8 +31,11 @@ public class InventoryGraphics : MonoBehaviour
         }
 
         // Recalculate the item sprite
-        ICanUse item = inv.equippedItem.GetComponent<ICanUse>();
+        var control = inv.equippedItem.GetComponents<ICanUse>();
         
         
     }
+
+    // Updates based on a single ICanUse (called for each property)
+    //private void UpdateControl()
 }

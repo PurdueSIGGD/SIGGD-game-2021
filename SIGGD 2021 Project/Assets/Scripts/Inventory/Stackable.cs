@@ -13,7 +13,7 @@ public class Stackable : MonoBehaviour, ICanUse
         }
     }
 
-    public bool canUse() {
+    public bool CanUse() {
         return count > 0;
     }
 }
