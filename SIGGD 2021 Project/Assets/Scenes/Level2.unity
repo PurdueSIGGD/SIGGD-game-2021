@@ -1395,7 +1395,7 @@ GameObject:
   - component: {fileID: 493472358}
   - component: {fileID: 493472357}
   m_Layer: 0
-  m_Name: Tilemap_Hidden_Enterences
+  m_Name: Tilemap_Hidden_Entrances
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
