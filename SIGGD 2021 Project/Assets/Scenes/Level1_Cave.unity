@@ -35108,10 +35108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rigidbody: {fileID: 0}
+  rigidBody: {fileID: 0}
   soundHitbox: {fileID: 0}
   attackHitbox: {fileID: 0}
-  velocity: 0
 --- !u!4 &1988756194
 Transform:
   m_ObjectHideFlags: 0
@@ -35243,7 +35242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ae27e5746466b4bb016a15577815f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackHitbox: {fileID: 0}
+  attackHitbox: {fileID: 1988756194}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
