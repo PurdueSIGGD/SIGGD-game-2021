@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class HearSound : Trigger
 {
-    public bool NOT;
     bool hearSound = false;
+    private Transform soundTransform;
 
     override public bool isActive()
     {
-        return (hearSound && !NOT);
+        return hearSound;
     }
 
     private void OnTriggerEnter(Collider collider)
     {
         hearSound = true;
+        soundTransform = collider.transform;
+    }
+
+    private void OnTriggerStay(Collider collider)
+    {
+        hearSound = true;
+        soundTransform = collider.transform;
     }
 
     private void OnTriggerLeft(Collider collider)
     {
-        hearSound = false;
+        //hearSound = false;
+    }
+
+    public Transform getSoundTransform()
+    {
+        return soundTransform;
     }
 }
