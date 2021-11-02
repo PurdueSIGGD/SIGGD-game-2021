@@ -22,11 +22,14 @@ public class ItemControl : MonoBehaviour
 
     public void UseItem()
     {
-        // all components get used (decrement stack, etc)
+        // all components get used (to decrement stack, etc)
         foreach (var comp in GetComponentsInChildren<ICanUse>())
         {
             comp.UseItem();
         }
+
+        // Invoke the use event
+        use.Invoke();
     }
 }
 

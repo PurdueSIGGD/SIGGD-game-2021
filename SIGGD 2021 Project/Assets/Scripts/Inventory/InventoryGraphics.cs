@@ -16,26 +16,58 @@ public class InventoryGraphics : MonoBehaviour
 
     private Inventory inv;
 
+    // Initialize
     private void Start()
     {
         inv = GetComponent<Inventory>();
+        UpdateDisplayedItem();
     }
 
     // Used for when the displayed item needs to be updated
     public void UpdateDisplayedItem()
     {
+        ResetInventoryIcon();
+
         if (!inv.equippedItem)
         {
-            // Remove any icon
+            // If there is no item, disable the icon
             return;
         }
 
-        // Recalculate the item sprite
-        var control = inv.equippedItem.GetComponents<ICanUse>();
-        
-        
+        // Make the border light up if the item can be used
+        if (inv.equippedItem.GetComponent<ItemControl>().CanUse())
+        {
+            borderImage.sprite = enabledSprite;
+        }
+
+        itemImage.sprite = inv.equippedItem.GetComponent<ItemSprite>().GetSprite();
+        if (itemImage.sprite)
+        {
+            itemImage.enabled = true;
+        }
+
+        // Integrate some of the item controls into the graphics
+        foreach (var control in inv.equippedItem.GetComponentsInChildren<ICanUse>())
+        {
+            UpdateItemControl(control);
+        }
     }
 
     // Updates based on a single ICanUse (called for each property)
-    //private void UpdateControl()
+    private void UpdateItemControl(ICanUse control)
+    {
+        if (control is Stackable)
+        {
+            stackText.text = ((Stackable)control).count.ToString();
+            stackText.enabled = true;
+        }
+    }
+
+    // Resets the inventory icon 
+    private void ResetInventoryIcon()
+    {
+        borderImage.sprite = disabledSprite;
+        itemImage.enabled = false;
+        stackText.enabled = false;
+    }
 }
