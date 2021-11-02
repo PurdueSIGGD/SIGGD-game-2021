@@ -22,7 +22,7 @@ public class ConeRaycaster : MonoBehaviour
         
     }
 
-    private bool raycast() {
+    public bool raycast() {
         var minAngle = angle - fov / 2f;
         var maxAngle = angle + fov / 2f;
         for (int i = 0; i < rayNum - 1; i++) {
