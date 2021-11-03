@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,12 @@ public class ConeRaycaster : MonoBehaviour
         
     }
 
-    public bool raycast() {
+    // public bool raycast() {
+    //     return Raycast((_) => true);
+    // }
+
+
+    public RaycastHit2D Raycast(Predicate<RaycastHit2D> isValid) {
         var minAngle = angle - fov / 2f;
         var maxAngle = angle + fov / 2f;
         for (int i = 0; i < rayNum - 1; i++) {
@@ -33,21 +39,21 @@ public class ConeRaycaster : MonoBehaviour
             var rayDir = new Vector2(Mathf.Cos(theta), Mathf.Sin(theta));
             var result = Physics2D.Raycast(rayOrigin.position, rayDir, maxDistance, layerMask);
 
-            if (result) {
-                Debug.DrawRay(rayOrigin.position, rayDir * result.distance, Color.red);
+            if (result && isValid(result)) {
+                Debug.DrawRay(rayOrigin.position, rayDir * result.distance, Color.green);
                 hit.Invoke();
-                return true;
+                return result;
             }
-            Debug.DrawRay(rayOrigin.position, rayDir * maxDistance, Color.green);
+            Debug.DrawRay(rayOrigin.position, rayDir * maxDistance, Color.red);
 
         }
 
-        return false;
+        return new RaycastHit2D();
     }
 
     // Update is called once per frame
     void Update()
     {
-        raycast();
+        // raycast();
     }
 }
