@@ -18,7 +18,7 @@ public class ApproachSound : Behavior
 
     public override void OnBehaviorEnter()
     {
-        soundOrigin = HearSound.getSoundTransform().position;
+        soundOrigin = HearSound.position.Value;
         destinationReached.setDestination(soundOrigin);
     }
 
