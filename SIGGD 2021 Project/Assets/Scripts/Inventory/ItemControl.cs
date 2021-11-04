@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public class ItemControl : MonoBehaviour
 {
     public UnityEvent use;
-    public UnityEvent equip;
-    public UnityEvent dequip;
+    public UnityEvent equip;    // Called right after the inventory equips the item
+    public UnityEvent dequip;   // Called right before the inventory dequips the item
 
     public bool CanUse() {
         // all components must be true to return true
@@ -19,21 +19,8 @@ public class ItemControl : MonoBehaviour
 
         return true;
     }
-
-    public void UseItem()
-    {
-        // all components get used (to decrement stack, etc)
-        foreach (var comp in GetComponentsInChildren<ICanUse>())
-        {
-            comp.UseItem();
-        }
-
-        // Invoke the use event
-        use.Invoke();
-    }
 }
 
 public interface ICanUse {
     bool CanUse();
-    void UseItem();
 }

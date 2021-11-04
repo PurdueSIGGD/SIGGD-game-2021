@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4026520700735766969}
   - component: {fileID: 2612784756956185004}
   - component: {fileID: 2726721331541938212}
+  - component: {fileID: 1950867245025412145}
   m_Layer: 0
   m_Name: Test Item
   m_TagString: Untagged
@@ -74,7 +75,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   use:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4026520700735766969}
+        m_TargetAssemblyTypeName: Stackable, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   equip:
     m_PersistentCalls:
       m_Calls: []
@@ -94,3 +107,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &1950867245025412145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026520700735766970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f415286de799e4ba177da440f28da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropEntity: {fileID: 0}
