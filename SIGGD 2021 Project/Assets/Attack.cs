@@ -23,7 +23,7 @@ public class Attack : MonoBehaviour
     {
         if (timeElapsed >= delay)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (isAttacking())
             {
                 Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackHitbox.position, range, enemyLayers);
 
@@ -48,5 +48,9 @@ public class Attack : MonoBehaviour
             return;
 
         Gizmos.DrawWireSphere(attackHitbox.position, range);
+    }
+
+    public bool isAttacking() {
+        return Input.GetKey(KeyCode.Space);
     }
 }
