@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         old_pos = GetComponent<Rigidbody2D>().position;
-        soundHitbox = GetComponent<CircleCollider2D>();
+        //soundHitbox = GetComponentInChildren<CircleCollider2D>();   Commented out as it is set in the inspecter
         attackHitbox = GetComponent<Transform>();
         rigidBody = GetComponent<Rigidbody2D>();
     }
