@@ -118,13 +118,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bbd111926ec76458cdd32c6e0d65ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   NOT: 0
+  cone: {fileID: 0}
   eyeTransform: {fileID: 4526336295776787523}
   layerMask:
     serializedVersion: 2
     m_Bits: 448
-  factionComp: {fileID: 8451795155817753434}
+  targetFaction: 0
 --- !u!1 &2743777163720709177
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 8451795155817753434}
   - component: {fileID: 4969041025284163447}
   - component: {fileID: 4526336295776787526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,13 +729,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bbd111926ec76458cdd32c6e0d65ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   NOT: 1
+  cone: {fileID: 0}
   eyeTransform: {fileID: 4526336295776787523}
   layerMask:
     serializedVersion: 2
     m_Bits: 448
-  factionComp: {fileID: 8451795155817753434}
+  targetFaction: 0
 --- !u!1 &7221178221261045189
 GameObject:
   m_ObjectHideFlags: 0
