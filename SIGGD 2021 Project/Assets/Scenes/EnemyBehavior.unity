@@ -282,7 +282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444009220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.38, y: -8.32, z: 0}
+  m_LocalPosition: {x: -1.77, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -594,7 +594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489074343}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -6, z: 0}
+  m_LocalPosition: {x: 0.06, y: -0.34, z: 0}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1766818172}
@@ -975,3 +975,76 @@ PrefabInstance:
       objectReference: {fileID: 444009222}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 440c6a36490a47c4a8ef58a4bd09f0ab, type: 3}
+--- !u!1001 &8986294659174351095
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3585159957090077042, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 444009222}
+    - target: {fileID: 4526336295776787523, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336295776787523, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336295776787523, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336295776787523, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336295776787523, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336295776787523, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336295776787523, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336295776787523, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336295776787523, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336295776787523, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336295776787523, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336295776787527, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526336296557331756, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: route
+      value: 
+      objectReference: {fileID: 2143902935}
+    - target: {fileID: 4526336296557331763, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 444009222}
+    - target: {fileID: 6980729742038017061, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 444009222}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1826fbe8986b9824eb47e8c1ba7ed18b, type: 3}
