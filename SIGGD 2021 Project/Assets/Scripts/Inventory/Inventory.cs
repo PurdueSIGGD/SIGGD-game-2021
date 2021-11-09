@@ -18,9 +18,20 @@ public class Inventory : MonoBehaviour
         currentControl.use.Invoke();
     }
 
-    // Equips a new item (dequipping and returning any old item)
+    // Equips a new item (dequipping and returning any old/extra item)
     public GameObject EquipItem(GameObject newItem, bool invokeEvent = true)
     {
+        // Merge items if possible
+        if (Mergeable(equippedItem, newItem))
+        {
+            GameObject srcItem = MergeItem(equippedItem, newItem);
+            if (invokeEvent)
+            {
+                onItemChange.Invoke();
+            }
+            return srcItem;
+        }
+
         // Dequip the current item (if any) and avoid triggering the event twice
         GameObject copyItem = equippedItem;
         if (equippedItem != null)
@@ -55,5 +66,39 @@ public class Inventory : MonoBehaviour
         }
 
         return copyItem;
+    }
+
+    // Check if two objects are mergeable
+    public bool Mergeable(GameObject dest, GameObject src)
+    {
+        return (dest.name == src.name && dest.GetComponent<Stackable>() && src.GetComponent<Stackable>());
+    }
+
+    // Merge src onto dest if possible (returning what remains in src)
+    public GameObject MergeItem(GameObject dest, GameObject src)
+    {
+        // Don't merge items if they aren't the same name
+        if (dest.name != src.name)
+        {
+            return src;
+        }
+
+        // Merge two stackable items
+        if (dest.GetComponent<Stackable>())
+        {
+            Stackable destStack = dest.GetComponent<Stackable>();
+            Stackable srcStack = src.GetComponent<Stackable>();
+
+            int diff = destStack.AddToStack(srcStack.count);
+            if (diff == 0)
+            {
+                srcStack = null;
+            } else
+            {
+                srcStack.count = diff;
+            }
+        }
+
+        return src;
     }
 }

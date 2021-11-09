@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 508372120129800236}
   - component: {fileID: 1951449059570744471}
   - component: {fileID: 8062033192654939393}
+  - component: {fileID: 8787478817136559703}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -723,6 +724,34 @@ MonoBehaviour:
   borderImage: {fileID: 4232319773442530460}
   itemImage: {fileID: 3282122027164470028}
   stackText: {fileID: 4745261714803432059}
+--- !u!114 &8787478817136559703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314529853658650855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c2896836bedd146bfb28b30e0a1b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onItemChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8062033192654939393}
+        m_TargetAssemblyTypeName: InventoryGraphics, Assembly-CSharp
+        m_MethodName: UpdateDisplayedItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  equippedItem: {fileID: 0}
 --- !u!1 &5464223853491790007
 GameObject:
   m_ObjectHideFlags: 0
