@@ -10,4 +10,10 @@ public class GameObjectSpawner : MonoBehaviour
     {
         Instantiate(prefab);
     }
+
+    public void Update() {
+        if(Input.GetKey(KeyCode.J)) {
+            Spawn();
+        }
+    }
 }
