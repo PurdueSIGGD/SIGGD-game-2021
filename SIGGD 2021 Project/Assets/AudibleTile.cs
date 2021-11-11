@@ -21,6 +21,7 @@ public class AudibleTile : MonoBehaviour
         {
             isTriggered = true;
             gameObject.GetComponent<SpriteRenderer>().material = triggeredMaterial;
+            timer();
         }
     }
 
