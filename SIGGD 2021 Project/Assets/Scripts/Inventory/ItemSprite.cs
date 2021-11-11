@@ -5,18 +5,34 @@ using UnityEngine;
 public class ItemSprite : MonoBehaviour
 {
     // Allows an item to have a default and alternative sprites, which lets items affect their graphics
-    public Sprite defaultSprite;
+    public Sprite defaultInvSprite;
+    public Sprite defaultWorldSprite;
 
-    public Sprite GetSprite()
+    public Sprite GetInvSprite()
     {
         // Check to see if any components change the sprite (first change found is applied), otherwise return default
-        Sprite changedSprite = GetComponentInChildren<IChangeItemSprite>()?.GetSprite();
-        return (changedSprite) ? changedSprite : defaultSprite;
+        Sprite changedSprite = GetComponentInChildren<IChangeInvSprite>()?.GetInvSprite();
+        return (changedSprite) ? changedSprite : defaultInvSprite;
+    }
+
+    public Sprite GetWorldSprite()
+    {
+        // Check to see if any components change the sprite (first change found is applied), otherwise return default
+        Sprite changedSprite = GetComponentInChildren<IChangeWorldSprite>()?.GetWorldSprite();
+        return (changedSprite) ? changedSprite : defaultWorldSprite;
     }
 }
 
-public interface IChangeItemSprite
+// Interface to change the inventory sprite
+public interface IChangeInvSprite
 {
     // Return null if the sprite should be the same
-    public Sprite GetSprite();
+    public Sprite GetInvSprite();
+}
+
+// Interface to change the world (dropped) sprite
+public interface IChangeWorldSprite
+{
+    // Return null if the sprite should be the same
+    public Sprite GetWorldSprite();
 }

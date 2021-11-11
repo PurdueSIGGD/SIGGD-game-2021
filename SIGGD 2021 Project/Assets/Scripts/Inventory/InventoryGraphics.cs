@@ -40,7 +40,7 @@ public class InventoryGraphics : MonoBehaviour
             borderImage.sprite = enabledSprite;
         }
 
-        itemImage.sprite = inv.equippedItem.GetComponent<ItemSprite>().GetSprite();
+        itemImage.sprite = inv.equippedItem.GetComponent<ItemSprite>().GetInvSprite();
         if (itemImage.sprite)
         {
             itemImage.enabled = true;
