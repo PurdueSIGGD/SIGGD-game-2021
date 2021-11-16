@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     public CircleCollider2D soundHitbox;
 
     public Transform attackHitbox;
+    public Transform interactHitbox;
 
     Vector2 movement;
     Vector2 old_pos;
@@ -68,6 +69,7 @@ public class Movement : MonoBehaviour
             float x = rigidbody.position.x + unitMovement.x * 0.65f;
             float y = rigidbody.position.y + unitMovement.y * 0.65f;
             attackHitbox.position = new Vector2(x,y);
+            interactHitbox.position = new Vector2(x, y);
         }
 
         old_pos = rigidbody.position;

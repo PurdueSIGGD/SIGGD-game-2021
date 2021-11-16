@@ -21,7 +21,7 @@ public class Stackable : MonoBehaviour, ICanUse
         return count > 0;
     }
 
-    // Adds n items to the stack, returning the amount of items beyond the max
+    // Adds n items to the stack, returning the amount of items beyond the max (or 0)
     public int AddToStack(int n)
     {
         if (count + n <= max)

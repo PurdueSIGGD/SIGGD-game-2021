@@ -106,5 +106,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea99ba4fb6d251418eca408346f8bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultInvSprite: {fileID: 0}
-  defaultWorldSprite: {fileID: 0}
+  defaultInvSprite: {fileID: 21300000, guid: 839ce0a160e8ea043990b096a0c8723b, type: 3}
+  defaultWorldSprite: {fileID: 21300000, guid: 73a98cbecf8bcd04d87ffd83a522aa70, type: 3}

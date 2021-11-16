@@ -75,6 +75,87 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1553780979916240447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1101018362222611360}
+  - component: {fileID: 1603713964909548087}
+  - component: {fileID: 4241406142888768014}
+  m_Layer: 3
+  m_Name: InteractHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1101018362222611360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553780979916240447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.652, y: -0.0235, z: 0}
+  m_LocalScale: {x: 1.4453, y: 1.609872, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5314529853658650849}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1603713964909548087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553780979916240447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7422e23b50543fe468e6b6b9e308463a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  period: 0.25
+  _time: 0
+  loop: 0
+  OnPeriodDone:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4241406142888768014}
+        m_TargetAssemblyTypeName: Interact, Assembly-CSharp
+        m_MethodName: RefreshInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4241406142888768014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553780979916240447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d48062383ca5548aa86fe62c710afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  range: 0.8
 --- !u!1 &1773567508944603827
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +414,7 @@ RectTransform:
   - {fileID: 3567625952624901231}
   - {fileID: 4166032366594155998}
   m_Father: {fileID: 5314529853658650849}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -496,7 +577,7 @@ GameObject:
   - component: {fileID: 8787478817136559703}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -513,6 +594,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6599404643187351301}
+  - {fileID: 1101018362222611360}
   - {fileID: 8471542057052291653}
   - {fileID: 5148261481538949014}
   - {fileID: 3475835030691167170}
@@ -633,6 +715,7 @@ MonoBehaviour:
   rigidbody: {fileID: 5314529853658650851}
   soundHitbox: {fileID: 2710834141804731409}
   attackHitbox: {fileID: 6599404643187351301}
+  interactHitbox: {fileID: 1101018362222611360}
   velocity: 0
 --- !u!114 &144284290
 MonoBehaviour:
@@ -1055,7 +1138,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5314529853658650849}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3813954321005139331
 SpriteRenderer:
@@ -1202,7 +1285,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5314529853658650849}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &5748260352266967675
 Camera:

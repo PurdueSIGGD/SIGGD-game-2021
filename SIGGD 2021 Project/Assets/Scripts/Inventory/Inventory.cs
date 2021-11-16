@@ -16,6 +16,7 @@ public class Inventory : MonoBehaviour
     {
         ItemControl currentControl = equippedItem.GetComponent<ItemControl>();
         currentControl.use.Invoke();
+        onItemChange.Invoke();
     }
 
     // Equips a new item (dequipping and returning any old/extra item)
@@ -92,7 +93,7 @@ public class Inventory : MonoBehaviour
             int diff = destStack.AddToStack(srcStack.count);
             if (diff == 0)
             {
-                srcStack = null;
+                src = null;
             } else
             {
                 srcStack.count = diff;
