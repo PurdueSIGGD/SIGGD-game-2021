@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    public Rigidbody2D rigidbody;
+    public Rigidbody2D rigidBody;
 
     public CircleCollider2D soundHitbox;
 
@@ -18,12 +18,12 @@ public class Movement : MonoBehaviour
     Vector2 new_pos;
     Vector2 point;
 
-    public double velocity;
-
     void Start()
     {
-        old_pos = rigidbody.position;
-        
+        old_pos = GetComponent<Rigidbody2D>().position;
+        //soundHitbox = GetComponentInChildren<CircleCollider2D>();   Commented out as it is set in the inspecter
+        attackHitbox = GetComponent<Transform>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -35,17 +35,16 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Move the player
         Vector2 unitMovement = movement.normalized;
-        rigidbody.MovePosition(rigidbody.position + unitMovement * moveSpeed * Time.fixedDeltaTime);
-        new_pos = rigidbody.position;
+        rigidBody.MovePosition(rigidBody.position + unitMovement * moveSpeed * Time.fixedDeltaTime);
+        new_pos = rigidBody.position;
 
-        velocity = Vector2.Distance(old_pos, new_pos) / Time.fixedDeltaTime;
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (isRunning())
         {
             moveSpeed = 8f;
         }
-        else if (Input.GetKey(KeyCode.LeftControl))
+        else if (isSneaking())
         {
             moveSpeed = 2.5f;
         }
@@ -54,24 +53,36 @@ public class Movement : MonoBehaviour
             moveSpeed = 5f;
         }
 
-        if (velocity != 0)
+        if (isMoving())
         {
             soundHitbox.radius = moveSpeed;
-            
-        }
-        else
+            attackHitbox.position = new Vector2(rigidBody.position.x, rigidBody.position.y);
+        } 
+        else 
         {
             soundHitbox.radius = 0;
         }
 
-        if ((movement.x != 0) || (movement.y != 0))
-        {
-            float x = rigidbody.position.x + unitMovement.x * 0.65f;
-            float y = rigidbody.position.y + unitMovement.y * 0.65f;
-            attackHitbox.position = new Vector2(x,y);
-            interactHitbox.position = new Vector2(x, y);
-        }
+        old_pos = rigidBody.position;
+    }
 
-        old_pos = rigidbody.position;
+    public bool isRunning() {
+        return Input.GetKey(KeyCode.LeftShift);
+    } 
+
+    public bool isSneaking() {
+        return Input.GetKey(KeyCode.LeftControl);
+    }
+
+    public bool isMoving() {
+        return (movement.x != 0) || (movement.y != 0);
+    }
+
+    public bool isMovingRight() {
+        return movement.x > 0;
+    }
+
+    public bool isMovingLeft() {
+        return movement.x < 0;
     }
 }

@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HearSound : Trigger
+public class HearSound : Trigger, ISoundSignalListener
 {
-    public bool NOT;
-    bool hearSound = false;
+    public Vector3? position {get; private set;}
+    // private Transform soundTransform;
 
     override public bool isActive()
     {
-        return (hearSound && !NOT);
+        return position.HasValue;
     }
 
-    private void OnTriggerEnter(Collider collider)
+    public void Signal(Vector3 point)
     {
-        hearSound = true;
+        position = point;
     }
 
-    private void OnTriggerLeft(Collider collider)
-    {
-        hearSound = false;
+    public void DisregardSound() {
+        position = null;
     }
+
 }
