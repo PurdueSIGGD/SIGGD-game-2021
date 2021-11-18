@@ -16,7 +16,7 @@ public class Inventory : MonoBehaviour
     {
         ItemControl currentControl = equippedItem.GetComponent<ItemControl>();
         currentControl.use.Invoke();
-        onItemChange.Invoke();
+        onItemChange?.Invoke();
     }
 
     // Equips a new item (dequipping and returning any old/extra item)
@@ -28,32 +28,34 @@ public class Inventory : MonoBehaviour
             GameObject srcItem = MergeItem(equippedItem, newItem);
             if (invokeEvent)
             {
-                onItemChange.Invoke();
+                onItemChange?.Invoke();
             }
             return srcItem;
         }
 
         // Dequip the current item (if any) and avoid triggering the event twice
         GameObject copyItem = equippedItem;
-        if (equippedItem != null)
+        if (equippedItem)
         {
             copyItem = DequipItem(false);
         }
 
-        // Equip the new item
+        // Equip the new item under the inventory gameobject
+        equippedItem = newItem;
+        newItem.transform.SetParent(transform);
+
         ItemControl newItemControl = newItem.GetComponent<ItemControl>();
-        equippedItem = copyItem;
         newItemControl.equip.Invoke();
 
         if (invokeEvent)
         {
-            onItemChange.Invoke();
+            onItemChange?.Invoke();
         }
 
         return copyItem;
     }
 
-    // Dequips and returns the current item
+    // Dequips and returns the current item (parent must be set by whatever else)
     public GameObject DequipItem(bool invokeEvent = true)
     {
         ItemControl currentControl = equippedItem.GetComponent<ItemControl>();
@@ -63,7 +65,7 @@ public class Inventory : MonoBehaviour
 
         if (invokeEvent)
         {
-            onItemChange.Invoke();
+            onItemChange?.Invoke();
         }
 
         return copyItem;
@@ -72,6 +74,7 @@ public class Inventory : MonoBehaviour
     // Check if two objects are mergeable
     public bool Mergeable(GameObject dest, GameObject src)
     {
+        if (!dest || !src) return false;
         return (dest.name == src.name && dest.GetComponent<Stackable>() && src.GetComponent<Stackable>());
     }
 
@@ -91,8 +94,11 @@ public class Inventory : MonoBehaviour
             Stackable srcStack = src.GetComponent<Stackable>();
 
             int diff = destStack.AddToStack(srcStack.count);
+
             if (diff == 0)
             {
+                // Delete the source item if its completely consumed
+                DestroyImmediate(src);
                 src = null;
             } else
             {

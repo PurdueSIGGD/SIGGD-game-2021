@@ -59,8 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defca4f86bf37e349b95307449e2f15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 6
-  max: 0
+  count: 4
+  max: 6
 --- !u!114 &2612784756956185004
 MonoBehaviour:
   m_ObjectHideFlags: 0

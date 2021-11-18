@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour
 
     public void interact()
     {
-        unityEventToCall.Invoke();
-        eventToCall.Invoke();
+        unityEventToCall?.Invoke();
+        eventToCall?.Invoke();
     }
 }

@@ -25,16 +25,11 @@ public class Interact : MonoBehaviour
             interactReady = false;
             timer.StartTimer();
 
-            Debug.DrawLine(transform.position, transform.position + new Vector3(range, 0, 0));
-
             // Interact with everything marked as interactable (via the component)
             Collider2D[] objectsFound = Physics2D.OverlapCircleAll(transform.position, range, interactLayers);
             foreach (Collider2D obj in objectsFound) {
-                Debug.Log("Interacting with " + obj.gameObject.name);
                 obj.gameObject.GetComponent<Interactable>()?.interact();
             }
-
-            Debug.Log(objectsFound);
         }
     }
 
