@@ -11,8 +11,12 @@ public class Stackable : MonoBehaviour, ICanUse
     // Called by the use event, decrements the stack
     public void UseItem() {
         count -= 1;
-        if (count < 0) {
+        if (count <= 0) {
             count = 0;
+
+            // Code to delete an item when its stack runs out
+            GameObject.FindWithTag("Player").GetComponentInChildren<Inventory>().DequipItem();
+            Destroy(gameObject);
         }
     }
 

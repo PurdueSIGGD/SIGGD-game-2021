@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7660219899941479614}
   - component: {fileID: 2085102751475889584}
   - component: {fileID: 7833173994481749750}
+  - component: {fileID: 8040999499960881735}
   m_Layer: 3
   m_Name: Inventory
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   onItemChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7833173994481749750}
         m_TargetAssemblyTypeName: InventoryGraphics, Assembly-CSharp
         m_MethodName: UpdateDisplayedItem
         m_Mode: 1
@@ -77,6 +78,39 @@ MonoBehaviour:
   borderImage: {fileID: 4232319773442530460}
   itemImage: {fileID: 3282122027164470028}
   stackText: {fileID: 4745261714803432059}
+--- !u!114 &8040999499960881735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312025612554676576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7422e23b50543fe468e6b6b9e308463a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  period: 0.25
+  _time: 0
+  loop: 0
+  OnPeriodDone:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2085102751475889584}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: RefreshItemUse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &375652393654357174
 GameObject:
   m_ObjectHideFlags: 0

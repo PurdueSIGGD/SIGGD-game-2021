@@ -11,6 +11,29 @@ public class Inventory : MonoBehaviour
     // Currently equipped item
     public GameObject equippedItem;
 
+    // Scripts for using the current item
+    private Timer useItemTimer;
+    private bool useItemReady = true;
+    private void Start()
+    {
+        useItemTimer = GetComponent<Timer>();
+    }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && useItemReady)
+        {
+            useItemReady = false;
+            useItemTimer.StartTimer();
+
+            // Use the item
+            UseItem();
+        }
+    }
+    public void RefreshItemUse()
+    {
+        useItemReady = true;
+    }
+
     // Uses the current item
     public void UseItem()
     {
