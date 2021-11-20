@@ -62,6 +62,11 @@ public class Health : MonoBehaviour
         SetCurrHealth(this.maxHealth);
     }
 
+    [ContextMenu("Set Max Health")]
+    public void RestoreToMaxHealth() {
+        SetCurrHealth(this.maxHealth);
+    }
+
     //sets current health (minimum = 1, maximum = maxHealth)
     public void SetCurrHealth(int currHealth)
     {
@@ -69,7 +74,7 @@ public class Health : MonoBehaviour
         if (this.currHealth != newHealth) 
         {
             this.currHealth = newHealth;
-            healthChangeEvent?.Invoke(this.currHealth);
+            this.healthChangeEvent?.Invoke(this.currHealth);
         }
     }
 }
