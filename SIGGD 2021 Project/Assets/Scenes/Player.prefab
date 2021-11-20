@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7422e23b50543fe468e6b6b9e308463a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 0.25
+  period: 0.1
   _time: 0
   loop: 0
   OnPeriodDone:
@@ -802,7 +802,6 @@ MonoBehaviour:
   soundHitbox: {fileID: 2710834141804731409}
   attackHitbox: {fileID: 6599404643187351301}
   interactHitbox: {fileID: 1101018362222611360}
-  velocity: 0
 --- !u!114 &144284290
 MonoBehaviour:
   m_ObjectHideFlags: 0
