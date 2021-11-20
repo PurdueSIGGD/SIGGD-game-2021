@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class SeeFaction : Trigger
 {
-    public Transform player;
+    // public Transform player;
     public bool NOT = false; //if true then SeePlayer returns if the enemy can NOT see the player
+    public ConeRaycaster cone; // Cone script 
     [SerializeField] private Transform eyeTransform;
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private FactionComponent factionComp;
+    // [SerializeField] private FactionComponent factionComp;
+    [SerializeField] private EntityFaction targetFaction;
+    
     public override bool isActive()
     {
         bool ret = NOT;
 
-        //draw a line between the enemy and the player
-        RaycastHit2D hit = Physics2D.Linecast(eyeTransform.position, player.position, layerMask); 
-        if (hit && hit.transform.gameObject.CompareTag("Player")) //if the line hits the player
+        // factionComp = gameObject.GetComponent<FactionComponent>();
+
+        var hit = cone.Raycast((h) => h.transform.GetComponent<FactionComponent>()?.faction == targetFaction);
+
+        if (hit) //if the ray hits the faction
         {
-            Debug.DrawLine(eyeTransform.position, player.position, Color.green);
             return !ret;
-        } else {
-            Debug.DrawLine(eyeTransform.position, player.position, Color.red);
         }
         return ret;
     }
