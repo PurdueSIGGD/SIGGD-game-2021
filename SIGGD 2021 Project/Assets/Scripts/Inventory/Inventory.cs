@@ -37,6 +37,8 @@ public class Inventory : MonoBehaviour
     // Uses the current item
     public void UseItem()
     {
+        if (!equippedItem) return;
+
         ItemControl currentControl = equippedItem.GetComponent<ItemControl>();
         currentControl.use.Invoke();
         onItemChange?.Invoke();
