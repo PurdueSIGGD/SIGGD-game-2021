@@ -32,6 +32,7 @@ public class FloodFilledExplosion : MonoBehaviour
     {
         if (original)
         {
+            Debug.Log("Is active");
             FloodFill();
         }
     }
@@ -54,7 +55,6 @@ public class FloodFilledExplosion : MonoBehaviour
 
             List<GameObject> tempList = new List<GameObject>();
 
-            //Debug.Log(explosions.Count + " elements in the list.");
 
             for (int index = 0; index < explosions.Count; index++) 
             {
@@ -78,7 +78,6 @@ public class FloodFilledExplosion : MonoBehaviour
         else
         {
             GameObject.Destroy(parent, delay);
-            Terminate();
         }
     }
 
@@ -95,7 +94,6 @@ public class FloodFilledExplosion : MonoBehaviour
         if (Physics2D.OverlapBox(explosionPos, new Vector2((float) .1, (float) .1),
             0, layer, -1, 1) != null)
         {
-            //Debug.Log("Encounterd a wall");
             return null;
         } //checks if a wall is in the way
         GameObject clone = GameObject.Instantiate(explosion, explosionPos,
@@ -103,11 +101,5 @@ public class FloodFilledExplosion : MonoBehaviour
 
         clone.GetComponent<FloodFilledExplosion>().original = false;
         return clone;
-    } // clone the explosion object at explosionPos. Sets original of cloned obj to false
-
-    void Terminate()
-    {
-        this.enabled = false;
-    }
-    
+    } // clone the explosion object at explosionPos. Sets original of cloned obj to false    
 }
