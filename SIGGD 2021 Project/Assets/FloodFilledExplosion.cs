@@ -4,63 +4,110 @@ using UnityEngine;
 
 public class FloodFilledExplosion : MonoBehaviour
 {
-    [SerializeField] GameObject explosion;
-    [SerializeField] private int explosionRadius;
-    public bool original = true;
+    [SerializeField] private GameObject parent;
+    [SerializeField] private GameObject origin;
+    [SerializeField] private LayerMask layer;
+    [SerializeField] private int maxIteration;
+    [SerializeField] private float delay;
+    public bool original; // set to false to prevent clones to run this script
 
-    private Vector3 origin;
-    private Vector3 north = new Vector3(0, 1, 0);
-    private Vector3 south = new Vector3(0, -1, 0);
-    private Vector3 east = new Vector3(1, 0, 0);
-    private Vector3 west = new Vector3(-1, 0, 0);
+    private int currIteration = 0;
+    private double timeSinceLastRun = 0;
+    private List<GameObject> explosions = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        origin = explosion.transform.position;
-        if (original)
+        if (original) 
         {
-            FloodFill(explosion);
+            explosions.Add(origin);
+            FloodFill();
         }
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (original)
+        {
+            FloodFill();
+        }
     }
 
-    void FloodFill(GameObject explosion)
+    void FloodFill()
     {
-        Vector3 explosionPos = explosion.transform.position;
-        Quaternion rotation = explosion.transform.rotation;
-        if (Vector3.Distance(origin, explosion.transform.position) < explosionRadius)
+        if (currIteration < maxIteration) // check if maxIteration is reached. Runs if not.
         {
-            FloodFill(Clone(explosion, explosionPos + north,
-                rotation));
-            FloodFill(Clone(explosion, explosionPos + south,
-                rotation));
-            FloodFill(Clone(explosion, explosionPos + east,
-                rotation));
-            FloodFill(Clone(explosion, explosionPos + west,
-                rotation));
+            if (timeSinceLastRun < delay) // check if delay interval is reached. Runs not reached.
+            {
+                timeSinceLastRun += Time.deltaTime;
+                return;
+                // Adds delta time to tineSinceLastRun and returns
+            }
+
+            currIteration++;
+            timeSinceLastRun = 0;
+
+            // temp list to store new origins to floodfill from
+
+            List<GameObject> tempList = new List<GameObject>();
+
+            //Debug.Log(explosions.Count + " elements in the list.");
+
+            for (int index = 0; index < explosions.Count; index++) 
+            {
+            Vector3 explosionPos = explosions[index].transform.position;
+            Quaternion rotation = origin.transform.rotation;
+            float colliderSize = origin.GetComponent<BoxCollider2D>().size.x;
+
+            addToList(tempList, Clone(explosions[index],
+                explosionPos + colliderSize * Vector3.up, rotation));
+            addToList(tempList, Clone(explosions[index],
+                explosionPos + colliderSize * Vector3.down, rotation));
+            addToList(tempList, Clone(explosions[index],
+                explosionPos + colliderSize * Vector3.right, rotation));
+            addToList(tempList, Clone(explosions[index],
+                explosionPos + colliderSize * Vector3.left, rotation));
+            }  // Runs through every element in the list and clones itself 4 times (north, south, east, west)
+
+            explosions.Clear();
+            explosions = tempList;
         }
         else
         {
-            return;
+            GameObject.Destroy(parent, delay);
+            Terminate();
         }
     }
 
+    void addToList(List<GameObject> list, GameObject obj)
+    {
+        if (obj != null)
+        {
+            list.Add(obj);
+        }
+    }  // adds object to list if it is non NUll
+
     GameObject Clone(GameObject explosion, Vector3 explosionPos, Quaternion rotation)
     {
+        if (Physics2D.OverlapBox(explosionPos, new Vector2((float) .1, (float) .1),
+            0, layer, -1, 1) != null)
+        {
+            //Debug.Log("Encounterd a wall");
+            return null;
+        } //checks if a wall is in the way
         GameObject clone = GameObject.Instantiate(explosion, explosionPos,
-                rotation);
+                rotation, parent.transform);
+
         clone.GetComponent<FloodFilledExplosion>().original = false;
         return clone;
-    }
+    } // clone the explosion object at explosionPos. Sets original of cloned obj to false
 
     void Terminate()
     {
         this.enabled = false;
     }
+    
 }
