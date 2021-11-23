@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FloodFilledExplosion : MonoBehaviour
 {
+    // TODO the parent object doesn't destroy itself because it has to wait for the children to destroy first,
+    // and I haven't found a way to do this yet. This only cause a small amount of memory leak, so it is not of
+    // high priority for now, but can be something to look out later.
     [SerializeField] private GameObject parent;
     [SerializeField] private GameObject origin;
     [SerializeField] private LayerMask layer;
@@ -68,9 +71,7 @@ public class FloodFilledExplosion : MonoBehaviour
         }
         else
         {
-            // Destroy hitbox (delay) seconds after flood fill concludes
-            // Comment this out if you want a closer look at the final hitbox
-            // GameObject.Destroy(parent, delay);
+            GameObject.Destroy(parent, 0);
         }
     }
 
