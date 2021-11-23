@@ -9,8 +9,8 @@ public class FloodFilledExplosion : MonoBehaviour
     [SerializeField] private LayerMask layer;
     [SerializeField] private int maxIteration;
     [SerializeField] private float delay;
-    public bool original; // set to false to prevent clones to run this script
 
+    private bool original = true; // set to false to prevent clones to run this script
     private int currIteration = 0;
     private double timeSinceLastRun = 0;
     private List<GameObject> explosions = new List<GameObject>();
@@ -32,7 +32,6 @@ public class FloodFilledExplosion : MonoBehaviour
     {
         if (original)
         {
-            Debug.Log("Is active");
             FloodFill();
         }
     }
@@ -77,6 +76,8 @@ public class FloodFilledExplosion : MonoBehaviour
         }
         else
         {
+            // Destroy hitbox (delay) seconds after flood fill concludes
+            // Comment this out if you want a closer look at the final hitbox
             GameObject.Destroy(parent, delay);
         }
     }
@@ -91,7 +92,7 @@ public class FloodFilledExplosion : MonoBehaviour
 
     GameObject Clone(GameObject explosion, Vector3 explosionPos, Quaternion rotation)
     {
-        if (Physics2D.OverlapBox(explosionPos, new Vector2((float) .1, (float) .1),
+        if (Physics2D.OverlapBox(explosionPos, 0.9f * origin.GetComponent<BoxCollider2D>().size,
             0, layer, -1, 1) != null)
         {
             return null;
