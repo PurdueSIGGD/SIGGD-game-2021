@@ -10,7 +10,6 @@ public class FloodFilledExplosion : MonoBehaviour
     [SerializeField] private int maxIteration;
     [SerializeField] private float delay;
 
-    private bool original = true; // set to false to prevent clones to run this script
     private int currIteration = 0;
     private double timeSinceLastRun = 0;
     private List<GameObject> explosions = new List<GameObject>();
@@ -18,22 +17,15 @@ public class FloodFilledExplosion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (original) 
-        {
             explosions.Add(origin);
             FloodFill();
-        }
-        
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (original)
-        {
+
             FloodFill();
-        }
     }
 
     void FloodFill()
@@ -58,8 +50,8 @@ public class FloodFilledExplosion : MonoBehaviour
             for (int index = 0; index < explosions.Count; index++) 
             {
             Vector3 explosionPos = explosions[index].transform.position;
-            Quaternion rotation = origin.transform.rotation;
-            float colliderSize = origin.GetComponent<BoxCollider2D>().size.x;
+            Quaternion rotation = explosions[index].transform.rotation;
+            float colliderSize = explosions[index].GetComponent<BoxCollider2D>().size.x;
 
             addToList(tempList, Clone(explosions[index],
                 explosionPos + colliderSize * Vector3.up, rotation));
@@ -78,7 +70,7 @@ public class FloodFilledExplosion : MonoBehaviour
         {
             // Destroy hitbox (delay) seconds after flood fill concludes
             // Comment this out if you want a closer look at the final hitbox
-            GameObject.Destroy(parent, delay);
+            // GameObject.Destroy(parent, delay);
         }
     }
 
@@ -92,15 +84,13 @@ public class FloodFilledExplosion : MonoBehaviour
 
     GameObject Clone(GameObject explosion, Vector3 explosionPos, Quaternion rotation)
     {
-        if (Physics2D.OverlapBox(explosionPos, 0.9f * origin.GetComponent<BoxCollider2D>().size,
+        if (Physics2D.OverlapBox(explosionPos, 0.9f * explosion.GetComponent<BoxCollider2D>().size,
             0, layer, -1, 1) != null)
         {
             return null;
         } //checks if a wall is in the way
         GameObject clone = GameObject.Instantiate(explosion, explosionPos,
                 rotation, parent.transform);
-
-        clone.GetComponent<FloodFilledExplosion>().original = false;
         return clone;
     } // clone the explosion object at explosionPos. Sets original of cloned obj to false    
 }
