@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6115969493420337095}
   - component: {fileID: 8815829509832577357}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Search Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3388668094019184801}
   - component: {fileID: 3585159957090077042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: See Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7564893425918686964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Timers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254275206697096996}
   - component: {fileID: 4769611794261643733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Alarm Turn Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1091687577608701454}
   - component: {fileID: 5614365759346650026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Approach Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 4969041025284163447}
   - component: {fileID: 4526336295776787526}
   - component: {fileID: 6074157661086256798}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 4526336296557331761}
   - component: {fileID: 8365245884970506647}
   - component: {fileID: 4526336296557331775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AI Behaviors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,7 +604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4526336297004901282}
   - component: {fileID: 4964768357815174206}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AI Triggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6803807630771972149}
   - component: {fileID: 1646089248147123728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Alarm Turn On
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5559182824477823507}
   - component: {fileID: 6980729742038017061}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Not See Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8380889436953529390}
   - component: {fileID: 5893461987445018879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Patrol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +822,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5568651933833628946}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AI States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8986294660368759955}
   - component: {fileID: 8986294660368759956}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Approach Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -920,7 +920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8986294660585687604}
   - component: {fileID: 8986294660585687603}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Destination Reached
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -965,7 +965,7 @@ GameObject:
   - component: {fileID: 8986294660759891367}
   - component: {fileID: 8986294660759891384}
   - component: {fileID: 5150997405915887288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hear Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
