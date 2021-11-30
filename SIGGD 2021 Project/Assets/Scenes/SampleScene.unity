@@ -489,6 +489,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 508372120129800236, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+      propertyPath: healthChangeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invoke
+      objectReference: {fileID: 0}
     - target: {fileID: 5314529853658650849, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -621,6 +625,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1814661042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8318343125257491226, guid: de25f21707b0e61459829ce658a2d1c6, type: 3}
+  m_PrefabInstance: {fileID: 8318343123926031169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1814661044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814661042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1254d8c0319f12c45b45be7995303de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1814661045}
+        m_TargetAssemblyTypeName: PlayerHealthGraphics, Assembly-CSharp
+        m_MethodName: healthGraphicUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  intGameEvent: {fileID: 11400000, guid: 6bc2294da8521c34ba4f0596ca92929f, type: 2}
+--- !u!114 &1814661045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1369802848, guid: de25f21707b0e61459829ce658a2d1c6, type: 3}
+  m_PrefabInstance: {fileID: 8318343123926031169}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814661042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0369416381533b4d9eaf26216b3d8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8318343123926031169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -720,5 +768,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1369802847, guid: de25f21707b0e61459829ce658a2d1c6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de25f21707b0e61459829ce658a2d1c6, type: 3}
