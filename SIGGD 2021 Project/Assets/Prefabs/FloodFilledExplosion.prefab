@@ -48,10 +48,9 @@ MonoBehaviour:
   origin: {fileID: 3534978056858280771}
   layer:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 1792
   maxIteration: 8
   delay: 0.4
-  original: 1
 --- !u!1 &3534978056858280771
 GameObject:
   m_ObjectHideFlags: 0
