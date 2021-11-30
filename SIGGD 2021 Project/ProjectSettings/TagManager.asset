@@ -14,8 +14,8 @@ TagManager:
   - Enemy
   - Sound
   - Detection
-  - Explosion
-  - Wall
+  - Interactables
+  - 
   - 
   - 
   - 

@@ -118,13 +118,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bbd111926ec76458cdd32c6e0d65ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   NOT: 0
-  cone: {fileID: 0}
   eyeTransform: {fileID: 4526336295776787523}
   layerMask:
     serializedVersion: 2
-    m_Bits: 448
-  targetFaction: 0
+    m_Bits: 456
+  factionComp: {fileID: 8451795155817753434}
 --- !u!1 &2743777163720709177
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,8 +310,7 @@ GameObject:
   - component: {fileID: 1798830218007673666}
   - component: {fileID: 8451795155817753434}
   - component: {fileID: 4969041025284163447}
-  - component: {fileID: 4526336295776787526}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,32 +441,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agentSpeed: 1
---- !u!61 &4526336295776787526
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4526336295776787527}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &4526336296557331760
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,13 +702,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bbd111926ec76458cdd32c6e0d65ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   NOT: 1
-  cone: {fileID: 0}
   eyeTransform: {fileID: 4526336295776787523}
   layerMask:
     serializedVersion: 2
-    m_Bits: 448
-  targetFaction: 0
+    m_Bits: 456
+  factionComp: {fileID: 8451795155817753434}
 --- !u!1 &7221178221261045189
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,7 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a384ba01616b47b0aa7ccda1e98e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCollider: {fileID: 4526336295776787526}
+  enemyCollider: {fileID: 5150997405915887288}
 --- !u!1 &8986294660759891385
 GameObject:
   m_ObjectHideFlags: 0
