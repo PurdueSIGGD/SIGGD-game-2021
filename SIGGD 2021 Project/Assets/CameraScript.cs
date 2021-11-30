@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.U2D;
+
 public class CameraScript : MonoBehaviour
 {
     private GameObject player; 
@@ -13,8 +15,9 @@ public class CameraScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        gameObject.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, gameObject.transform.position.z);
+        gameObject.transform.position = GetComponent<PixelPerfectCamera>().RoundToPixel(player.transform.position);
+        gameObject.transform.position += Vector3.back;
     }
 }
