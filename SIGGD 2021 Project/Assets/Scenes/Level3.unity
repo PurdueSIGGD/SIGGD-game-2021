@@ -29603,7 +29603,7 @@ GameObject:
   - component: {fileID: 811622245}
   - component: {fileID: 811622244}
   - component: {fileID: 811622243}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tilemap_Hidden_Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34082,7 +34082,7 @@ GameObject:
   - component: {fileID: 1279429700}
   - component: {fileID: 1279429699}
   - component: {fileID: 1279429698}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tilemap_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
