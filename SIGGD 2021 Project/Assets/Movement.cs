@@ -13,11 +13,12 @@ public class Movement : MonoBehaviour
     public Transform attackHitbox;
     public Transform interactHitbox;
 
+    public Vector2 facing;
+
     Vector2 movement;
     Vector2 old_pos;
     Vector2 new_pos;
     Vector2 point;
-    Vector2 facing;
 
     void Start()
     {
@@ -41,7 +42,7 @@ public class Movement : MonoBehaviour
         rigidBody.MovePosition(rigidBody.position + unitMovement * moveSpeed * Time.fixedDeltaTime);
         new_pos = rigidBody.position;
 
-        // Update face angle
+        // Update facing angle
         if (movement.magnitude > 0.2f)
         {
             facing = unitMovement;
