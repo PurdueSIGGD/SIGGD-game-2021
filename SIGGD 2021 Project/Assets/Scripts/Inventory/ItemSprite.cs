@@ -8,6 +8,9 @@ public class ItemSprite : MonoBehaviour
     public Sprite defaultInvSprite;
     public Sprite defaultWorldSprite;
 
+    // Sets the item size, usually based on the size of the sprite
+    public Vector2 spriteSize;
+
     public Sprite GetInvSprite()
     {
         // Check to see if any components change the sprite (first change found is applied), otherwise return default

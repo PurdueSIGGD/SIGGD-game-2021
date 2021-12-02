@@ -11,9 +11,13 @@ public class Inventory : MonoBehaviour
     // Currently equipped item
     public GameObject equippedItem;
 
-    // Scripts for using the current item
+    // Scripts for using and dropping the current item
     private Timer useItemTimer;
     private bool useItemReady = true;
+
+    // World item parent prefab for dropping items
+    [SerializeField]
+    private GameObject worldItemParent;
     private void Start()
     {
         useItemTimer = GetComponent<Timer>();
@@ -27,6 +31,15 @@ public class Inventory : MonoBehaviour
 
             // Use the item
             UseItem();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && useItemReady)
+        {
+            useItemReady = false;
+            useItemTimer.StartTimer();
+
+            // Drop the item (using the same timer)
+            DropItem();
         }
     }
     public void RefreshItemUse()
@@ -42,6 +55,18 @@ public class Inventory : MonoBehaviour
         ItemControl currentControl = equippedItem.GetComponent<ItemControl>();
         currentControl.use.Invoke();
         onItemChange?.Invoke();
+    }
+
+    // Drops the current item
+    public void DropItem()
+    {
+        if (!equippedItem) return;
+
+        // WIP: add collision checks
+
+        GameObject droppedItem = DequipItem();
+        GameObject newWorldItem = Instantiate(worldItemParent, transform.position, Quaternion.identity, null);
+        droppedItem.transform.SetParent(newWorldItem.transform);
     }
 
     // Equips a new item (dequipping and returning any old/extra item)
