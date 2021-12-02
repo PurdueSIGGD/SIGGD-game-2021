@@ -21,6 +21,8 @@ public class WorldItem : MonoBehaviour
         // Set Item
         invItem = value;
         value.transform.SetParent(transform);
+        value.transform.localPosition = Vector3.zero;
+        if (value.GetComponent<SpriteRenderer>()) value.GetComponent<SpriteRenderer>().enabled = false;
 
         // Set Sprite
         ItemSprite spr = value.GetComponent<ItemSprite>();

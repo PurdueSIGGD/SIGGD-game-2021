@@ -24,6 +24,22 @@ public class ItemSprite : MonoBehaviour
         Sprite changedSprite = GetComponentInChildren<IChangeWorldSprite>()?.GetWorldSprite();
         return (changedSprite) ? changedSprite : defaultWorldSprite;
     }
+
+    void OnDrawGizmosSelected()
+    {
+        // Visualize the hitbox of spriteSize for easier editing
+
+        if (Application.isPlaying) return;
+        if (spriteSize.x < 0.05 || spriteSize.y < 0.05) return;
+        Vector3 tr = (spriteSize * 0.5f) / 32f;
+        Vector3 tl = new Vector3(-tr.x, tr.y, tr.z);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position + tr, transform.position - tl);
+        Gizmos.DrawLine(transform.position - tr, transform.position - tl);
+        Gizmos.DrawLine(transform.position - tr, transform.position + tl);
+        Gizmos.DrawLine(transform.position + tr, transform.position + tl);
+    }
 }
 
 // Interface to change the inventory sprite

@@ -61,7 +61,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   equippedItem: {fileID: 0}
-  worldItemParent: {fileID: 5285859446490462202, guid: 73429213b98d01f45bb7bb1c80bcfa31, type: 3}
+  itemContainerBase: {fileID: 5285859446490462202, guid: 73429213b98d01f45bb7bb1c80bcfa31, type: 3}
+  dropPreventionLayers:
+    serializedVersion: 2
+    m_Bits: 1600
 --- !u!114 &7833173994481749750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -803,6 +806,7 @@ MonoBehaviour:
   soundHitbox: {fileID: 2710834141804731409}
   attackHitbox: {fileID: 6599404643187351301}
   interactHitbox: {fileID: 1101018362222611360}
+  facing: {x: 0, y: 0}
 --- !u!114 &144284290
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,11 @@ public class Inventory : MonoBehaviour
 
     // World item parent prefab for dropping items
     [SerializeField]
-    private GameObject worldItemParent;
+    private GameObject itemContainerBase;
+
+    // Layermask for locations to be not droppable
+    public LayerMask dropPreventionLayers;
+
     private void Start()
     {
         useItemTimer = GetComponent<Timer>();
@@ -62,11 +66,50 @@ public class Inventory : MonoBehaviour
     {
         if (!equippedItem) return;
 
-        // WIP: add collision checks
+        Vector2 colliderSize = equippedItem.GetComponent<ItemSprite>().spriteSize / 32f;
+
+        // Calculate dropped item position
+        Vector2 dropLocation = transform.position;
+        if (GetComponentInParent<Movement>()) {
+            // Account for player's facing direction
+            Movement m = GetComponentInParent<Movement>();
+            dropLocation += m.facing * 0.75f;
+
+            // Account for the item's size
+            Vector2 itemSizeMod = Vector2.Scale(m.facing, (colliderSize * 0.5f));
+            dropLocation += itemSizeMod;
+        }
+        // Align the position to the 32x32 pixel grid
+        dropLocation.x = Mathf.Round(dropLocation.x * 32f) / 32f;
+        dropLocation.y = Mathf.Round(dropLocation.y * 32f) / 32f;
+
+        // Check if the resulting item container collides with anything
+        Collider2D[] c = Physics2D.OverlapBoxAll(dropLocation, colliderSize, 0f, dropPreventionLayers);
+        if (c.Length > 0)
+        {
+            // Ideally communicate to the player with a sound that they can't drop here before bailing
+            // Currently, using debug code to draw the drop location and print colliding objects
+
+            Vector3 tr = colliderSize * 0.5f;
+            Vector3 tl = new Vector3(-tr.x, tr.y, tr.z);
+            Vector3 drop = dropLocation;
+
+            Debug.DrawLine(drop + tr, drop - tl, Color.magenta, 1f);
+            Debug.DrawLine(drop + tr, drop + tl, Color.magenta, 1f);
+            Debug.DrawLine(drop - tr, drop + tl, Color.magenta, 1f);
+            Debug.DrawLine(drop - tr, drop - tl, Color.magenta, 1f);
+
+            foreach (Collider2D l in c)
+            {
+                Debug.Log("Dropped item collided with: " + l.name);
+            }
+
+            return;
+        }
 
         GameObject droppedItem = DequipItem();
-        GameObject newWorldItem = Instantiate(worldItemParent, transform.position, Quaternion.identity, null);
-        droppedItem.transform.SetParent(newWorldItem.transform);
+        GameObject newItemContainer = Instantiate(itemContainerBase, dropLocation, Quaternion.identity, null);
+        droppedItem.transform.SetParent(newItemContainer.transform);
     }
 
     // Equips a new item (dequipping and returning any old/extra item)
