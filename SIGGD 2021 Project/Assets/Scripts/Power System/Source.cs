@@ -22,6 +22,10 @@ public class Source : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isDisabled = !isDisabled;
+        }
         foreach (Power component in outComponents)
         {
             component.propagate(!isDisabled);
