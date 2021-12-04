@@ -1,25 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Wire : Power
+public class Source : MonoBehaviour
 {
+    [SerializeField] private UnityEvent<bool> propagateEvent;
     [SerializeField] private List<Power> outComponents;
-
-    private bool isPowered = false;
     private bool isDisabled = false;
-
-    public override void propagate(bool value)
-    {
-        if (!isDisabled)
-        {
-            isPowered = value;
-        }
-        else
-        {
-            isPowered = false;
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +20,9 @@ public class Wire : Power
     {
         foreach (Power component in outComponents)
         {
-            component.propagate(true);
+            component.propagate(!isDisabled);
         }
+
+        propagateEvent.Invoke(!isDisabled);
     }
 }

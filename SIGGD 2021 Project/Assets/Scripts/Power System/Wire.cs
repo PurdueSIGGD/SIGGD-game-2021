@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Appliance : Power
+public class Wire : Power
 {
+    [SerializeField] private UnityEvent<bool> propagateEvent;
+    [SerializeField] private List<Power> outComponents;
+
     private bool isPowered = false;
     private bool isDisabled = false;
 
@@ -28,9 +32,11 @@ public class Appliance : Power
     // Update is called once per frame
     void Update()
     {
-        if (isPowered)
+        propagateEvent.Invoke(isPowered);
+
+        foreach (Power component in outComponents)
         {
-            //do something
+            component.propagate(isPowered);
         }
     }
 }
