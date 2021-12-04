@@ -12,11 +12,12 @@ public class AudibleTile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!isTriggered && other.GetComponent<isGrounded>()?.grounded == true)
+        if (!isTriggered && other.GetComponent<isGrounded>()?.grounded == true && other.GetComponent<Rigidbody2D>() != null)
         {
             soundTriggerPlayTimer.StartTimer();
             soundCollider.radius = this.radius;
             isTriggered = true;
         }
     }
+
 }
