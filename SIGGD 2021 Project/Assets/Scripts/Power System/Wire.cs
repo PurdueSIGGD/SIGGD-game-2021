@@ -8,6 +8,9 @@ public class Wire : Power
     [SerializeField] private UnityEvent<bool> propagateEvent;
     [SerializeField] private List<Power> outComponents;
 
+    // NOTE: Having +2 previous components linked to a component is not yet
+    // supported
+
     private bool isPowered = false;
     private bool isDisabled = false;
 
