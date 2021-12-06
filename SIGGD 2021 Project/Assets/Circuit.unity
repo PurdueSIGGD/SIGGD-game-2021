@@ -194,7 +194,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662491489}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -452,14 +452,14 @@ PrefabInstance:
     - target: {fileID: 8520322916964106126, guid: 264ea541d6eebda4494a644b74cc3433, type: 3}
       propertyPath: propagateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 389819606}
+      objectReference: {fileID: 662491493}
     - target: {fileID: 8520322916964106126, guid: 264ea541d6eebda4494a644b74cc3433, type: 3}
       propertyPath: propagateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8520322916964106126, guid: 264ea541d6eebda4494a644b74cc3433, type: 3}
       propertyPath: propagateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: setStatus
       objectReference: {fileID: 0}
     - target: {fileID: 8520322916964106126, guid: 264ea541d6eebda4494a644b74cc3433, type: 3}
       propertyPath: propagateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -489,11 +489,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1991591118802146899, guid: 440c6a36490a47c4a8ef58a4bd09f0ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.29
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 1991591118802146899, guid: 440c6a36490a47c4a8ef58a4bd09f0ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.89
+      value: 3.64
       objectReference: {fileID: 0}
     - target: {fileID: 1991591118802146899, guid: 440c6a36490a47c4a8ef58a4bd09f0ab, type: 3}
       propertyPath: m_LocalPosition.z
