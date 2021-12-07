@@ -11,7 +11,7 @@ public class SearchForPlayer : Behavior
 
     public override void OnBehaviorEnter()
     {
-        Debug.Log("Searching");
+        //Debug.Log("Searching");
     }
 
     public override void OnBehaviorExit()

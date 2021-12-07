@@ -11,6 +11,15 @@ public class SeeFaction : Trigger
     [SerializeField] private LayerMask layerMask;
     // [SerializeField] private FactionComponent factionComp;
     [SerializeField] private EntityFaction targetFaction;
+    [SerializeField] private Collider2D enemyCollider;
+    private ContactFilter2D contactFilter = new ContactFilter2D();
+    private List<Collider2D> colliderList = new List<Collider2D>(); 
+
+    void Start()
+    {
+        contactFilter.SetLayerMask(LayerMask.GetMask("Electric"));
+    }
+ 
     
     public override bool isActive()
     {
@@ -20,6 +29,24 @@ public class SeeFaction : Trigger
 
         var hit = cone.Raycast((h) => h.transform.GetComponent<FactionComponent>()?.faction == targetFaction);
 
+        enemyCollider.OverlapCollider(contactFilter, colliderList);
+
+        bool lightsOff = false;
+
+        foreach (Collider2D collider in colliderList)
+        {
+            lightsOff = string.Equals(collider.tag, "Lights");
+            if (lightsOff)
+            {
+                break;
+            }
+        }
+
+        if (lightsOff)
+        {
+            return false;
+        }
+        
         if (hit) //if the ray hits the faction
         {
             return !ret;
