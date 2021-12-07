@@ -39,4 +39,6 @@ public class Stackable : MonoBehaviour, ICanUse
             return diff;
         }
     }
+
+    public void SetStack(int n) => this.count = n;
 }
