@@ -10,7 +10,7 @@ public class Attack : MonoBehaviour
     public float range = .8f;
     const float delay = 1f;
     static float timeElapsed = 0f;
-    int attackDamage = 20;
+    int attackDamage = 1;
 
     // Start is called before the first frame update
     void Start()
