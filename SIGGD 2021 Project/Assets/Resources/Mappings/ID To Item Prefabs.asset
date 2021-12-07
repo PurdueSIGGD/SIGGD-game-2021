@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8786ad2871aa2f4d88f417e614cd966, type: 3}
   m_Name: ID To Item Prefabs
   m_EditorClassIdentifier: 
-  mapping: []
+  mapping:
+  - id: rock_throwable
+    value:
+      pickup: {fileID: 6661046986267507086, guid: cc7464b91443a994bb292df2b6112d76, type: 3}
+      system: {fileID: 4026520700735766970, guid: eba7326b401f2564e9154f3ce76140ae, type: 3}
+      ui: {fileID: 0}
