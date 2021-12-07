@@ -15,9 +15,6 @@ public class Inventory : MonoBehaviour
     private Timer useItemTimer;
     private bool useItemReady = true;
 
-    [SerializeField] private StringToPrefabScriptable idToItemSystemPrefab;
-    [SerializeField] private StringToPrefabScriptable idToItemPickupPrefab;
-
     private void Start()
     {
         useItemTimer = GetComponent<Timer>();
@@ -40,7 +37,8 @@ public class Inventory : MonoBehaviour
             useItemTimer.StartTimer();
 
             // Drop the item (using the same timer)
-            DequipItem(transform.position, true);
+            dropItem(transform.position);
+            onItemChange?.Invoke();
         }
     }
     public void RefreshItemUse()
@@ -59,105 +57,75 @@ public class Inventory : MonoBehaviour
     }
 
     // Equips a new item (dequipping and returning any old/extra item)
-    public void EquipItem(GameObject itemPickup, bool invokeEvent = true)
+    public void EquipItem(GameObject itemPickup)
     {
         // Merge items if possible
-        if (this.equippedItem != null)
+        if (canMerge(itemPickup))
         {
-            var stack = this.equippedItem.GetComponent<Stackable>();
-            var itemPickupCountComp = itemPickup.GetComponent<ItemPickupCount>();
-
-            // mergeable if item id matches and proper components not null
-            if (itemIDMatches(itemPickup) && stack != null && itemPickupCountComp != null) {
-                itemPickupCountComp.MergeToStack(stack);
-                if (invokeEvent)
-                {
-                    onItemChange?.Invoke();
-                }
-                return;
-            }
+            // equip by merging stack counts into equipped item
+            itemPickup.GetComponent<ItemPickupCount>()
+                .MergeToStack(
+                    this.equippedItem.GetComponent<Stackable>()
+                );
+        } else {
+            equipSwapOut(itemPickup);
         }
 
-        createAndEquipItemSystemFromPickup(itemPickup);
-
-        if (invokeEvent)
-        {
-            onItemChange?.Invoke();
-        }
+        onItemChange?.Invoke();
     }
 
-    private void createAndEquipItemSystemFromPickup(GameObject itemPickup) {
-        // Dequip the current item (if any) and avoid triggering the event twice
+    // mergeable if item id matches and proper components not null
+    private bool canMerge(GameObject itemPickup) {
+        if (this.equippedItem == null) return false;
+
+        var stackComp = this.equippedItem.GetComponent<Stackable>();
+        var itemPickupCountComp = itemPickup.GetComponent<ItemPickupCount>();
+
+        return ItemMeta.HasSameItemID(this.equippedItem, itemPickup) 
+                && stackComp != null && itemPickupCountComp != null;
+    }
+
+
+    // equip by dequipping current item and equipping new instantiated one
+    private void equipSwapOut(GameObject itemPickup) {
         if (equippedItem) {
-            DequipItem(itemPickup.transform.position, false);
+            dropItem(itemPickup.transform.position);
         }
 
-        // instantiate prefab via pickup's id
-        var itemPickupID = itemPickup.GetComponent<ItemID>().id;
-        this.equippedItem = Instantiate(this.idToItemSystemPrefab.getPrefab(itemPickupID));
-        this.equippedItem.transform.SetParent(transform);
+        this.equippedItem = itemPickup.GetComponent<ItemMeta>()
+            .BuildSystemPrefab(this.transform);
 
-        // set stack count to item pickup count (if these components exist)
-        {
-            var stack = this.equippedItem.GetComponent<Stackable>();
-            var itemPickupCountComp = itemPickup.GetComponent<ItemPickupCount>();
-
-            if (stack != null && itemPickupCountComp != null) {
-                stack.SetStack(0);
-                itemPickupCountComp.MergeToStack(stack);
-            }
-        }
-
+        Destroy(itemPickup);
         
-        var itemControl = this.equippedItem.GetComponent<ItemControl>();
-        itemControl.equip.Invoke();
+        this.equippedItem.GetComponent<ItemControl>()
+            .equip.Invoke();
     }
 
-    public void DequipItem() {
-        DequipItem(this.transform.position, true);
+    public void DropItem() {
+        dropItem(this.transform.position);
+        onItemChange?.Invoke();
     }
 
     // Dequips and returns the current item (parent must be set by whatever else)
-    private void DequipItem(Vector3 dropLocation, bool invokeEvent = true)
+    private void dropItem(Vector3 dropLocation)
     {
-        var equippedItemID = this.equippedItem.GetComponent<ItemID>().id;
-
-        var equippedItemStack = this.equippedItem.GetComponent<Stackable>();
-
-        // instantiate item pickup from equipped item's id
-        // set item pickup count to equipped item count (if components exist)
-        if (equippedItemStack == null || equippedItemStack.count != 0)
-        {
-            // instantiate item pickup from equipped item's id
-            var itemPickup = Instantiate(this.idToItemPickupPrefab.getPrefab(equippedItemID));
-            itemPickup.transform.position = dropLocation;
-
-            var itemPickupCountComp = itemPickup.GetComponent<ItemPickupCount>();
-
-            if (itemPickupCountComp != null && equippedItemStack != null) {
-                itemPickupCountComp.count = equippedItemStack.count;
-            }
+        var nullableCount = this.equippedItem.GetComponent<Stackable>()?.count;
+        if (nullableCount != 0) {
+            this.equippedItem.GetComponent<ItemMeta>()
+                .BuildPickupPrefab(dropLocation, nullableCount);
         }
 
-        var currentControl = equippedItem.GetComponent<ItemControl>();
-        currentControl.dequip.Invoke();
-
+        equippedItem.GetComponent<ItemControl>()
+            .dequip.Invoke();
+        Destroy(equippedItem);
         equippedItem = null;
-
-        if (invokeEvent)
-        {
-            onItemChange?.Invoke();
-        }
     }
 
-    public bool itemIDMatches(GameObject itemPickup) 
-        => this.equippedItem.GetComponent<ItemID>().id
-            .Equals(itemPickup.GetComponent<ItemID>().id);
-
     public bool IsValidItemPickup(GameObject gObj) =>
-        gObj.GetComponent<ItemID>() != null
+        gObj.GetComponent<ItemMeta>() != null
         && gObj.GetComponent<ItemControl>() == null;
 
+    // This is called by the interaction unity event
     public void handleInteraction(GameObject gameObj) {
         if (IsValidItemPickup(gameObj)) {
             EquipItem(gameObj);

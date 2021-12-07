@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2612784756956185004}
   - component: {fileID: 2726721331541938212}
   - component: {fileID: 2904447420726660017}
-  - component: {fileID: -1605443752916046242}
   m_Layer: 0
   m_Name: Rock System
   m_TagString: Untagged
@@ -162,16 +161,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1605443752916046242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4026520700735766970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec01ac8b9d8ac2b4fa9b6867c5394708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <id>k__BackingField: rock_throwable
