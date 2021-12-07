@@ -11,6 +11,7 @@ public class ItemPickupCount : MonoBehaviour
 
     public void MergeToStack(Stackable stack) {
         this.count = stack.AddToStack(this.count);
+        Debug.Log("count: " + count);
         if (this.count == 0) {
             Destroy(gameObject);
         }

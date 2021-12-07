@@ -122,14 +122,17 @@ public class Inventory : MonoBehaviour
     {
         var equippedItemID = this.equippedItem.GetComponent<ItemID>().id;
 
-        // instantiate item pickup from equipped item's id
-        var itemPickup = Instantiate(this.idToItemPickupPrefab.getPrefab(equippedItemID));
-        itemPickup.transform.position = dropLocation;
+        var equippedItemStack = this.equippedItem.GetComponent<Stackable>();
 
+        // instantiate item pickup from equipped item's id
         // set item pickup count to equipped item count (if components exist)
+        if (equippedItemStack == null || equippedItemStack.count != 0)
         {
+            // instantiate item pickup from equipped item's id
+            var itemPickup = Instantiate(this.idToItemPickupPrefab.getPrefab(equippedItemID));
+            itemPickup.transform.position = dropLocation;
+
             var itemPickupCountComp = itemPickup.GetComponent<ItemPickupCount>();
-            var equippedItemStack = this.equippedItem.GetComponent<Stackable>();
 
             if (itemPickupCountComp != null && equippedItemStack != null) {
                 itemPickupCountComp.count = equippedItemStack.count;
