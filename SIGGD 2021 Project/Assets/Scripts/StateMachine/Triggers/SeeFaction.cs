@@ -35,7 +35,8 @@ public class SeeFaction : Trigger
 
         foreach (Collider2D collider in colliderList)
         {
-            lightsOff = string.Equals(collider.tag, "Lights");
+            Debug.Log(collider.tag);
+            lightsOff = string.Equals(collider.tag, "Obscure Vision");
             if (lightsOff)
             {
                 break;
@@ -44,6 +45,7 @@ public class SeeFaction : Trigger
 
         if (lightsOff)
         {
+            Debug.Log("Vision is obscured");
             return false;
         }
         
