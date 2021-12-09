@@ -9,6 +9,7 @@ SIGGD 2021 Project/[Bb]uild/
 SIGGD 2021 Project/[Bb]uilds/
 SIGGD 2021 Project/[Ll]ogs/
 SIGGD 2021 Project/[Mm]emoryCaptures/
+SIGGD 2021 Project/[Uu]serSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !SIGGD 2021 Project/[Aa]ssets/**/*.meta
@@ -57,4 +58,3 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-

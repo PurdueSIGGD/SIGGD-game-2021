@@ -14,9 +14,9 @@ TagManager:
   - Enemy
   - Sound
   - Detection
-  - 
-  - 
-  - 
+  - Interactables
+  - Wall
+  - Electric
   - 
   - 
   - 

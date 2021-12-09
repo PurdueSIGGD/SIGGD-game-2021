@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     public CircleCollider2D soundHitbox;
 
     public Transform attackHitbox;
+    public Transform interactHitbox;
 
     Vector2 movement;
     Vector2 old_pos;
