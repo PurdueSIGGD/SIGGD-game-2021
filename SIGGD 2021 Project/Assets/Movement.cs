@@ -11,6 +11,9 @@ public class Movement : MonoBehaviour
     public CircleCollider2D soundHitbox;
 
     public Transform attackHitbox;
+    public Transform interactHitbox;
+
+    public Vector2 facing;
 
     Vector2 movement;
     Vector2 old_pos;
@@ -39,6 +42,12 @@ public class Movement : MonoBehaviour
         rigidBody.MovePosition(rigidBody.position + unitMovement * moveSpeed * Time.fixedDeltaTime);
         new_pos = rigidBody.position;
 
+        // Update facing angle
+        if (movement.magnitude > 0.2f)
+        {
+            facing = unitMovement;
+        }
+
         if (isRunning())
         {
             moveSpeed = 8f;
@@ -56,6 +65,7 @@ public class Movement : MonoBehaviour
         {
             soundHitbox.radius = moveSpeed;
             attackHitbox.position = new Vector2(rigidBody.position.x, rigidBody.position.y);
+            interactHitbox.position = new Vector2(rigidBody.position.x, rigidBody.position.y) + facing * 0.5f;
         } 
         else 
         {

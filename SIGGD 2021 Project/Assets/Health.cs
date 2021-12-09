@@ -25,17 +25,13 @@ public class Health : MonoBehaviour
     //takes damage and/or heals if the damage is negative also invokes the death event when health is <= 0
     public void TakeDamage(int damage)
     {
-        if (IsDead())
-        {
-            return;
-        }
-
         SetCurrHealth(currHealth - damage);
         
         if (IsDead())
         {
             deathEvent?.Invoke();
             Debug.Log(string.Format("{0} is dead", name));
+            Destroy(gameObject);
         }
     }
 
