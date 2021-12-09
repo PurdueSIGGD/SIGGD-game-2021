@@ -12,12 +12,13 @@ public class SeeFaction : Trigger
     // [SerializeField] private FactionComponent factionComp;
     [SerializeField] private EntityFaction targetFaction;
     [SerializeField] private Collider2D enemyCollider;
+    [SerializeField] private LayerMask obscureLayer;
     private ContactFilter2D contactFilter = new ContactFilter2D();
     private List<Collider2D> colliderList = new List<Collider2D>(); 
 
     void Start()
     {
-        contactFilter.SetLayerMask(LayerMask.GetMask("Electric"));
+        contactFilter.SetLayerMask(obscureLayer);
     }
  
     
@@ -33,19 +34,9 @@ public class SeeFaction : Trigger
 
         bool lightsOff = false;
 
-        foreach (Collider2D collider in colliderList)
+        if (colliderList.Count > 0)
         {
-            Debug.Log(collider.tag);
-            lightsOff = string.Equals(collider.tag, "Obscure Vision");
-            if (lightsOff)
-            {
-                break;
-            }
-        }
-
-        if (lightsOff)
-        {
-            Debug.Log("Vision is obscured");
+            Debug.Log("Vision Obscured");
             return false;
         }
         
