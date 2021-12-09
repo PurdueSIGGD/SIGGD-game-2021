@@ -8,14 +8,14 @@ public class TutorialEnemy : MonoBehaviour
 
     private void Start()
     {
-        manager = GameObject.Find("TutorialManager");
+        manager = GameObject.Find("Tutorial Manager");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.name == "Player")
         {
-            manager.GetComponent<TutorialManager>().playerCaught = true;
+            manager.GetComponent<TutorialManager>().playerCaught();
         }
     }
 }

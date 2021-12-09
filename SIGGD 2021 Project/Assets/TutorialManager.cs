@@ -5,20 +5,29 @@ using UnityEngine;
 public class TutorialManager : MonoBehaviour
 {
     private GameObject player;
-    public bool playerCaught = false;
+    public Vector2 checkPoint;
+    public bool test = false;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        checkPoint = player.transform.position; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerCaught)
+        if(test)
         {
-
+            playerCaught();
+            test = !test;
         }
     }
+
+    public void playerCaught()
+    {
+        player.transform.position = checkPoint;
+    }
+
 }
