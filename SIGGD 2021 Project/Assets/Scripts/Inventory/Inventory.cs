@@ -15,17 +15,11 @@ public class Inventory : MonoBehaviour
     private Timer useItemTimer;
     private bool useItemReady = true;
 
-    // World item parent prefab for dropping items
-    [SerializeField]
-    private GameObject itemContainerBase;
-
-    // Layermask for locations to be not droppable
-    public LayerMask dropPreventionLayers;
-
     private void Start()
     {
         useItemTimer = GetComponent<Timer>();
     }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && useItemReady)
@@ -43,7 +37,8 @@ public class Inventory : MonoBehaviour
             useItemTimer.StartTimer();
 
             // Drop the item (using the same timer)
-            DropItem();
+            dropItem(transform.position);
+            onItemChange?.Invoke();
         }
     }
     public void RefreshItemUse()
@@ -61,144 +56,79 @@ public class Inventory : MonoBehaviour
         onItemChange?.Invoke();
     }
 
-    // Drops the current item
-    public void DropItem()
-    {
-        if (!equippedItem) return;
-
-        Vector2 colliderSize = equippedItem.GetComponent<ItemSprite>().spriteSize / 32f;
-
-        // Calculate dropped item position
-        Vector2 dropLocation = transform.position;
-        if (GetComponentInParent<Movement>()) {
-            // Account for player's facing direction
-            Movement m = GetComponentInParent<Movement>();
-            dropLocation += m.facing * 0.75f;
-
-            // Account for the item's size
-            Vector2 itemSizeMod = Vector2.Scale(m.facing, (colliderSize * 0.5f));
-            dropLocation += itemSizeMod;
-        }
-        // Align the position to the 32x32 pixel grid
-        dropLocation.x = Mathf.Round(dropLocation.x * 32f) / 32f;
-        dropLocation.y = Mathf.Round(dropLocation.y * 32f) / 32f;
-
-        // Check if the resulting item container collides with anything
-        Collider2D[] c = Physics2D.OverlapBoxAll(dropLocation, colliderSize, 0f, dropPreventionLayers);
-        if (c.Length > 0)
-        {
-            // Ideally communicate to the player with a sound that they can't drop here before bailing
-            // Currently, using debug code to draw the drop location and print colliding objects
-
-            Vector3 tr = colliderSize * 0.5f;
-            Vector3 tl = new Vector3(-tr.x, tr.y, tr.z);
-            Vector3 drop = dropLocation;
-
-            Debug.DrawLine(drop + tr, drop - tl, Color.magenta, 1f);
-            Debug.DrawLine(drop + tr, drop + tl, Color.magenta, 1f);
-            Debug.DrawLine(drop - tr, drop + tl, Color.magenta, 1f);
-            Debug.DrawLine(drop - tr, drop - tl, Color.magenta, 1f);
-
-            foreach (Collider2D l in c)
-            {
-                Debug.Log("Dropped item collided with: " + l.name);
-            }
-
-            return;
-        }
-
-        GameObject droppedItem = DequipItem();
-        GameObject newItemContainer = Instantiate(itemContainerBase, dropLocation, Quaternion.identity, null);
-        droppedItem.transform.SetParent(newItemContainer.transform);
-    }
-
     // Equips a new item (dequipping and returning any old/extra item)
-    public GameObject EquipItem(GameObject newItem, bool invokeEvent = true)
+    public void EquipItem(GameObject itemPickup)
     {
         // Merge items if possible
-        if (Mergeable(equippedItem, newItem))
+        if (canMerge(itemPickup))
         {
-            GameObject srcItem = MergeItem(equippedItem, newItem);
-            if (invokeEvent)
-            {
-                onItemChange?.Invoke();
-            }
-            return srcItem;
+            // equip by merging stack counts into equipped item
+            itemPickup.GetComponent<ItemPickupCount>()
+                .MergeToStack(
+                    this.equippedItem.GetComponent<Stackable>()
+                );
+        } else {
+            equipSwapOut(itemPickup);
         }
 
-        // Dequip the current item (if any) and avoid triggering the event twice
-        GameObject copyItem = equippedItem;
-        if (equippedItem)
-        {
-            copyItem = DequipItem(false);
+        onItemChange?.Invoke();
+    }
+
+    // mergeable if item id matches and proper components not null
+    private bool canMerge(GameObject itemPickup) {
+        if (this.equippedItem == null) return false;
+
+        var stackComp = this.equippedItem.GetComponent<Stackable>();
+        var itemPickupCountComp = itemPickup.GetComponent<ItemPickupCount>();
+
+        return ItemMeta.HasSameItemID(this.equippedItem, itemPickup) 
+                && stackComp != null && itemPickupCountComp != null;
+    }
+
+
+    // equip by dequipping current item and equipping new instantiated one
+    private void equipSwapOut(GameObject itemPickup) {
+        if (equippedItem) {
+            dropItem(itemPickup.transform.position);
         }
 
-        // Equip the new item under the inventory gameobject
-        equippedItem = newItem;
-        newItem.transform.SetParent(transform);
+        this.equippedItem = itemPickup.GetComponent<ItemMeta>()
+            .BuildSystemPrefab(this.transform);
 
-        ItemControl newItemControl = newItem.GetComponent<ItemControl>();
-        newItemControl.equip.Invoke();
+        Destroy(itemPickup);
+        
+        this.equippedItem.GetComponent<ItemControl>()
+            .equip.Invoke();
+    }
 
-        if (invokeEvent)
-        {
-            onItemChange?.Invoke();
-        }
-
-        return copyItem;
+    public void DropItem() {
+        dropItem(this.transform.position);
+        onItemChange?.Invoke();
     }
 
     // Dequips and returns the current item (parent must be set by whatever else)
-    public GameObject DequipItem(bool invokeEvent = true)
+    private void dropItem(Vector3 dropLocation)
     {
-        ItemControl currentControl = equippedItem.GetComponent<ItemControl>();
-        currentControl.dequip.Invoke();
-        GameObject copyItem = equippedItem;
+        var nullableCount = this.equippedItem.GetComponent<Stackable>()?.count;
+        if (nullableCount != 0) {
+            this.equippedItem.GetComponent<ItemMeta>()
+                .BuildPickupPrefab(dropLocation, nullableCount);
+        }
+
+        equippedItem.GetComponent<ItemControl>()
+            .dequip.Invoke();
+        Destroy(equippedItem);
         equippedItem = null;
-
-        if (invokeEvent)
-        {
-            onItemChange?.Invoke();
-        }
-
-        return copyItem;
     }
 
-    // Check if two objects are mergeable
-    public bool Mergeable(GameObject dest, GameObject src)
-    {
-        if (!dest || !src) return false;
-        return (dest.name == src.name && dest.GetComponent<Stackable>() && src.GetComponent<Stackable>());
-    }
+    public bool IsValidItemPickup(GameObject gObj) =>
+        gObj.GetComponent<ItemMeta>() != null
+        && gObj.GetComponent<ItemControl>() == null;
 
-    // Merge src onto dest if possible (returning what remains in src)
-    public GameObject MergeItem(GameObject dest, GameObject src)
-    {
-        // Don't merge items if they aren't the same name
-        if (dest.name != src.name)
-        {
-            return src;
+    // This is called by the interaction unity event
+    public void handleInteraction(GameObject gameObj) {
+        if (IsValidItemPickup(gameObj)) {
+            EquipItem(gameObj);
         }
-
-        // Merge two stackable items
-        if (dest.GetComponent<Stackable>())
-        {
-            Stackable destStack = dest.GetComponent<Stackable>();
-            Stackable srcStack = src.GetComponent<Stackable>();
-
-            int diff = destStack.AddToStack(srcStack.count);
-
-            if (diff == 0)
-            {
-                // Delete the source item if its completely consumed
-                DestroyImmediate(src);
-                src = null;
-            } else
-            {
-                srcStack.count = diff;
-            }
-        }
-
-        return src;
     }
 }

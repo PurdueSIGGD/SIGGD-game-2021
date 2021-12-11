@@ -15,7 +15,7 @@ public class Stackable : MonoBehaviour, ICanUse
             count = 0;
 
             // Code to delete an item when its stack runs out
-            GameObject.FindWithTag("Player").GetComponentInChildren<Inventory>().DequipItem();
+            GameObject.FindWithTag("Player").GetComponentInChildren<Inventory>().DropItem();
             Destroy(gameObject);
         }
     }
@@ -39,4 +39,6 @@ public class Stackable : MonoBehaviour, ICanUse
             return diff;
         }
     }
+
+    public void SetStack(int n) => this.count = n;
 }
