@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TutorialEnemy : MonoBehaviour
 {
-    private GameObject manager;
+    public GameObject manager;
 
     private void Start()
     {

@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
-    private GameObject player;
-    public Vector2 checkPoint;
+    public GameObject player;
     public bool test = false;
-
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
-        checkPoint = player.transform.position; 
+        player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = GlobalControl.Instance.checkpoint;
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class TutorialManager : MonoBehaviour
 
     public void playerCaught()
     {
-        player.transform.position = checkPoint;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }
