@@ -5,10 +5,9 @@ using UnityEngine;
 public class GlobalControl : MonoBehaviour
 {
     public static GlobalControl Instance;
-
     public Vector2 checkpoint;
-
-    
+    // Might be better to make a serialiazables script that holds the players information instead of having all the variables here
+    // public PlayerStatistics savedPlayerData = new PlayerStatistics();
 
     void Awake()
     {
