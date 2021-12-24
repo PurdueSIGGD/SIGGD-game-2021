@@ -35,7 +35,7 @@ public class TutorialManager : MonoBehaviour
     {
         if(GlobalControl.Instance.checkpoint == new Vector2(checkpoints.transform.GetChild(0).gameObject.transform.position.x, 0))
         {
-            tutorialTextObject.transform.GetChild(2).GetComponent<TMP_Text>().text = "Also, Press Ctrl to Sneak";
+            tutorialTextObject.transform.GetChild(2).GetComponent<TMP_Text>().text = "And Ctrl to Sneak";
         }
     }
 
