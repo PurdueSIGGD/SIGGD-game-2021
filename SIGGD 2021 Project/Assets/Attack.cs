@@ -46,7 +46,8 @@ public class Attack : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position + lastMovement * offset, range);
+        //Gizmos.DrawWireSphere(transform.position + lastMovement * offset, range);
+        //Since this only updates on attack, seeing it in the inspector can be misleading
     }
 
     public bool isAttacking() {
