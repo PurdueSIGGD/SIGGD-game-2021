@@ -6,24 +6,11 @@ public class Movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    public Rigidbody2D rigidBody;
+    [SerializeField] private Rigidbody2D rigidBody;
 
     public CircleCollider2D soundHitbox;
 
-    public Transform attackHitbox;
-
-    Vector2 movement;
-    Vector2 old_pos;
-    Vector2 new_pos;
-    Vector2 point;
-
-    void Start()
-    {
-        old_pos = GetComponent<Rigidbody2D>().position;
-        //soundHitbox = GetComponentInChildren<CircleCollider2D>();   Commented out as it is set in the inspecter
-        attackHitbox = GetComponent<Transform>();
-        rigidBody = GetComponent<Rigidbody2D>();
-    }
+    public Vector2 movement;
 
     // Update is called once per frame
     void Update()
@@ -37,7 +24,6 @@ public class Movement : MonoBehaviour
         // Move the player
         Vector2 unitMovement = movement.normalized;
         rigidBody.MovePosition(rigidBody.position + unitMovement * moveSpeed * Time.fixedDeltaTime);
-        new_pos = rigidBody.position;
 
         if (isRunning())
         {
@@ -55,14 +41,12 @@ public class Movement : MonoBehaviour
         if (isMoving())
         {
             soundHitbox.radius = moveSpeed;
-            attackHitbox.position = new Vector2(rigidBody.position.x, rigidBody.position.y);
         } 
         else 
         {
             soundHitbox.radius = 0;
         }
 
-        old_pos = rigidBody.position;
     }
 
     public bool isRunning() {

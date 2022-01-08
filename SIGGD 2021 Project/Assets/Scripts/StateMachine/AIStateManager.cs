@@ -33,6 +33,7 @@ public class AIStateManager : MonoBehaviour
         activeState.behavior.OnBehaviorExit();
         activeState = newState;
         newState.behavior.OnBehaviorEnter();
+        Debug.Log(newState.name);
     }
 }
 

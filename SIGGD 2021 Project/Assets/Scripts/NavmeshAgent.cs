@@ -13,6 +13,8 @@ public class NavmeshAgent : MonoBehaviour
     private Vector2 currentTarget = Vector2.zero;
     private bool atTarget = true;
 
+    public int compassDirection;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,11 @@ public class NavmeshAgent : MonoBehaviour
 
         Vector2 dirToCurrentNode = (currentPath[currentNode] - new Vector2(transform.position.x, transform.position.y)).normalized; //direction to next node
         transform.Translate(dirToCurrentNode * Time.deltaTime * agentSpeed); //go in direction to next node
+
+        //Calculate compass direction
+        float angle = Vector2.SignedAngle(Vector2.right, dirToCurrentNode) % 360;
+        angle = Mathf.Round(angle/90);
+        compassDirection = (int)angle;
 
         //draw the path
         for (int i = 1; i < path.Length; i++)
@@ -95,5 +102,10 @@ public class NavmeshAgent : MonoBehaviour
         atTarget = true;
         currentPath = null;
         currentNode = 0;
+    }
+
+    public void setAgentSpeed(float agentSpeed)
+    {
+        this.agentSpeed = agentSpeed;
     }
 }
