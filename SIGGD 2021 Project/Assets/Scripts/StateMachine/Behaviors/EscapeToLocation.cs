@@ -8,7 +8,6 @@ public class EscapeToLocation : Behavior
     [SerializeField] private Transform[] escapeLocations;
     [SerializeField] private NavmeshAgent navmeshAgent;
 
-    public float approachSpeed = 1f;
     public override void run()
     {
         Transform bestEscape = transform;
