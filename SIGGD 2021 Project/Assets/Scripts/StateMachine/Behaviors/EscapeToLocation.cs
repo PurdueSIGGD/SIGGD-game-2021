@@ -14,8 +14,8 @@ public class EscapeToLocation : Behavior
         float bestDistance = Vector2.Distance(player.position, transform.position);
         foreach (Transform location in escapeLocations)
         {
-            float newDistance = Vector2.Distance(player.position, location.position);
-            if (newDistance >= bestDistance)
+            float newDistance = Vector3.Distance(player.position, location.position);
+            if (newDistance > bestDistance)
             {
                 bestDistance = newDistance;
                 bestEscape = location;

@@ -14,7 +14,10 @@ public class AvoidSound : Behavior
 
     public override void run()
     {
-        soundOrigin = HearSound.position.Value;
+        if (HearSound.position != null)
+        {
+            soundOrigin = HearSound.position.Value;
+        }
         Vector2 dir = (Vector2)transform.position - soundOrigin;
         Vector2 avoidLocation = (Vector2)transform.position + dir.normalized * stepSize;
         var result = Physics2D.Raycast(transform.position, dir, stepSize, layerMask);
