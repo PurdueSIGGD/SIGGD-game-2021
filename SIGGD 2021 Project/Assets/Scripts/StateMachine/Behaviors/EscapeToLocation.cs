@@ -10,6 +10,11 @@ public class EscapeToLocation : Behavior
 
     public override void run()
     {
+        
+    }
+
+    public override void OnBehaviorEnter()
+    {
         Transform bestEscape = transform;
         float bestDistance = Vector2.Distance(player.position, transform.position);
         foreach (Transform location in escapeLocations)
@@ -21,12 +26,9 @@ public class EscapeToLocation : Behavior
                 bestEscape = location;
             }
         }
-        navmeshAgent.navigateTo(bestEscape.position);
-    }
-
-    public override void OnBehaviorEnter()
-    {
-
+        //THIS CRASHES UNITY
+        //navmeshAgent.navigateTo(bestEscape.position);
+        Debug.Log("Escaping to " + bestEscape.name);
     }
     public override void OnBehaviorExit()
     {

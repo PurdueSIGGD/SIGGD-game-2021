@@ -22,7 +22,8 @@ public class AIStateManager : MonoBehaviour
         {
             if(transition.isTriggered()) //if a transition is triggered then switch to that transition's state
             {
-                switchState(transition.toState); 
+                switchState(transition.toState);
+                break; //stops all states from switching and other bugs from occuring
             }
         }
         activeState.behavior.run(); //run the state behavior of the current active state
