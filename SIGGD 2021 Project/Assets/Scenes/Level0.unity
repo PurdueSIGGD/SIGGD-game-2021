@@ -2981,6 +2981,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7441615071909911421, guid: 5847f5fe40e01a247b3055c0a391ed43, type: 3}
+      propertyPath: m_Radius
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8222535126886966302, guid: 5847f5fe40e01a247b3055c0a391ed43, type: 3}
       propertyPath: m_Name
       value: Sound Source
@@ -3931,6 +3935,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7441615071909911421, guid: 5847f5fe40e01a247b3055c0a391ed43, type: 3}
+      propertyPath: m_Radius
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8222535126886966302, guid: 5847f5fe40e01a247b3055c0a391ed43, type: 3}
       propertyPath: m_Name
       value: Sound Source
@@ -4721,6 +4729,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7441615071909911421, guid: 5847f5fe40e01a247b3055c0a391ed43, type: 3}
+      propertyPath: m_Radius
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8222535126886966302, guid: 5847f5fe40e01a247b3055c0a391ed43, type: 3}
       propertyPath: m_Name
       value: Sound Source
@@ -5056,6 +5068,10 @@ PrefabInstance:
     - target: {fileID: 1657153317563386021, guid: 5847f5fe40e01a247b3055c0a391ed43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441615071909911421, guid: 5847f5fe40e01a247b3055c0a391ed43, type: 3}
+      propertyPath: m_Radius
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8222535126886966302, guid: 5847f5fe40e01a247b3055c0a391ed43, type: 3}
       propertyPath: m_Name
