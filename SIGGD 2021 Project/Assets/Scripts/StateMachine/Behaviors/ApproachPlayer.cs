@@ -15,11 +15,11 @@ public class ApproachPlayer : Behavior
     }
 
     public override void OnBehaviorEnter()
-    { 
-
+    {
+        
     }
     public override void OnBehaviorExit()
     {
-        
+        navmeshAgent.stopNavigation();
     }
 }

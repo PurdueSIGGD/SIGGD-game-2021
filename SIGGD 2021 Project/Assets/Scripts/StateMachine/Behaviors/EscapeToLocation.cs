@@ -7,10 +7,12 @@ public class EscapeToLocation : Behavior
     public Transform player;
     [SerializeField] private Transform[] escapeLocations;
     [SerializeField] private NavmeshAgent navmeshAgent;
+    public Vector2 escapeTarget = new Vector2(0,0);
 
     public override void run()
     {
-        
+        //THIS CRASHES UNITY
+        navmeshAgent.navigateTo(escapeTarget);
     }
 
     public override void OnBehaviorEnter()
@@ -26,12 +28,11 @@ public class EscapeToLocation : Behavior
                 bestEscape = location;
             }
         }
-        //THIS CRASHES UNITY
-        //navmeshAgent.navigateTo(bestEscape.position);
         Debug.Log("Escaping to " + bestEscape.name);
+        escapeTarget = bestEscape.position;
     }
     public override void OnBehaviorExit()
     {
-
+        navmeshAgent.stopNavigation();
     }
 }

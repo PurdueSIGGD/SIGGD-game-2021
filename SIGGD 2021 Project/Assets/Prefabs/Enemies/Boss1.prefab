@@ -106,18 +106,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 286097207363554429}
-          m_TargetAssemblyTypeName: Hurt, Assembly-CSharp
-          m_MethodName: MarkHealth
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 2126378124565550856}
           m_TargetAssemblyTypeName: Timer, Assembly-CSharp
           m_MethodName: StartTimer
@@ -648,7 +636,19 @@ MonoBehaviour:
     - {fileID: 2002414825750447484}
     onTriggered:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 286097207363554429}
+          m_TargetAssemblyTypeName: Hurt, Assembly-CSharp
+          m_MethodName: MarkHealth
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4298847749841276886
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +908,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   navmeshAgent: {fileID: 3265982621882468672}
+  escapeTarget: {x: 0, y: 0}
 --- !u!114 &8541109979413218194
 MonoBehaviour:
   m_ObjectHideFlags: 0
