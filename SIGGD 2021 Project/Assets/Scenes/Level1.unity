@@ -1368,6 +1368,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 508372120129800236, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+      propertyPath: healthChangeEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508372120129800236, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+      propertyPath: healthChangeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: d7cf0c99aa27c674f92269567df90fc5, type: 2}
+    - target: {fileID: 508372120129800236, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+      propertyPath: healthChangeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 508372120129800236, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+      propertyPath: healthChangeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameEventGeneric`1[[System.Int32, mscorlib
+      objectReference: {fileID: 0}
     - target: {fileID: 5148261481538949014, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
