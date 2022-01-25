@@ -21,6 +21,15 @@ public class NavmeshAgent : MonoBehaviour
         navmesh = FindObjectOfType<Navmesh>();
     }
 
+    private void Update()
+    {
+        if (!atTarget)
+        {
+            Vector2 dirToCurrentNode = (currentPath[currentNode] - new Vector2(transform.position.x, transform.position.y)).normalized; //direction to next node
+            transform.Translate(dirToCurrentNode * Time.deltaTime * agentSpeed); //go in direction to next node
+        }
+    }
+
     /**
      * Given a target position, will return a path (Vector2 array) to that position
      */
@@ -43,7 +52,7 @@ public class NavmeshAgent : MonoBehaviour
             currentNode = 0;
             return;
         }
-        if (Vector2.Distance(transform.position, currentPath[currentNode]) < 0.1f) //arbitrary value for determining if the agent is close enough to the position to be consitered at the position
+        if (Mathf.Pow(transform.position.x - currentPath[currentNode].x, 2) + Mathf.Pow(transform.position.y - currentPath[currentNode].y, 2) < 0.1f) //arbitrary value for determining if the agent is close enough to the position to be consitered at the position
         {
             if (currentNode == currentPath.Length - 1) //if you are at the end of the path then stop
             {
@@ -62,9 +71,12 @@ public class NavmeshAgent : MonoBehaviour
         compassDirection = (int)angle;
 
         //draw the path
-        for (int i = 1; i < path.Length; i++)
+        if (false) //Turn on if debugging
         {
-            Debug.DrawLine(path[i - 1], path[i], Color.blue);
+            for (int i = 1; i < path.Length; i++)
+            {
+                Debug.DrawLine(path[i - 1], path[i], Color.blue);
+            }
         }
     }
 
