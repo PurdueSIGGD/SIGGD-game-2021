@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         origin = this.transform.position;  //set origin
 
         //calculate and set projectile's velocity
-        Vector2 velocity = origin - orientation.position;
+        Vector2 velocity = orientation.position - origin;
         rigidbody.velocity = travelSpeed * velocity.normalized;
     }
 

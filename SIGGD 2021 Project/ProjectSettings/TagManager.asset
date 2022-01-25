@@ -17,7 +17,7 @@ TagManager:
   - Interactables
   - Wall
   - Electric
-  - 
+  - Player Projectile
   - 
   - 
   - 
@@ -43,6 +43,7 @@ TagManager:
     locked: 0
   - name: Entities
     uniqueID: 3251575585
+    locked: 0
   - name: UI
     uniqueID: 4281211413
     locked: 0
