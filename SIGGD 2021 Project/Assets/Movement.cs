@@ -26,10 +26,10 @@ public class Movement : MonoBehaviour
         rigidBody.MovePosition(rigidBody.position + unitMovement * moveSpeed * Time.fixedDeltaTime);
 
         // Update facing angle
-        if (movement.magnitude > 0.2f)
-        {
-            facing = unitMovement;
-        }
+        //if (movement.magnitude > 0.2f)
+        //{
+        //    facing = unitMovement;
+        //}
 
         if (isRunning())
         {
