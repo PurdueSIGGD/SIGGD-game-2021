@@ -25,6 +25,12 @@ public class Movement : MonoBehaviour
         Vector2 unitMovement = movement.normalized;
         rigidBody.MovePosition(rigidBody.position + unitMovement * moveSpeed * Time.fixedDeltaTime);
 
+        // Update facing angle
+        if (movement.magnitude > 0.2f)
+        {
+            facing = unitMovement;
+        }
+
         if (isRunning())
         {
             moveSpeed = 8f;
