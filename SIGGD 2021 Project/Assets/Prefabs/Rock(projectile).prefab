@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 62169476955600580}
   - component: {fileID: 62169476955600581}
   - component: {fileID: 7668496223776600629}
+  - component: {fileID: -2258658197635175650}
   m_Layer: 0
   m_Name: Rock(projectile)
   m_TagString: Untagged
@@ -44,7 +45,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62169476955600576}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -64,7 +65,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62169476955600576}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52cdad6fcdb371e43b96c366a0e6e570, type: 3}
   m_Name: 
@@ -74,7 +75,6 @@ MonoBehaviour:
     m_Bits: 1088
   travelSpeed: 5
   terminatingDistance: 10
-  orientation: {fileID: 3360750383580035826, guid: f46e0dbda49571b49b71ba49cd3bd393, type: 3}
   unityEvent:
     m_PersistentCalls:
       m_Calls:
@@ -209,9 +209,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 62169476955600577}
+        m_TargetAssemblyTypeName: Projectile, Assembly-CSharp
+        m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-2258658197635175650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62169476955600576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3429a1f253f2c4ab0356ab0051ed3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0}
 --- !u!1 &1503676814802847162
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c326da4ce73e18c40bd56c2801e00089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signalTransform: {fileID: 0}
+  signalTransform: {fileID: 62169476955600583}
 --- !u!50 &7794423707457484190
 Rigidbody2D:
   serializedVersion: 4

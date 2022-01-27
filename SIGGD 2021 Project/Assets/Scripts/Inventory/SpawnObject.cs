@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnObject : MonoBehaviour
 {
     [SerializeField] private Transform location;
-    [SerializeField] private GameObject gameObject; 
+    [SerializeField] private GameObject gameObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,8 @@ public class SpawnObject : MonoBehaviour
 
     public void spawnObject()
     {
-        GameObject.Instantiate(gameObject, location.position, Quaternion.identity);
+        GameObject newObj = GameObject.Instantiate(gameObject, location.position, Quaternion.identity);
+        newObj.SetActive(true);
     }
 
     // Update is called once per frame
