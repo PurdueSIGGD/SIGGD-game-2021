@@ -14,9 +14,9 @@ TagManager:
   - Enemy
   - Sound
   - Detection
-  - Interactables
-  - Wall
-  - Electric
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -40,9 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Entities
-    uniqueID: 3251575585
-  - name: UI
-    uniqueID: 4281211413
     locked: 0

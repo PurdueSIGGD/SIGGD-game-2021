@@ -8,12 +8,10 @@ public class PlayerHealthGraphics : MonoBehaviour
 
     [SerializeField] private Image[] hearts;
 
-
-
     public void healthGraphicUpdate(int health)
     {
-        var assumedMaxHealth = 3;
-        int max = Mathf.Clamp(assumedMaxHealth, 1, hearts.Length); //Clamp is to avoid errors as the array has a set length
+        var healthComp = GetComponent<Health>();
+        int max = Mathf.Clamp(healthComp.GetMaxHealth(), 1, hearts.Length); //Clamp is to avoid errors as the array has a set length
 
         changeTextures(health, max);
     }

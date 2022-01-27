@@ -25,13 +25,17 @@ public class Health : MonoBehaviour
     //takes damage and/or heals if the damage is negative also invokes the death event when health is <= 0
     public void TakeDamage(int damage)
     {
+        if (IsDead())
+        {
+            return;
+        }
+
         SetCurrHealth(currHealth - damage);
         
         if (IsDead())
         {
             deathEvent?.Invoke();
             Debug.Log(string.Format("{0} is dead", name));
-            Destroy(gameObject);
         }
     }
 
@@ -58,11 +62,6 @@ public class Health : MonoBehaviour
         SetCurrHealth(this.maxHealth);
     }
 
-    [ContextMenu("Set Max Health")]
-    public void RestoreToMaxHealth() {
-        SetCurrHealth(this.maxHealth);
-    }
-
     //sets current health (minimum = 1, maximum = maxHealth)
     public void SetCurrHealth(int currHealth)
     {
@@ -70,7 +69,7 @@ public class Health : MonoBehaviour
         if (this.currHealth != newHealth) 
         {
             this.currHealth = newHealth;
-            this.healthChangeEvent?.Invoke(this.currHealth);
+            healthChangeEvent?.Invoke(this.currHealth);
         }
     }
 }

@@ -32,7 +32,7 @@ public class Attack : MonoBehaviour
                 foreach (Collider2D enemy in enemiesHit)
                 {
                     Debug.Log(string.Format("Hit {0}", enemy.name));
-                    enemy.gameObject.GetComponent<Health>().TakeDamage(attackDamage);
+                    enemy.GetComponent<Health>().TakeDamage(attackDamage);
                 }
 
                 timeElapsed = 0f;
