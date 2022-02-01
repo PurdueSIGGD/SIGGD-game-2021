@@ -13,10 +13,21 @@ public class NavmeshAgent : MonoBehaviour
     private Vector2 currentTarget = Vector2.zero;
     private bool atTarget = true;
 
+    public int compassDirection;
+
     // Start is called before the first frame update
     void Start()
     {
         navmesh = FindObjectOfType<Navmesh>();
+    }
+
+    private void Update()
+    {
+        if (!atTarget)
+        {
+            Vector2 dirToCurrentNode = (currentPath[currentNode] - new Vector2(transform.position.x, transform.position.y)).normalized; //direction to next node
+            transform.Translate(dirToCurrentNode * Time.deltaTime * agentSpeed); //go in direction to next node
+        }
     }
 
     /**
@@ -41,7 +52,7 @@ public class NavmeshAgent : MonoBehaviour
             currentNode = 0;
             return;
         }
-        if (Vector2.Distance(transform.position, currentPath[currentNode]) < 0.1f) //arbitrary value for determining if the agent is close enough to the position to be consitered at the position
+        if (Mathf.Pow(transform.position.x - currentPath[currentNode].x, 2) + Mathf.Pow(transform.position.y - currentPath[currentNode].y, 2) < 0.1f) //arbitrary value for determining if the agent is close enough to the position to be consitered at the position
         {
             if (currentNode == currentPath.Length - 1) //if you are at the end of the path then stop
             {
@@ -54,10 +65,18 @@ public class NavmeshAgent : MonoBehaviour
         Vector2 dirToCurrentNode = (currentPath[currentNode] - new Vector2(transform.position.x, transform.position.y)).normalized; //direction to next node
         transform.Translate(dirToCurrentNode * Time.deltaTime * agentSpeed); //go in direction to next node
 
+        //Calculate compass direction
+        float angle = Vector2.SignedAngle(Vector2.right, dirToCurrentNode) % 360;
+        angle = Mathf.Round(angle/90);
+        compassDirection = (int)angle;
+
         //draw the path
-        for (int i = 1; i < path.Length; i++)
+        if (false) //Turn on if debugging
         {
-            Debug.DrawLine(path[i - 1], path[i], Color.blue);
+            for (int i = 1; i < path.Length; i++)
+            {
+                Debug.DrawLine(path[i - 1], path[i], Color.blue);
+            }
         }
     }
 
@@ -95,5 +114,10 @@ public class NavmeshAgent : MonoBehaviour
         atTarget = true;
         currentPath = null;
         currentNode = 0;
+    }
+
+    public void setAgentSpeed(float agentSpeed)
+    {
+        this.agentSpeed = agentSpeed;
     }
 }

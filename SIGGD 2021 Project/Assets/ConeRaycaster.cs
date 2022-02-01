@@ -9,12 +9,13 @@ public class ConeRaycaster : MonoBehaviour
     [Range(1, 10)] [SerializeField] private int rayNum;
 
     [Range(10f, 180f)] [SerializeField] private float fov;
-    [Range(0f, 360f)] [SerializeField] private float angle;
+    [Range(0f, 360f)] [SerializeField] private float angleOffset;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Transform rayOrigin;
     [Range(0.1f, 30f)] [SerializeField] private float maxDistance;
 
     [SerializeField] private UnityEvent hit;
+    [SerializeField] private NavmeshAgent navmeshAgent;
 
 
     // Start is called before the first frame update
@@ -29,8 +30,8 @@ public class ConeRaycaster : MonoBehaviour
 
 
     public RaycastHit2D Raycast(Predicate<RaycastHit2D> isValid) {
-        var minAngle = angle - fov / 2f;
-        var maxAngle = angle + fov / 2f;
+        var minAngle = navmeshAgent.compassDirection * 90 + angleOffset - fov / 2f;
+        var maxAngle = navmeshAgent.compassDirection * 90 + angleOffset + fov / 2f;
         for (int i = 0; i < rayNum - 1; i++) {
             var interpo = (float)i / (float)(rayNum-1);
 

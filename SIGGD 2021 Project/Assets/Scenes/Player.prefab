@@ -302,11 +302,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rigidBody: {fileID: 0}
+  rigidBody: {fileID: 5314529853658650851}
   soundHitbox: {fileID: 2710834141804731409}
-  attackHitbox: {fileID: 6599404643187351301}
-  interactHitbox: {fileID: 1101018362222611360}
-  facing: {x: 0, y: 0}
+  movement: {x: 0, y: 0}
 --- !u!114 &144284290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,11 +317,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ae27e5746466b4bb016a15577815f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackHitbox: {fileID: 6599404643187351301}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
+  offset: 1
   range: 0.8
+  attackDamage: 1
+  playerMovement: {fileID: 5314529853658650853}
 --- !u!114 &508372120129800236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,11 +444,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ae27e5746466b4bb016a15577815f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackHitbox: {fileID: 6599404643187351301}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
+  offset: 1
   range: 0.8
+  attackDamage: 1
+  playerMovement: {fileID: 0}
 --- !u!1 &6624863690415814438
 GameObject:
   m_ObjectHideFlags: 0
