@@ -48041,6 +48041,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4026520700735766968, guid: eba7326b401f2564e9154f3ce76140ae, type: 3}
   m_PrefabInstance: {fileID: 2277829002263207110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4439628786039227887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4439628786039227880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1924f0ce2214f1e46ae821d015fdd25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: rock_throwable
 --- !u!212 &5314529854014754928
 SpriteRenderer:
   m_ObjectHideFlags: 0
