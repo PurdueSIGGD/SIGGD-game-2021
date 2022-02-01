@@ -18,12 +18,6 @@ public class SeeFaction : Trigger
 
         // factionComp = gameObject.GetComponent<FactionComponent>();
 
-        var hit = cone.Raycast((h) => h.transform.GetComponent<FactionComponent>()?.faction == targetFaction);
-
-        if (hit) //if the ray hits the faction
-        {
-            return !ret;
-        }
-        return ret;
+        return cone.Raycast((h) => h.transform.GetComponent<FactionComponent>()?.faction == targetFaction);
     }
 }
