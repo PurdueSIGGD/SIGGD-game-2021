@@ -26,12 +26,6 @@ public class InventoryGraphics : MonoBehaviour
         }
     }
 
-    // Used for updating stack size
-    public void SetStackCounter(int count)
-    {
-
-    }
-
     // Resets the inventory icon 
     private void ClearDisplayedItem()
     {

@@ -54,8 +54,6 @@ public class Inventory : MonoBehaviour
 
         ItemControl currentControl = equippedItem.GetComponent<ItemControl>();
         currentControl.use.Invoke();
-
-        UpdateUI();
     }
 
     // Equips a new item (dequipping and returning any old/extra item)
