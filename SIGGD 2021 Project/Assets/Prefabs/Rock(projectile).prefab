@@ -73,7 +73,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1088
-  travelSpeed: 5
+  travelSpeed: 10
   terminatingDistance: 10
   unityEvent:
     m_PersistentCalls:
