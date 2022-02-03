@@ -257,6 +257,7 @@ public class Navmesh : MonoBehaviour
         }
         return closestNode;
     }
+    
     /*
     private void OnDrawGizmos() //draw things
     {
@@ -291,4 +292,5 @@ public class Navmesh : MonoBehaviour
         
     }
     */
+    
 }
