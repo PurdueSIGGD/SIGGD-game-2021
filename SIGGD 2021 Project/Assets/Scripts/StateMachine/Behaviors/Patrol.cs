@@ -13,6 +13,8 @@ public class Patrol : Behavior
     private bool invalidRoute = false; //if the route is invalid. if it is then the behavior shouldn't happen
     [SerializeField] private Transform enemyTransform;
 
+    [SerializeField] private NavmeshAgent navmeshAgent;
+
     public override void run()
     {
         if (invalidRoute) { return; } //don't do anything if the route is invalid
@@ -81,6 +83,12 @@ public class Patrol : Behavior
         }
         //navigate towards the current node 
         Vector3 dirToNode = (routeNodes[currentNode] - enemyTransform.position).normalized;
+
+        //Calculate compass direction
+        float angle = Vector2.SignedAngle(Vector2.right, dirToNode) % 360;
+        angle = Mathf.Round(angle/90);
+        navmeshAgent.compassDirection = (int)angle;
+
         enemyTransform.Translate(dirToNode * Time.deltaTime * enemyPatrolSpeed);
 
     }

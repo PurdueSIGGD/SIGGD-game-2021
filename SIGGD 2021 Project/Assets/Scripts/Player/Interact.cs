@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interact : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Interact : MonoBehaviour
     // Interacting has a natural cooldown
     private Timer timer;
     private bool interactReady = true;
+
+    [SerializeField] private UnityEvent<GameObject> onInteract;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +31,12 @@ public class Interact : MonoBehaviour
             // Interact with everything marked as interactable (via the component)
             Collider2D[] objectsFound = Physics2D.OverlapCircleAll(transform.position, range, interactLayers);
             foreach (Collider2D obj in objectsFound) {
-                obj.gameObject.GetComponent<Interactable>()?.interact();
+                var interactable = obj.gameObject.GetComponent<Interactable>();
+                interactable?.interact();
+
+                if (interactable != null) {
+                    onInteract.Invoke(obj.gameObject);
+                }
             }
         }
     }

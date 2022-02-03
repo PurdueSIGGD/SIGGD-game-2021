@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public Transform attackHitbox;
-    public LayerMask enemyLayers;
+    [SerializeField] private LayerMask enemyLayers;
 
-    public float range = .8f;
+    [SerializeField] private float offset = 1f;
+    [SerializeField] private float range = .5f;
     const float delay = 1f;
     static float timeElapsed = 0f;
-    int attackDamage = 20;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    [SerializeField] private int attackDamage = 1;
+    [SerializeField] private Movement playerMovement;
+    private Vector3 lastMovement = Vector3.right;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -25,12 +21,18 @@ public class Attack : MonoBehaviour
         {
             if (isAttacking())
             {
-                Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackHitbox.position, range, enemyLayers);
+                if (playerMovement.isMoving())
+                {
+                    lastMovement = playerMovement.movement.normalized;
+                    Debug.Log("Updated movement");
+                }
+
+                Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(transform.position + lastMovement * offset, range, enemyLayers);
 
                 foreach (Collider2D enemy in enemiesHit)
                 {
                     Debug.Log(string.Format("Hit {0}", enemy.name));
-                    enemy.GetComponent<Health>().TakeDamage(attackDamage);
+                    enemy.gameObject.GetComponent<Health>().TakeDamage(attackDamage);
                 }
 
                 timeElapsed = 0f;
@@ -44,10 +46,8 @@ public class Attack : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if (attackHitbox == null)
-            return;
-
-        Gizmos.DrawWireSphere(attackHitbox.position, range);
+        //Gizmos.DrawWireSphere(transform.position + lastMovement * offset, range);
+        //Since this only updates on attack, seeing it in the inspector can be misleading
     }
 
     public bool isAttacking() {
