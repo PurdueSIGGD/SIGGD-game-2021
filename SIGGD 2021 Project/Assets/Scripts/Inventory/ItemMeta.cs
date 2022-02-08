@@ -14,7 +14,7 @@ public class ItemMeta : MonoBehaviour
     }
 
     public GameObject BuildSystemPrefab(Transform systemParent) {
-        var systemInstance = Instantiate(mappings.get(this.id).system);
+        var systemInstance = Instantiate(mappings.get(this.id).system, systemParent);
         systemInstance.transform.SetParent(systemParent);
 
         // copy this component into the system instance
