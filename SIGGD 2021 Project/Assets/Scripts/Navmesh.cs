@@ -16,9 +16,11 @@ public class Navmesh : MonoBehaviour
     {
         public List<NavmeshNode> adjacentNodes;
         public Vector2 pos;
-        public NavmeshNode(Vector2 pos)
+        public Vector2 coords;
+        public NavmeshNode(Vector2 pos, Vector2 coords)
         {
             this.pos = pos;
+            this.coords = coords;
             this.adjacentNodes = new List<NavmeshNode>();
         }
         
@@ -70,23 +72,26 @@ public class Navmesh : MonoBehaviour
             for (int y = 0; y < navmeshNodes.GetLength(1); y++)
             {
                 Vector2 pos = new Vector2(tl.x + x * tileSize + tileSize / 2, tl.y - y * tileSize - tileSize / 2);
-                navmeshNodes[x, y] = new NavmeshNode(pos);
+                navmeshNodes[x, y] = new NavmeshNode(pos, new Vector2(x, y));
             }
         }
-        //get adjacent nodes. if the node has at least 1 accessible node then add it to ret
-        for (int x = 0; x < navmeshNodes.GetLength(0); x++)
-        {
-            for (int y = 0; y < navmeshNodes.GetLength(1); y++)
-            {
-                navmeshNodes[x, y].adjacentNodes = getAdjacentNodes(x, y, navmeshNodes);
-                
-                if (navmeshNodes[x, y].adjacentNodes.Count != 0)
-                {
-                    ret.Add(navmeshNodes[x, y]);
-                }
-            }
-        }
+        //recursively adds valid nodes to the list
+        adjacentAdd(navmeshNodes.GetLength(0) / 2, navmeshNodes.GetLength(1) / 2, navmeshNodes, ret);
         return ret; 
+    }
+
+    private void adjacentAdd(int x, int y, NavmeshNode[,] navmeshGridNodes, List<NavmeshNode> validMesh)
+    {
+        validMesh.Add(navmeshGridNodes[x, y]);
+        List<NavmeshNode> adjacentNodes = getAdjacentNodes(x, y, navmeshGridNodes);
+        navmeshGridNodes[x, y].adjacentNodes = adjacentNodes;
+        foreach (NavmeshNode adjNode in adjacentNodes)
+        {
+            if (!validMesh.Contains(adjNode))
+            {
+                adjacentAdd((int)adjNode.coords.x, (int)adjNode.coords.y, navmeshGridNodes, validMesh);
+            }
+        }
     }
 
     private List<NavmeshNode> getAdjacentNodes(int x, int y, NavmeshNode[,] navmeshNodes)
@@ -215,7 +220,8 @@ public class Navmesh : MonoBehaviour
          * to intelligently pick the next node to search instead of treating all adjacent nodes as equal. There are lots of different ways to calculate a heuristic but the simplest one is just the
          * getting the distance between nodes and that's what I do here
          */
-        return Vector2.Distance(nodePos, endPos);
+        //return Vector2.Distance(nodePos, endPos);
+        return Mathf.Pow(nodePos.x - endPos.x, 2) + Mathf.Pow(nodePos.y - endPos.y, 2); //This gets the squared distance
     }
     private PathfindingNode[] generateSuccessors(List<NavmeshNode> adjacentNodes, Vector2 endLocation, PathfindingNode parentNode) //generates a list of pathfinding nodes from the adjacent nodes of a navmesh node
     {
