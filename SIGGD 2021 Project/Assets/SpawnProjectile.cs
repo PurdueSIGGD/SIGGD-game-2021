@@ -8,6 +8,12 @@ public class SpawnProjectile : MonoBehaviour
     [SerializeField] private Transform direction;
     [SerializeField] private GameObject gameObject;
 
+    void Start()
+    {
+        location = this.transform.parent.parent;
+        direction = this.transform.parent.parent.GetChild(1);
+    }
+
     public void spawnProjectile()
     {
         GameObject newObj = GameObject.Instantiate(gameObject, location.position, Quaternion.identity);

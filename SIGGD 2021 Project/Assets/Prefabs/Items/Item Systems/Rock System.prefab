@@ -187,5 +187,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: {fileID: 0}
-  direction: {fileID: 0}
+  direction: {fileID: 3360750383580035826, guid: f46e0dbda49571b49b71ba49cd3bd393, type: 3}
   gameObject: {fileID: 62169476955600576, guid: ccbd085d9fabffd459179f6d4462b602, type: 3}
