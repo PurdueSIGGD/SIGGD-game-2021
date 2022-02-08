@@ -94,11 +94,6 @@ public class Inventory : MonoBehaviour
 
         this.equippedItem = itemPickup.GetComponent<ItemMeta>()
             .BuildSystemPrefab(this.transform);
-        SpawnProjectile projSpawn = equippedItem.GetComponent<SpawnProjectile>();
-        if (projSpawn)
-        {
-            projSpawn.SetLocationAndDirection(transform, transform.parent.GetChild(1));
-        }
 
         Destroy(itemPickup);
         
