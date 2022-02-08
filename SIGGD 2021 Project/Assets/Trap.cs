@@ -10,7 +10,7 @@ public class Trap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        isActive = true;
     }
 
     void OnTriggerEnter(Collider other)
@@ -18,7 +18,7 @@ public class Trap : MonoBehaviour
         if (isActive && other.name.Equals("Player"))
         {
             isActive = false;
-
+            Debug.Log("Stepped on trap");
         }
     }
 
