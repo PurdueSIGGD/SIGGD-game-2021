@@ -10,20 +10,12 @@ public class ApproachTrap : Behavior
 
     public override void run()
     {
-        while (trapOrigin == null)
-        {
-
-        }
         navmeshAgent.navigateTo(trapOrigin.position);
     }
 
     public override void OnBehaviorEnter()
     {
         navmeshAgent = this.GetComponentInParent<NavmeshAgent>();
-        while (trapOrigin == null)
-        {
-
-        }
         destinationReached.setDestination(trapOrigin.position);
     }
 
