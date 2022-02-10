@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 203462139717160301}
   - component: {fileID: 203462139717160290}
   m_Layer: 5
-  m_Name: Rock UI
+  m_Name: Grenade UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 26, y: 22}
+  m_SizeDelta: {x: 19, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &965033681235039010
 CanvasRenderer:
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7486894901906726750, guid: edb4907ccdde51b4191a74889b0eb7be, type: 3}
+  m_Sprite: {fileID: 1339917267590625421, guid: edb4907ccdde51b4191a74889b0eb7be, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

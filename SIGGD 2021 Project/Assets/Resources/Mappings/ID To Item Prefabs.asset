@@ -18,3 +18,23 @@ MonoBehaviour:
       pickup: {fileID: 6661046986267507086, guid: cc7464b91443a994bb292df2b6112d76, type: 3}
       system: {fileID: 4026520700735766970, guid: eba7326b401f2564e9154f3ce76140ae, type: 3}
       ui: {fileID: 203462139717160302, guid: 9559b6a129b5eaa42bdc6275dddc38ba, type: 3}
+  - id: keycard
+    value:
+      pickup: {fileID: 6661046986267507086, guid: 91b086113eea83a4fabde4c238886efb, type: 3}
+      system: {fileID: 4026520700735766970, guid: ccd3b460f645d544e928ebd7041e45cd, type: 3}
+      ui: {fileID: 203462139717160302, guid: 3d6ed966db2969047b014588fd140760, type: 3}
+  - id: grenade
+    value:
+      pickup: {fileID: 6661046986267507086, guid: 3793ccdc882b4e44b8300fa559ba203f, type: 3}
+      system: {fileID: 4026520700735766970, guid: 61273aef49a372c48a01c8828020491b, type: 3}
+      ui: {fileID: 203462139717160302, guid: f37326d67e7674c4e88067a698a5a056, type: 3}
+  - id: smoke_bomb
+    value:
+      pickup: {fileID: 6661046986267507086, guid: 8b11b9318db76a04da0b0100864f47ce, type: 3}
+      system: {fileID: 4026520700735766970, guid: c1387f03c4685924f85a71036b1f4a22, type: 3}
+      ui: {fileID: 203462139717160302, guid: 36dd8afe75d645c4988b2587d1c4a485, type: 3}
+  - id: invisibility_cloak
+    value:
+      pickup: {fileID: 6661046986267507086, guid: b6be2b322fb99cd49a322ac2694869ec, type: 3}
+      system: {fileID: 4026520700735766970, guid: c830f8d88f691dc47a380b50f46f1f4d, type: 3}
+      ui: {fileID: 203462139717160302, guid: a9ab2ea8cebdea140aed56fe66935295, type: 3}

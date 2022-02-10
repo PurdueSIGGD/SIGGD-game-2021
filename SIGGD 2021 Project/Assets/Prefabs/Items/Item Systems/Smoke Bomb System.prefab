@@ -9,12 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4026520700735766968}
-  - component: {fileID: 4026520700735766969}
   - component: {fileID: 2612784756956185004}
   - component: {fileID: 2904447420726660017}
-  - component: {fileID: 2450173372677265711}
   m_Layer: 0
-  m_Name: Rock System
+  m_Name: Smoke Bomb System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,21 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4026520700735766969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4026520700735766970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: defca4f86bf37e349b95307449e2f15c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  count: 6
-  max: 6
-  countEvent: {fileID: 11400000, guid: d7cf0c99aa27c674f92269567df90fc5, type: 2}
 --- !u!114 &2612784756956185004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,31 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   use:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4026520700735766969}
-        m_TargetAssemblyTypeName: Stackable, Assembly-CSharp
-        m_MethodName: UseItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2450173372677265711}
-        m_TargetAssemblyTypeName: SpawnProjectile, Assembly-CSharp
-        m_MethodName: spawnProjectile
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   equip:
     m_PersistentCalls:
       m_Calls: []
@@ -134,7 +93,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 896507f4ea502f041a292d4c52ec6aca, type: 3}
+  m_Sprite: {fileID: -842976295576633075, guid: e1756dfee70d80c4686350e32952cbf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,18 +104,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2450173372677265711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4026520700735766970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51898a45f35a9764e9b66800ff9151db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  location: {fileID: 0}
-  direction: {fileID: 3360750383580035826, guid: f46e0dbda49571b49b71ba49cd3bd393, type: 3}
-  gameObject: {fileID: 62169476955600576, guid: ccbd085d9fabffd459179f6d4462b602, type: 3}

@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 1100503447365614370}
   - component: {fileID: 2349508993346118656}
   - component: {fileID: 1238483012171499600}
-  - component: {fileID: 710157156}
   - component: {fileID: 4500975440585681624}
   m_Layer: 9
-  m_Name: Rock Pickup
+  m_Name: Smoke Bomb Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 269917201
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4878411822226906996, guid: e1756dfee70d80c4686350e32952cbf8, type: 3}
+  m_Sprite: {fileID: -842976295576633075, guid: e1756dfee70d80c4686350e32952cbf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,19 +117,6 @@ MonoBehaviour:
   unityEventToCall:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &710157156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6661046986267507086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cef272a9a4ac7b4aa9b10c88cb3674a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <count>k__BackingField: 4
 --- !u!114 &4500975440585681624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,4 +129,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1924f0ce2214f1e46ae821d015fdd25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: rock_throwable
+  id: smoke_bomb
