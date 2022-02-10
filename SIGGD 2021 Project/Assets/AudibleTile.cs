@@ -14,6 +14,7 @@ public class AudibleTile : MonoBehaviour
     {
         if (!isTriggered && other.GetComponent<isGrounded>()?.grounded == true && other.GetComponent<Rigidbody2D>() != null)
         {
+            print($"The object that triggered the tile is: {other.gameObject.name}");
             soundTriggerPlayTimer.StartTimer();
             soundCollider.radius = this.radius;
             isTriggered = true;
