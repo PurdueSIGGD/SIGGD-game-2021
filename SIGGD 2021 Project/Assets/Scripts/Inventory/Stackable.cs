@@ -8,6 +8,14 @@ public class Stackable : MonoBehaviour, ICanUse
     public int count;
     public int max;
 
+    // Game Event to Use
+    public IntGameEvent countEvent;
+
+    private void Start()
+    {
+        countEvent?.Invoke(count);
+    }
+
     // Called by the use event, decrements the stack
     public void UseItem() {
         count -= 1;
@@ -18,6 +26,7 @@ public class Stackable : MonoBehaviour, ICanUse
             GameObject.FindWithTag("Player").GetComponentInChildren<Inventory>().DropItem();
             Destroy(gameObject);
         }
+        countEvent?.Invoke(count);
     }
 
     // Whether this item can be used
@@ -31,11 +40,13 @@ public class Stackable : MonoBehaviour, ICanUse
         if (count + n <= max)
         {
             count += n;
+            countEvent?.Invoke(count);
             return 0;
         } else
         {
             int diff = (count + n) - max;
             count = max;
+            countEvent?.Invoke(count);
             return diff;
         }
     }
