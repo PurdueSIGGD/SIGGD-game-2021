@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    [SerializeField] private Trigger trapTrigger;
+    [SerializeField] private TrapTriggered parentTrigger;
     private bool isActive;
 
     // Start is called before the first frame update
@@ -13,11 +13,13 @@ public class Trap : MonoBehaviour
         isActive = true;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (isActive && other.name.Equals("Player"))
         {
             isActive = false;
+            parentTrigger.getBehavior().setDestination(this.GetComponent<Transform>());
+            parentTrigger.setTrigger(true);
             Debug.Log("Stepped on trap");
         }
     }

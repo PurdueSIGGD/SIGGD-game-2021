@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrapTriggered : Trigger
 {
+    [SerializeField] private ApproachTrap approachTrap;
     private bool isTriggered;
 
     public override bool isActive()
@@ -14,6 +15,11 @@ public class TrapTriggered : Trigger
     public void setTrigger(bool b)
     {
         isTriggered = b;
+    }
+
+    public ApproachTrap getBehavior()
+    {
+        return approachTrap;
     }
 
     // Start is called before the first frame update
