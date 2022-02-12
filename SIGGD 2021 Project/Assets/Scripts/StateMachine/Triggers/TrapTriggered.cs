@@ -9,8 +9,13 @@ public class TrapTriggered : Trigger
 
     public override bool isActive()
     {
-        return isTriggered;
-    }
+        if (isTriggered)
+        {
+            isTriggered = false;
+            return true;
+        }
+        return false;
+    } // basic trigger check. To see how this trigger is set to true see Trap
 
     public void setTrigger(bool b)
     {
@@ -20,7 +25,7 @@ public class TrapTriggered : Trigger
     public ApproachTrap getBehavior()
     {
         return approachTrap;
-    }
+    } // This is here so the Trap script can access the behavior from this trigger
 
     // Start is called before the first frame update
     void Start()
