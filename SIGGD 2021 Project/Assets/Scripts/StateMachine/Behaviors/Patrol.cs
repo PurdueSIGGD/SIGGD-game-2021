@@ -85,9 +85,9 @@ public class Patrol : Behavior
         Vector3 dirToNode = (routeNodes[currentNode] - enemyTransform.position).normalized;
 
         //Calculate compass direction
-        float angle = Vector2.SignedAngle(Vector2.right, dirToNode) % 360;
-        angle = Mathf.Round(angle/90);
-        navmeshAgent.compassDirection = (int)angle;
+        //float angle = Vector2.SignedAngle(Vector2.right, dirToNode) % 360;
+        //angle = Mathf.Round(angle/90);
+        //navmeshAgent.compassDirection = (int)angle;
 
         //this leads to enemies going through walls, so I replaced it
         //enemyTransform.Translate(dirToNode * Time.deltaTime * enemyPatrolSpeed);
