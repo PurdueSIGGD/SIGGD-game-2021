@@ -8,7 +8,7 @@ public class NavmeshAgent : MonoBehaviour
 
     private Navmesh navmesh;
 
-    private Vector2[] currentPath = null;
+    public Vector2[] currentPath = null;
     private int currentNode = 0;
     private Vector2 currentTarget = Vector2.zero;
     private bool atTarget = true;
@@ -71,7 +71,7 @@ public class NavmeshAgent : MonoBehaviour
         compassDirection = (int)angle;
 
         //draw the path
-        if (false) //Turn on if debugging
+        if (true) //Turn on if debugging
         {
             for (int i = 1; i < path.Length; i++)
             {
