@@ -1,25 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class DisplayIntToText : MonoBehaviour
+public class UseItem : MonoBehaviour
 {
-    [SerializeField] private TMP_Text counter;
-
-    public void updateCounter(int a)
-    {
-        counter.text = a.ToString();
-    }
+    [SerializeField] private ItemControl itemControl;
 
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            itemControl.use?.Invoke();
+        }
     }
 }

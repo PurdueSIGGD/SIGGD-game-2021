@@ -12,6 +12,15 @@ public class Movement : MonoBehaviour
 
     public Vector2 movement;
 
+    private Transform interactHitbox;
+    private Transform attackHitbox;
+
+    private void Start()
+    {
+        interactHitbox = transform.GetChild(1);
+        attackHitbox = transform.GetChild(0);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -26,10 +35,13 @@ public class Movement : MonoBehaviour
         rigidBody.MovePosition(rigidBody.position + unitMovement * moveSpeed * Time.fixedDeltaTime);
 
         // Update facing angle
-        //if (movement.magnitude > 0.2f)
-        //{
-        //    facing = unitMovement;
-        //}
+        if (movement.magnitude > 0.2f)
+        {
+            //facing = unitMovement;
+            Vector3 hitboxPosition = transform.position + new Vector3(unitMovement.x, unitMovement.y) * 0.5f;
+            interactHitbox.position = hitboxPosition;
+            attackHitbox.position = hitboxPosition;
+        }
 
         if (isRunning())
         {
@@ -47,6 +59,8 @@ public class Movement : MonoBehaviour
         if (isMoving())
         {
             soundHitbox.radius = moveSpeed;
+            //attackHitbox.position = new Vector2(rigidBody.position.x, rigidBody.position.y) + facing * 0.5f;
+            //interactHitbox.position = new Vector2(rigidBody.position.x, rigidBody.position.y) + facing * 0.5f;
         } 
         else 
         {
