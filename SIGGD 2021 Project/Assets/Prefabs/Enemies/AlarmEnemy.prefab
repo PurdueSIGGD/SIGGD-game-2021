@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayNum: 8
-  fov: 15
+  fov: 30
   angleOffset: 0
   layerMask:
     serializedVersion: 2

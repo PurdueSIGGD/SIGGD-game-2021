@@ -1003,8 +1003,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3589f649bb028408767ab03ad74483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayNum: 8
-  fov: 15
+  rayNum: 10
+  fov: 60
   angleOffset: 0
   layerMask:
     serializedVersion: 2
