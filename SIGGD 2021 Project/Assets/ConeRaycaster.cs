@@ -29,9 +29,21 @@ public class ConeRaycaster : MonoBehaviour
     // }
 
 
-    public RaycastHit2D Raycast(Predicate<RaycastHit2D> isValid) {
-        var minAngle = navmeshAgent.compassDirection * 90 + angleOffset - fov / 2f;
-        var maxAngle = navmeshAgent.compassDirection * 90 + angleOffset + fov / 2f;
+    public RaycastHit2D Raycast(Predicate<RaycastHit2D> isValid, float centerAngle = 361) {
+        float minAngle;
+        float maxAngle;
+        if (centerAngle > 360)
+        {
+            maxAngle = navmeshAgent.compassDirection + angleOffset - fov / 2f;
+            minAngle = navmeshAgent.compassDirection + angleOffset + fov / 2f;
+        }
+        else
+        {
+            maxAngle = centerAngle + angleOffset - fov / 2f;
+            minAngle = centerAngle + angleOffset + fov / 2f;
+        }
+           
+        
         for (int i = 0; i < rayNum - 1; i++) {
             var interpo = (float)i / (float)(rayNum-1);
 
