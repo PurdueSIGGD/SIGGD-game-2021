@@ -19,7 +19,7 @@ public class ApproachTrap : Behavior
     public override void OnBehaviorEnter()
     {
         navmeshAgent = this.GetComponentInParent<NavmeshAgent>();
-        destinationReached.setDestination(trapOrigin.position);
+        
     } // get navmesh from parent, set destinationReached's destination to the trap's position.
 
     public override void OnBehaviorExit()
@@ -32,5 +32,6 @@ public class ApproachTrap : Behavior
     public void setDestination(Transform destination)
     {
         trapOrigin = destination;
+        destinationReached.setDestination(trapOrigin.position);
     } // this allows Trap to pass its transform to the behavior. See TrapTriggered and Trap for more details
 }
