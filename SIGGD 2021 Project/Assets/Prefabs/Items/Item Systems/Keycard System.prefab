@@ -47,6 +47,9 @@ MonoBehaviour:
   use:
     m_PersistentCalls:
       m_Calls: []
+  endUse:
+    m_PersistentCalls:
+      m_Calls: []
   equip:
     m_PersistentCalls:
       m_Calls: []

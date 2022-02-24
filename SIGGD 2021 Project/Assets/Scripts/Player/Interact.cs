@@ -32,9 +32,13 @@ public class Interact : MonoBehaviour
             Collider2D[] objectsFound = Physics2D.OverlapCircleAll(transform.position, range, interactLayers);
             foreach (Collider2D obj in objectsFound) {
                 var interactable = obj.gameObject.GetComponent<Interactable>();
+
                 interactable?.interact();
 
-                if (interactable != null) {
+                Debug.Log(interactable);
+
+                if (interactable != null)
+                {
                     onInteract.Invoke(obj.gameObject);
                 }
             }

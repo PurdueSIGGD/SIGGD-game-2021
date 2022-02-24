@@ -161,5 +161,10 @@ public class Inventory : MonoBehaviour
         if (IsValidItemPickup(gameObj)) {
             EquipItem(gameObj);
         }
+
+        IdCheck idCheck = gameObj.GetComponent<IdCheck>();
+        idCheck?.CheckId(ItemMeta.GetID(equippedItem));
+        // Call checkId event with the item's id (multiple keycards have different IDs)
+        //id?.CheckId(equippedItem.GetComponent<ItemMeta>().id)
     }
 }
