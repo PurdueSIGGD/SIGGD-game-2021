@@ -30,9 +30,9 @@ public class ConeRaycaster : MonoBehaviour
 
 
     public RaycastHit2D Raycast(Predicate<RaycastHit2D> isValid) {
-        var minAngle = navmeshAgent.compassDirection * 90 + angleOffset - fov / 2f;
-        var maxAngle = navmeshAgent.compassDirection * 90 + angleOffset + fov / 2f;
-        for (int i = 0; i < rayNum - 1; i++) {
+        var minAngle = navmeshAgent.compassDirection * 90 + angleOffset - fov / 2;
+        var maxAngle = navmeshAgent.compassDirection * 90 + angleOffset + fov / 2;
+        for (int i = 0; i < rayNum; i++) {
             var interpo = (float)i / (float)(rayNum-1);
 
             var theta = Mathf.LerpAngle(minAngle, maxAngle, interpo) * Mathf.Deg2Rad;

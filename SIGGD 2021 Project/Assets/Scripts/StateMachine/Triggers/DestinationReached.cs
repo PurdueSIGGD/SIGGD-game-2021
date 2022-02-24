@@ -6,11 +6,12 @@ public class DestinationReached : Trigger
 {
     
     [SerializeField] private Collider2D enemyCollider;
+    [SerializeField] private NavmeshAgent enemyAgent;
     private Vector2 destination;
 
     public override bool isActive()
     {
-        if (enemyCollider.bounds.Contains(destination))
+        if (enemyCollider.bounds.Contains(destination) || enemyAgent.currentPath == null) //The second part is in case the destination cannot be reached
         {
             return true;
         }
