@@ -25,6 +25,7 @@ public class Interact : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E) && interactReady)
         {
+            //Debug.Log("Called");
             interactReady = false;
             timer.StartTimer();
 
@@ -33,6 +34,8 @@ public class Interact : MonoBehaviour
             foreach (Collider2D obj in objectsFound) {
                 var interactable = obj.gameObject.GetComponent<Interactable>();
                 interactable?.interact();
+
+                Debug.Log("Called");
 
                 if (interactable != null) {
                     onInteract.Invoke(obj.gameObject);
