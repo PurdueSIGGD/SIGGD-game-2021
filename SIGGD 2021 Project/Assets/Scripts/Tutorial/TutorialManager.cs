@@ -9,11 +9,16 @@ public class TutorialManager : MonoBehaviour
     public GameObject player;
     public GameObject tutorialTextObject;
     public GameObject checkpoints;
+	public GameObject navmesh; 
+	public Navmesh navmeshScript;
 
     // Start is called before the first frame update
     void Start()
     {
+		navmesh = GameObject.Find("Navmesh");
+		navmeshScript = navmesh.GetComponent<Navmesh>();
         checkpoints = GameObject.Find("Checkpoints");
+        navmeshScript.center = new Vector2(GlobalControl.Instance.checkpoint.x, GlobalControl.Instance.checkpoint.y);
         player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = GlobalControl.Instance.checkpoint;
         tutorialTextObject = GameObject.Find("Tutorial Text");
@@ -38,5 +43,12 @@ public class TutorialManager : MonoBehaviour
             tutorialTextObject.transform.GetChild(2).GetComponent<TMP_Text>().text = "And Ctrl to Sneak";
         }
     }
+
+	public void updateNavmash() {
+		navmeshScript.center = GlobalControl.Instance.checkpoint;
+		navmeshScript.navmeshNodes = navmeshScript.generateNavmesh();
+		// move center of navmash to position of checkpoint
+		// re-generate navmesh
+	}
 
 }

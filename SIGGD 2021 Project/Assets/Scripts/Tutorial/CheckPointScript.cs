@@ -22,6 +22,7 @@ public class CheckPointScript : MonoBehaviour
         {
             playerCheckpointScript.checkpoint = new Vector2(gameObject.transform.position.x, 0);
             playerCheckpointScript.saveCheckpoint();
+            manager.updateNavmash();
 
             if(gameObject == manager.checkpoints.transform.GetChild(0).gameObject)
             {

@@ -227,8 +227,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.02850008, y: 0.01570034, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 890989916}
+  m_Children: []
   m_Father: {fileID: 337414128}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4047,8 +4046,8 @@ Transform:
   m_LocalPosition: {x: 28.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 297916400}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &890989917
 MonoBehaviour:
@@ -4103,7 +4102,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -1, y: 0}
@@ -4798,7 +4797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701293406633197901, guid: 66c259d2af1ee6f45839a41bdeaee7cc, type: 3}
       propertyPath: soundType
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66c259d2af1ee6f45839a41bdeaee7cc, type: 3}
@@ -12928,9 +12927,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2789127734899067404, guid: f85537c35ab2a0f47835d228d353a062, type: 3}
+      propertyPath: radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4751602854400864994, guid: f85537c35ab2a0f47835d228d353a062, type: 3}
       propertyPath: m_Radius
       value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751602854400864994, guid: f85537c35ab2a0f47835d228d353a062, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f85537c35ab2a0f47835d228d353a062, type: 3}
