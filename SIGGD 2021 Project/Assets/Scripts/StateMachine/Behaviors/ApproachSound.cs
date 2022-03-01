@@ -5,6 +5,7 @@ using UnityEngine;
 public class ApproachSound : Behavior
 {
     [SerializeField] private HearSound HearSound;
+    [SerializeField] private Transform currentLocation;
     [SerializeField] private NavmeshAgent navmeshAgent;
     [SerializeField] private DestinationReached destinationReached;
 

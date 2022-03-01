@@ -23,7 +23,7 @@ TagManager:
   - 
   - 
   - Hidden
-  - HiddenEnterences
+  - 
   - 
   - 
   - 
@@ -42,14 +42,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Interactables
-    uniqueID: 269917201
-    locked: 0
   - name: Entities
     uniqueID: 3251575585
-    locked: 0
-  - name: Player
-    uniqueID: 2194183987
     locked: 0
   - name: UI
     uniqueID: 4281211413

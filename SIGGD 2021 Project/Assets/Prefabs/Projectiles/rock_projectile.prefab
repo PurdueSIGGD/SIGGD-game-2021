@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5697850877520453079}
   - component: {fileID: -1584295554018012003}
-  - component: {fileID: -2061826187380035393}
   m_Layer: 0
   m_Name: rock_projectile
   m_TagString: Untagged
@@ -83,15 +82,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2061826187380035393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5618932585157919483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 193dee2c1847c60448327a7bb2fef2d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

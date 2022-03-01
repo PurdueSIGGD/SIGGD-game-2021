@@ -40,7 +40,7 @@ public class Patrol : Behavior
             currentNode = closestNode;
         }
         //if you are at the target node then go to the next node (or the last node depending on things)
-        if (Vector2.Distance(enemyTransform.position, routeNodes[currentNode]) <= 1f) //arbitrary float value for determining when you are close enough to a node to be consitered at that node
+        if (Vector2.Distance(enemyTransform.position, routeNodes[currentNode]) <= 0.5f) //arbitrary float value for determining when you are close enough to a node to be consitered at that node
         {
             if (patrolDirection == 1) //patrol through the nodes list in the forward direction
             {
@@ -85,13 +85,11 @@ public class Patrol : Behavior
         Vector3 dirToNode = (routeNodes[currentNode] - enemyTransform.position).normalized;
 
         //Calculate compass direction
-        //float angle = Vector2.SignedAngle(Vector2.right, dirToNode) % 360;
-        //angle = Mathf.Round(angle/90);
-        //navmeshAgent.compassDirection = (int)angle;
+        float angle = Vector2.SignedAngle(Vector2.right, dirToNode) % 360;
+        angle = Mathf.Round(angle/90);
+        navmeshAgent.compassDirection = (int)angle;
 
-        //this leads to enemies going through walls, so I replaced it
-        //enemyTransform.Translate(dirToNode * Time.deltaTime * enemyPatrolSpeed);
-        navmeshAgent.navigateTo(routeNodes[currentNode]);
+        enemyTransform.Translate(dirToNode * Time.deltaTime * enemyPatrolSpeed);
 
     }
 

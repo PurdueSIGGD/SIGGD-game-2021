@@ -47,8 +47,6 @@ public class Movement : MonoBehaviour
         if (isMoving())
         {
             soundHitbox.radius = moveSpeed;
-            //attackHitbox.position = new Vector2(rigidBody.position.x, rigidBody.position.y) + facing * 0.5f;
-            //interactHitbox.position = new Vector2(rigidBody.position.x, rigidBody.position.y) + facing * 0.5f;
         } 
         else 
         {
