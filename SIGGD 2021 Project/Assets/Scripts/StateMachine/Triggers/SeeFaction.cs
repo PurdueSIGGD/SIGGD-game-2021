@@ -22,8 +22,10 @@ public class SeeFaction : Trigger
 
         if (hit) //if the ray hits the faction
         {
-            return !ret;
+             return !ret;
         }
+        
         return ret;
     }
+
 }
