@@ -11,25 +11,26 @@ public class EscapeToLocation : Behavior
 
     public override void run()
     {
-        //THIS CRASHES UNITY
         navmeshAgent.navigateTo(escapeTarget);
     }
 
     public override void OnBehaviorEnter()
     {
         Transform bestEscape = transform;
+        Transform secondBestEscape = escapeLocations[0];
         float bestDistance = Vector2.Distance(player.position, transform.position);
         foreach (Transform location in escapeLocations)
         {
             float newDistance = Vector3.Distance(player.position, location.position);
             if (newDistance > bestDistance)
             {
+                secondBestEscape = bestEscape;
                 bestDistance = newDistance;
                 bestEscape = location;
             }
         }
         Debug.Log("Escaping to " + bestEscape.name);
-        escapeTarget = bestEscape.position;
+        escapeTarget = secondBestEscape.position;
     }
     public override void OnBehaviorExit()
     {

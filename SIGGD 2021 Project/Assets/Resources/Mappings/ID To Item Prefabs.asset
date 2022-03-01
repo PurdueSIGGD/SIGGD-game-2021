@@ -17,4 +17,4 @@ MonoBehaviour:
     value:
       pickup: {fileID: 6661046986267507086, guid: cc7464b91443a994bb292df2b6112d76, type: 3}
       system: {fileID: 4026520700735766970, guid: eba7326b401f2564e9154f3ce76140ae, type: 3}
-      ui: {fileID: 0}
+      ui: {fileID: 203462139717160302, guid: 9559b6a129b5eaa42bdc6275dddc38ba, type: 3}
