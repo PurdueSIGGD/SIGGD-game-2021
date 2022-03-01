@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Powerable : MonoBehaviour, ICanUse
+public class PowerMeter : MonoBehaviour, ICanUse
 {
     // Power tracking variables
     public float maxPower;
@@ -12,28 +13,30 @@ public class Powerable : MonoBehaviour, ICanUse
     public float powerPerSecond;
     public float powerFlatCost;
 
-    private bool isConsumingPower;
-    private ItemControl ic;
+    // Event to be called when power runs out
+    public UnityEvent powerOutEvent;
 
-    private void Start()
-    {
-        ic = GetComponent<ItemControl>();
-    }
+    // GameEvent to be called for UI purposes
+    public FloatGameEvent uiEvent;
 
-    private void FixedUpdate()
+    protected bool isConsumingPower;
+
+    public virtual void FixedUpdate()
     {
         if (isConsumingPower)
         {
             ConsumePower(powerPerSecond * Time.deltaTime);
         }
+
+        uiEvent.Invoke(currentPower / maxPower);
     }
 
     public void ConsumePower(float amountToConsume)
     {
-        currentPower = Mathf.Clamp(currentPower - amountToConsume, 0, maxPower);
+        currentPower = Mathf.Clamp(currentPower - amountToConsume, 0f, maxPower);
         if (currentPower == 0f)
         {
-            ic.endUse.Invoke();
+            powerOutEvent.Invoke();
         }
     }
 
@@ -47,14 +50,25 @@ public class Powerable : MonoBehaviour, ICanUse
         ConsumePower(powerFlatCost);
     }
 
-    public void StartConsuming()
+    public virtual void StartConsuming()
     {
-        if (isConsumingPower) return;
+        isConsumingPower = true;
     }
 
-    public void StopConsuming()
+    public virtual void StopConsuming()
     {
-        if (!isConsumingPower) return;
+        isConsumingPower = false;
+    }
+
+    public void ToggleConsumption()
+    {
+        if (isConsumingPower)
+        {
+            StopConsuming();
+        } else
+        {
+            StartConsuming();
+        }
     }
 
     public bool CanUse()

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4026520700735766968}
   - component: {fileID: 2612784756956185004}
   - component: {fileID: 2904447420726660017}
+  - component: {fileID: 1848673124610473393}
   m_Layer: 0
   m_Name: Invisibility Cloak System
   m_TagString: Untagged
@@ -45,6 +46,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   use:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1848673124610473393}
+        m_TargetAssemblyTypeName: PowerMeter, Assembly-CSharp
+        m_MethodName: ToggleConsumption
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  endUse:
     m_PersistentCalls:
       m_Calls: []
   equip:
@@ -104,3 +120,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1848673124610473393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026520700735766970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec42a55594db80b438c3b299870a82e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPower: 10
+  currentPower: 0
+  powerPerSecond: 1
+  powerFlatCost: 0
+  powerOutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  rechargePerSecond: 1
+  rechargeCooldown: {fileID: 0}
