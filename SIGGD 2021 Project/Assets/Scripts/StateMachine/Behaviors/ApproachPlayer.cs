@@ -5,28 +5,31 @@ using UnityEngine;
 public class ApproachPlayer : Behavior
 {
     public Transform player;
+    private Vector2 oldPos;
     [SerializeField] private Transform enemyTransform;
     [SerializeField] private NavmeshAgent navmeshAgent;
-    [SerializeField] private ConeRaycaster cone;
 
     public float approachSpeed = 1f;
     public override void run()
     {
-        Vector2 playerV = player.position;
-        Vector2 enemyV = enemyTransform.position;
-        float angle = Vector2.SignedAngle(Vector2.right, new Vector2(playerV.x - enemyV.x, playerV.y - enemyV.y));
-        Debug.Log("behavior " + angle);
-        cone.setCenterAngle(angle);
-        navmeshAgent.navigateTo(player.position);
+        //this is to reduce the munber of path recalculations
+        Vector2 newPos = player.position;
+        if (Mathf.Pow(newPos.x - oldPos.x, 2) + Mathf.Pow(newPos.y - oldPos.y, 2) > 1)
+        {
+            oldPos = newPos;
+            navmeshAgent.navigateTo(newPos);
+        } else
+        {
+            navmeshAgent.navigateTo(oldPos);
+        }
     }
 
     public override void OnBehaviorEnter()
     {
-
+        
     }
     public override void OnBehaviorExit()
     {
-        cone.setCenterAngle(361);
         navmeshAgent.stopNavigation();
     }
 }

@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class SearchForPlayer : Behavior
 {
+    [SerializeField] private Transform player;
+    [SerializeField] private NavmeshAgent navmeshAgent;
+    [SerializeField] private DestinationReached destinationReached;
+
+    private Vector2 playerLocation;
+
     public override void run()
     {
-        //search for player. for now does nothing b/c idk what searching for the player is going to look like yet
+        navmeshAgent.navigateTo(playerLocation);
     }
 
     public override void OnBehaviorEnter()
     {
-        Debug.Log("Searching");
+        playerLocation = player.position;
+        destinationReached.setDestination(playerLocation);
     }
 
     public override void OnBehaviorExit()
     {
-        
+
     }
 }
