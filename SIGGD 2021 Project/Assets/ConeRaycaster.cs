@@ -16,6 +16,7 @@ public class ConeRaycaster : MonoBehaviour
 
     [SerializeField] private UnityEvent hit;
     [SerializeField] private NavmeshAgent navmeshAgent;
+    private float centerAngle = 361;
 
 
     // Start is called before the first frame update
@@ -30,9 +31,20 @@ public class ConeRaycaster : MonoBehaviour
 
 
     public RaycastHit2D Raycast(Predicate<RaycastHit2D> isValid) {
-        var minAngle = navmeshAgent.compassDirection * 90 + angleOffset - fov / 2f;
-        var maxAngle = navmeshAgent.compassDirection * 90 + angleOffset + fov / 2f;
-        for (int i = 0; i < rayNum - 1; i++) {
+        float minAngle;
+        float maxAngle;
+        if (centerAngle > 360)
+        {
+            minAngle = navmeshAgent.compassDirection * 90 + angleOffset - fov / 2;
+            maxAngle = navmeshAgent.compassDirection * 90 + angleOffset + fov / 2;
+        }
+        else
+        {
+            maxAngle = centerAngle + angleOffset - fov / 2f;
+            minAngle = centerAngle + angleOffset + fov / 2f;
+        }
+        
+        for (int i = 0; i < rayNum; i++) {
             var interpo = (float)i / (float)(rayNum-1);
 
             var theta = Mathf.LerpAngle(minAngle, maxAngle, interpo) * Mathf.Deg2Rad;
@@ -50,6 +62,11 @@ public class ConeRaycaster : MonoBehaviour
         }
 
         return new RaycastHit2D();
+    }
+
+    public void setCenterAngle(float value)
+    {
+        centerAngle = value;
     }
 
     // Update is called once per frame
