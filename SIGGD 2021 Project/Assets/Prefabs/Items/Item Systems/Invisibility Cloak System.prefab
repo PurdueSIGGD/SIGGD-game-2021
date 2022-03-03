@@ -139,5 +139,6 @@ MonoBehaviour:
   powerOutEvent:
     m_PersistentCalls:
       m_Calls: []
+  uiEvent: {fileID: 11400000, guid: 938d62773d45d334b8fa3e4503cddbff, type: 2}
   rechargePerSecond: 1
   rechargeCooldown: {fileID: 0}

@@ -7,7 +7,7 @@ public class RechargeMeter : PowerMeter
     // PowerMeter except it recharges an amount per second
     public float rechargePerSecond;
 
-    private bool recharging = false;
+    private bool recharging = true;
 
     // Timer to set a "cooldown period"
     public Timer rechargeCooldown;

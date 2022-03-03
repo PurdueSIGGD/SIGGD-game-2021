@@ -19,7 +19,7 @@ public class PowerMeter : MonoBehaviour, ICanUse
     // GameEvent to be called for UI purposes
     public FloatGameEvent uiEvent;
 
-    protected bool isConsumingPower;
+    protected bool isConsumingPower = false;
 
     public virtual void FixedUpdate()
     {
