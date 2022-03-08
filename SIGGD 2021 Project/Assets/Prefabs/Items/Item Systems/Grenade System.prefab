@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4026520700735766968}
+  - component: {fileID: -2212119631954597683}
   - component: {fileID: 2612784756956185004}
   - component: {fileID: 2904447420726660017}
+  - component: {fileID: 4581234372287810962}
   m_Layer: 0
   m_Name: Grenade System
   m_TagString: Untagged
@@ -32,6 +34,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2212119631954597683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026520700735766970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defca4f86bf37e349b95307449e2f15c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 3
+  max: 3
+  countEvent: {fileID: 11400000, guid: d7cf0c99aa27c674f92269567df90fc5, type: 2}
 --- !u!114 &2612784756956185004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,6 +62,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   use:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2212119631954597683}
+        m_TargetAssemblyTypeName: Stackable, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4581234372287810962}
+        m_TargetAssemblyTypeName: SpawnProjectile, Assembly-CSharp
+        m_MethodName: spawnProjectile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  endUse:
     m_PersistentCalls:
       m_Calls: []
   equip:
@@ -104,3 +148,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4581234372287810962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026520700735766970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51898a45f35a9764e9b66800ff9151db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: {fileID: 0}
+  direction: {fileID: 0}
+  gameObject: {fileID: 7779663854826479584, guid: 451022636bba12c47a91b59122b9a2cb, type: 3}
