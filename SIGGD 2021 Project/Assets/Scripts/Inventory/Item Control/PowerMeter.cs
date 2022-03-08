@@ -13,8 +13,10 @@ public class PowerMeter : MonoBehaviour, ICanUse
     public float powerPerSecond;
     public float powerFlatCost;
 
-    // Event to be called when power runs out
-    public UnityEvent powerOutEvent;
+    // Event to be called when consumption is stopped or started (to turn on or off the effect)
+    // stopConsuming is also called when power runs out
+    public UnityEvent startConsumingEvent;
+    public UnityEvent stopConsumingEvent;
 
     // GameEvent to be called for UI purposes
     public FloatGameEvent uiEvent;
@@ -36,7 +38,7 @@ public class PowerMeter : MonoBehaviour, ICanUse
         currentPower = Mathf.Clamp(currentPower - amountToConsume, 0f, maxPower);
         if (currentPower == 0f)
         {
-            powerOutEvent.Invoke();
+            StopConsuming();
         }
     }
 
@@ -53,11 +55,13 @@ public class PowerMeter : MonoBehaviour, ICanUse
     public virtual void StartConsuming()
     {
         isConsumingPower = true;
+        startConsumingEvent.Invoke();
     }
 
     public virtual void StopConsuming()
     {
         isConsumingPower = false;
+        stopConsumingEvent.Invoke();
     }
 
     public void ToggleConsumption()

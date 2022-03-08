@@ -29,7 +29,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9142594448300295570}
-  - {fileID: 3480757838754623892}
+  - {fileID: 781101099583587756}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1001 &2756557555023276690
+--- !u!1001 &2078525448533057194
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -158,11 +158,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1589595493090253574, guid: 05df6a64f8473ae42b91b02623d4a2b7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 45
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1589595493090253574, guid: 05df6a64f8473ae42b91b02623d4a2b7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1589595493090253574, guid: 05df6a64f8473ae42b91b02623d4a2b7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -194,11 +194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1589595493090253574, guid: 05df6a64f8473ae42b91b02623d4a2b7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000013351
+      value: 0.0000019078
       objectReference: {fileID: 0}
     - target: {fileID: 1589595493090253574, guid: 05df6a64f8473ae42b91b02623d4a2b7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -11
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 1589595493090253574, guid: 05df6a64f8473ae42b91b02623d4a2b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -218,8 +218,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05df6a64f8473ae42b91b02623d4a2b7, type: 3}
---- !u!224 &3480757838754623892 stripped
+--- !u!224 &781101099583587756 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1589595493090253574, guid: 05df6a64f8473ae42b91b02623d4a2b7, type: 3}
-  m_PrefabInstance: {fileID: 2756557555023276690}
+  m_PrefabInstance: {fileID: 2078525448533057194}
   m_PrefabAsset: {fileID: 0}

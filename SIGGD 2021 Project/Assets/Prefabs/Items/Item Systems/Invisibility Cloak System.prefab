@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2612784756956185004}
   - component: {fileID: 2904447420726660017}
   - component: {fileID: 1848673124610473393}
+  - component: {fileID: 1918017599984170171}
+  - component: {fileID: 3709971487211213019}
   m_Layer: 0
   m_Name: Invisibility Cloak System
   m_TagString: Untagged
@@ -134,11 +136,85 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPower: 10
   currentPower: 0
-  powerPerSecond: 1
+  powerPerSecond: 3
   powerFlatCost: 0
-  powerOutEvent:
+  startConsumingEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1918017599984170171}
+        m_TargetAssemblyTypeName: InvisbilityCloak, Assembly-CSharp
+        m_MethodName: StartInvisibility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  stopConsumingEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1918017599984170171}
+        m_TargetAssemblyTypeName: InvisbilityCloak, Assembly-CSharp
+        m_MethodName: EndInvisibility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  uiEvent: {fileID: 11400000, guid: 938d62773d45d334b8fa3e4503cddbff, type: 2}
+  rechargePerSecond: 2
+  rechargeCooldown: {fileID: 3709971487211213019}
+--- !u!114 &1918017599984170171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026520700735766970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d773d9ddd2fd60c4697ac689dd4f32df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invisibleLayerName: Invisible
+  playerLayerName: Player
+--- !u!114 &3709971487211213019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026520700735766970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7422e23b50543fe468e6b6b9e308463a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  period: 1
+  _time: 0
+  loop: 0
+  OnPeriodDone:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1848673124610473393}
+        m_TargetAssemblyTypeName: RechargeMeter, Assembly-CSharp
+        m_MethodName: StartRecharge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  uiEvent: {fileID: 11400000, guid: 938d62773d45d334b8fa3e4503cddbff, type: 2}
-  rechargePerSecond: 1
-  rechargeCooldown: {fileID: 0}
