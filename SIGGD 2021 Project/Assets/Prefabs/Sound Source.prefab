@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8222535126886966302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 5.1974998, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c326da4ce73e18c40bd56c2801e00089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signalTransform: {fileID: 0}
+  signalTransform: {fileID: 1657153317563386021}
+  soundType: 2
 --- !u!50 &786204870787372090
 Rigidbody2D:
   serializedVersion: 4

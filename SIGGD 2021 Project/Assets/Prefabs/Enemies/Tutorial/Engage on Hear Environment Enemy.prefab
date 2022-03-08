@@ -47,24 +47,6 @@ MonoBehaviour:
   transitions:
   - toState: {fileID: 286097206048912254}
     triggers:
-    - {fileID: 8701293406633197901}
-    onTriggered:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3265982621882468672}
-          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
-          m_MethodName: setAgentSpeed
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 6
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - toState: {fileID: 8047687526116665153}
-    triggers:
     - {fileID: 4719747539790858239}
     onTriggered:
       m_PersistentCalls:
@@ -77,7 +59,7 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 1
+            m_FloatArgument: 6
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -987,7 +969,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyTransform: {fileID: 6302307713262752372}
   navmeshAgent: {fileID: 3265982621882468672}
-  cone: {fileID: 0}
+  cone: {fileID: 6910032380932819964}
   approachSpeed: 2
 --- !u!114 &6302307711946148619
 MonoBehaviour:
@@ -1051,10 +1033,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1135b4779cd6ad24e9fafbab819b2cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HearSound: {fileID: 0}
-  currentLocation: {fileID: 0}
-  navmeshAgent: {fileID: 0}
-  destinationReached: {fileID: 0}
+  HearSound: {fileID: 4719747539790858239}
+  currentLocation: {fileID: 6302307713262752372}
+  navmeshAgent: {fileID: 3265982621882468672}
+  destinationReached: {fileID: 7401725175820300722}
 --- !u!1 &6302307712377007511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,7 +1093,7 @@ GameObject:
   - component: {fileID: 6302307713262752375}
   - component: {fileID: 1734832149}
   m_Layer: 6
-  m_Name: Tutorial Enemy
+  m_Name: Engage on Hear Environment Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1775,7 +1757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8875096493982653265, guid: 6931ebd593cdafa4dbda98362822b69f, type: 3}
       propertyPath: m_Radius
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6931ebd593cdafa4dbda98362822b69f, type: 3}
