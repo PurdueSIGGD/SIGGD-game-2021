@@ -5,8 +5,8 @@ using UnityEngine;
 public class ItemMeta : MonoBehaviour
 {
     [SerializeField] private string id = "UNSET_ITEM_ID";
-    private IDToItemPrefabs _mappings;
-    public IDToItemPrefabs mappings {
+    private static IDToItemPrefabs _mappings;
+    public static IDToItemPrefabs mappings {
         get {
             _mappings ??= Resources.Load<IDToItemPrefabs>("Mappings/ID To Item Prefabs");
             return _mappings;
@@ -14,7 +14,7 @@ public class ItemMeta : MonoBehaviour
     }
 
     public GameObject BuildSystemPrefab(Transform systemParent) {
-        var systemInstance = Instantiate(mappings.get(this.id).system);
+        var systemInstance = Instantiate(mappings.get(this.id).system, systemParent);
         systemInstance.transform.SetParent(systemParent);
 
         // copy this component into the system instance
@@ -43,6 +43,11 @@ public class ItemMeta : MonoBehaviour
         }
 
         return pickupInstance;
+    }
+
+    public void SendIDEvent(StringGameEvent gameEvent)
+    {
+        gameEvent.Invoke(this.id);
     }
 
     public static bool HasSameItemID(GameObject a, GameObject b) {

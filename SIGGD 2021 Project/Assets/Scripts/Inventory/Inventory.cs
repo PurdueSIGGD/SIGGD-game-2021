@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class Inventory : MonoBehaviour
 {
     // Event to be called right after the item in the inventory is changed
-    public UnityEvent onItemChange;
+    public StringGameEvent onItemChange;
 
     // Currently equipped item
     public GameObject equippedItem;
@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
             useItemTimer.StartTimer();
 
             // Use the item
-            UseItem();
+            if (equippedItem) UseItem();
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && useItemReady)
@@ -37,8 +37,9 @@ public class Inventory : MonoBehaviour
             useItemTimer.StartTimer();
 
             // Drop the item (using the same timer)
-            dropItem(transform.position);
-            onItemChange?.Invoke();
+            if (equippedItem) dropItem(transform.position);
+
+            UpdateUI();
         }
     }
     public void RefreshItemUse()
@@ -53,7 +54,6 @@ public class Inventory : MonoBehaviour
 
         ItemControl currentControl = equippedItem.GetComponent<ItemControl>();
         currentControl.use.Invoke();
-        onItemChange?.Invoke();
     }
 
     // Equips a new item (dequipping and returning any old/extra item)
@@ -71,7 +71,7 @@ public class Inventory : MonoBehaviour
             equipSwapOut(itemPickup);
         }
 
-        onItemChange?.Invoke();
+        UpdateUI();
     }
 
     // mergeable if item id matches and proper components not null
@@ -95,6 +95,7 @@ public class Inventory : MonoBehaviour
         this.equippedItem = itemPickup.GetComponent<ItemMeta>()
             .BuildSystemPrefab(this.transform);
 
+
         Destroy(itemPickup);
         
         this.equippedItem.GetComponent<ItemControl>()
@@ -103,7 +104,8 @@ public class Inventory : MonoBehaviour
 
     public void DropItem() {
         dropItem(this.transform.position);
-        onItemChange?.Invoke();
+
+        UpdateUI();
     }
 
     // Dequips and returns the current item (parent must be set by whatever else)
@@ -119,6 +121,18 @@ public class Inventory : MonoBehaviour
             .dequip.Invoke();
         Destroy(equippedItem);
         equippedItem = null;
+    }
+
+    public void UpdateUI()
+    {
+        if (equippedItem)
+        {
+            equippedItem.GetComponent<ItemMeta>().SendIDEvent(onItemChange);
+        } else
+        {
+            onItemChange.Invoke(null);
+        }
+
     }
 
     public bool IsValidItemPickup(GameObject gObj) =>
