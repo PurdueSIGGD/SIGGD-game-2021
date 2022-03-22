@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class Wander : Behavior
 {
+    //Wanders around a set area
     System.Random rand = new System.Random();
     [SerializeField] private Transform enemyT;
     [SerializeField] private NavmeshAgent nav;
+
+    //Height and width of the wander area
     [SerializeField] private int height;
     [SerializeField] private int width;
+
     private Vector2 enemyLoc;
     private bool firstRun = true;
     private float timer;
@@ -26,6 +30,7 @@ public class Wander : Behavior
 
         if (timer >= 1)
         {
+            //approaches a random location in the area every second
             timer = 0;
             Vector2 randLoc = new Vector2(rand.Next(-width, width), rand.Next(-height, height));
             nav.navigateTo(enemyLoc + randLoc);
