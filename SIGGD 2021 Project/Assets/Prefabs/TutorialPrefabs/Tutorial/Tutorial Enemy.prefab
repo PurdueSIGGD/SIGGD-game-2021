@@ -59,7 +59,7 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 6
+            m_FloatArgument: 4
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -1051,7 +1051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1135b4779cd6ad24e9fafbab819b2cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HearSound: {fileID: 8701293406633197901}
+  HearSound: {fileID: 4719747539790858239}
+  currentLocation: {fileID: 6302307713262752372}
   navmeshAgent: {fileID: 3265982621882468672}
   destinationReached: {fileID: 7401725175820300722}
 --- !u!1 &6302307712377007511
@@ -1242,8 +1243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agentSpeed: 2
-  currentPath: []
-  bodyHolder: {fileID: 6302307713262752372}
   compassDirection: 0
 --- !u!114 &6302307713262752375
 MonoBehaviour:
@@ -1388,10 +1387,22 @@ MonoBehaviour:
   transitions:
   - toState: {fileID: 1012359127}
     triggers:
-    - {fileID: 1855292786650820245}
+    - {fileID: 8701293406633197901}
     onTriggered:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 247812226777656673}
+          m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+          m_MethodName: StartTimer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8231894245281494279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,7 +1447,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCollider: {fileID: 8165086688731034997}
-  enemyAgent: {fileID: 0}
 --- !u!1 &8571413644034660420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,7 +1701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7422e23b50543fe468e6b6b9e308463a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 5
+  period: 3
   _time: 0
   loop: 0
   OnPeriodDone:
@@ -1777,7 +1787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8875096493982653265, guid: 6931ebd593cdafa4dbda98362822b69f, type: 3}
       propertyPath: m_Radius
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6931ebd593cdafa4dbda98362822b69f, type: 3}

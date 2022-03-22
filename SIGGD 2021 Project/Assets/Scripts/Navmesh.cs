@@ -10,9 +10,9 @@ public class Navmesh : MonoBehaviour
     public float tileSize = 1f; //the size of the tiles
     [SerializeField] private LayerMask layerMask;
 
-    private List<NavmeshNode> navmeshNodes; //list of nodes in the navmesh
+    public List<NavmeshNode> navmeshNodes; //list of nodes in the navmesh
 
-    private class NavmeshNode //a data structure consisting of a Vector2 pos and a list of adjacent NavmeshNodes 
+    public class NavmeshNode //a data structure consisting of a Vector2 pos and a list of adjacent NavmeshNodes 
     {
         public List<NavmeshNode> adjacentNodes;
         public Vector2 pos;
@@ -60,7 +60,7 @@ public class Navmesh : MonoBehaviour
         navmeshNodes = generateNavmesh();
     }
 
-    private List<NavmeshNode> generateNavmesh()
+    public List<NavmeshNode> generateNavmesh()
     {
         NavmeshNode[,] navmeshNodes = new NavmeshNode[width, height];
         List<NavmeshNode> ret = new List<NavmeshNode>(); //this will be a list of all accessible nodes on the mesh 
