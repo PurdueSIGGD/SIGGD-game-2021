@@ -344,11 +344,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayNum: 8
-  fov: 30
+  fov: 45
   angleOffset: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 1033
   rayOrigin: {fileID: 1323579375841503856}
   maxDistance: 8
   hit:
@@ -482,7 +482,127 @@ MonoBehaviour:
           m_CallState: 2
   - toState: {fileID: 6672950518674449037}
     triggers:
-    - {fileID: 6735601890196368036}
+    - {fileID: 4860069377118584932}
+    onTriggered:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5646911798120914087}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4105189245378321520}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: idle
+            m_BoolArgument: 0
+          m_CallState: 2
+  - toState: {fileID: 6672950518674449037}
+    triggers:
+    - {fileID: 2355423498722033749}
+    onTriggered:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5646911798120914087}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4105189245378321520}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: idle
+            m_BoolArgument: 0
+          m_CallState: 2
+  - toState: {fileID: 8404028887767001648}
+    triggers:
+    - {fileID: 8404028888620175704}
+    onTriggered:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5646911798120914087}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4105189245378321520}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: idle
+            m_BoolArgument: 0
+          m_CallState: 2
+  - toState: {fileID: 8404028887767001648}
+    triggers:
+    - {fileID: 1469113864697131151}
+    onTriggered:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5646911798120914087}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4105189245378321520}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: idle
+            m_BoolArgument: 0
+          m_CallState: 2
+  - toState: {fileID: 7314073851601346827}
+    triggers:
+    - {fileID: 986465654884766774}
     onTriggered:
       m_PersistentCalls:
         m_Calls:
@@ -778,7 +898,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1135b4779cd6ad24e9fafbab819b2cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HearSound: {fileID: 8404028888620175704}
+  hearSound:
+  - {fileID: 8404028888620175704}
+  - {fileID: 1469113864697131151}
   navmeshAgent: {fileID: 6162255461195681360}
   destinationReached: {fileID: 8404028887139207051}
 --- !u!114 &118407473671425461
@@ -891,7 +1013,7 @@ MonoBehaviour:
   transitions:
   - toState: {fileID: 7721756870236067946}
     triggers:
-    - {fileID: 0}
+    - {fileID: 8181568325240584014}
     onTriggered:
       m_PersistentCalls:
         m_Calls:
@@ -1214,7 +1336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3272a9e367bf748b63c9317dff04cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRaidus: 16
+  detectionRaidus: 32
   approachTarget: {fileID: 8312319771114269679}
 --- !u!1 &7649143961529095007
 GameObject:
@@ -1926,7 +2048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 0
-  disregardTime: 2
+  disregardTime: 0.5
 --- !u!58 &4825734950672227113
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2471,7 +2593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 1
-  disregardTime: 2
+  disregardTime: 0.5
 --- !u!58 &5476918021391683547
 CircleCollider2D:
   m_ObjectHideFlags: 0

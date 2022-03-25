@@ -501,7 +501,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1135b4779cd6ad24e9fafbab819b2cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HearSound: {fileID: 4657704984409674351}
+  hearSound:
+  - {fileID: 4657704984409674351}
+  - {fileID: 2333202125435319224}
   navmeshAgent: {fileID: 7027549526086520167}
   destinationReached: {fileID: 4657704982392358076}
 --- !u!1 &3101382732247793289
@@ -552,7 +554,7 @@ MonoBehaviour:
   angleOffset: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 1033
   rayOrigin: {fileID: 2764130244981778759}
   maxDistance: 8
   hit:
