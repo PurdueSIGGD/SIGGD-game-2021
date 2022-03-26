@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SearchForPlayer : Behavior
 {
-    [SerializeField] private Transform player;
+    [SerializeField] private ApproachPlayer approachPlayer;
     [SerializeField] private NavmeshAgent navmeshAgent;
     [SerializeField] private DestinationReached destinationReached;
 
@@ -12,13 +12,12 @@ public class SearchForPlayer : Behavior
 
     public override void run()
     {
-        navmeshAgent.navigateTo(playerLocation);
+        navmeshAgent.navigateTo(approachPlayer.dest.position);
     }
 
     public override void OnBehaviorEnter()
     {
-        playerLocation = player.position;
-        destinationReached.setDestination(playerLocation);
+        destinationReached.setDestination(approachPlayer.dest.position);
     }
 
     public override void OnBehaviorExit()

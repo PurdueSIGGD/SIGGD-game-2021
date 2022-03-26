@@ -16,8 +16,8 @@ public class ConeRaycaster : MonoBehaviour
 
     [SerializeField] private UnityEvent hit;
     [SerializeField] private NavmeshAgent navmeshAgent;
+    [SerializeField] private ApproachPlayer approachPlayer;
     private float centerAngle = 361;
-
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,6 @@ public class ConeRaycaster : MonoBehaviour
     // public bool raycast() {
     //     return Raycast((_) => true);
     // }
-
 
     public RaycastHit2D Raycast(Predicate<RaycastHit2D> isValid) {
         float minAngle;
@@ -55,12 +54,13 @@ public class ConeRaycaster : MonoBehaviour
             if (result && isValid(result)) {
                 Debug.DrawRay(rayOrigin.position, rayDir * result.distance, Color.green);
                 hit.Invoke();
+                approachPlayer.setDest(result.transform);
                 return result;
             }
             Debug.DrawRay(rayOrigin.position, rayDir * maxDistance, Color.red);
 
         }
-
+        //approachPlayer.setDest(null);
         return new RaycastHit2D();
     }
 

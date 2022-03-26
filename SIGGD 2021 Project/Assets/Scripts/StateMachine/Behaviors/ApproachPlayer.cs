@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ApproachPlayer : Behavior
 {
-    public Transform player;
+    public Transform dest;
     private Vector2 oldPos;
     [SerializeField] private Transform enemyTransform;
     [SerializeField] private NavmeshAgent navmeshAgent;
@@ -14,7 +14,7 @@ public class ApproachPlayer : Behavior
     public override void run()
     {
         //this is to reduce the munber of path recalculations
-        Vector2 playerV = player.position;
+        Vector2 playerV = dest.position;
         Vector2 enemyV = enemyTransform.position;
         float angle = Vector2.SignedAngle(Vector2.right, new Vector2(playerV.x - enemyV.x, playerV.y - enemyV.y));
         cone.setCenterAngle(angle);
@@ -26,6 +26,11 @@ public class ApproachPlayer : Behavior
         {
             navmeshAgent.navigateTo(oldPos);
         }
+    }
+
+    public void setDest(Transform dest)
+    {
+        this.dest = dest;
     }
 
     public override void OnBehaviorEnter()

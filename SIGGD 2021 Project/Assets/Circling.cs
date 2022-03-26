@@ -6,7 +6,7 @@ public class Circling : Behavior
 {
     //Circles the player for a set amount of time
 
-    [SerializeField] private Transform playerTransform;
+    [SerializeField] private ApproachPlayer approachPlayer;
     [SerializeField] private Transform enemyTransform;
     [SerializeField] private DestinationReached dest;
     [SerializeField] private NavmeshAgent nav;
@@ -23,7 +23,8 @@ public class Circling : Behavior
     
     public override void run()
     {
-        Vector2 playerV = playerTransform.position;
+        Debug.Log(approachPlayer.dest);
+        Vector2 playerV = approachPlayer.dest.position;
         Vector2 enemyV = enemyTransform.position;
 
         nav.navigateTo(playerV + vectorArr[index]); //navigates to location

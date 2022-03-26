@@ -71,7 +71,7 @@ public class FloodFilledExplosion : MonoBehaviour
         }
         else
         {
-            GameObject.Destroy(parent, 0);
+            //GameObject.Destroy(parent, 0);
         }
     }
 

@@ -23,13 +23,13 @@ public class AIStateTransition
         if (triggers.Length == 0) { return true; } //if there are no triggers required for this transition then it happens
         foreach(Trigger trigger in triggers)
         {
-            if (trigger.isActive())
+            if (!trigger.isActive())
             {
-                onTriggered.Invoke();
-                return true;
+                return false;
             }
         }
-        return false;
+        onTriggered.Invoke();
+        return true;
     }
 }
 

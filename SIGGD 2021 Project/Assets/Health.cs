@@ -17,16 +17,24 @@ public class Health : MonoBehaviour
     [SerializeField] private UnityEvent<int> healthChangeEvent;
     [SerializeField] private UnityEvent deathEvent;
 
+    // For AI use only. Can ignore this on player
+    [SerializeField] private Hurt hurt;
+
     private void Start()
     {
         SetCurrHealth(maxHealth);
     }
 
     //takes damage and/or heals if the damage is negative also invokes the death event when health is <= 0
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Transform source)
     {
+        if (hurt != null)
+        {
+            hurt.setSource(source);
+        }
+
         SetCurrHealth(currHealth - damage);
-        
+
         if (IsDead())
         {
             deathEvent?.Invoke();
