@@ -12,6 +12,9 @@ public class FloodFilledExplosion : MonoBehaviour
     [SerializeField] private LayerMask layer;
     [SerializeField] private int maxIteration;
     [SerializeField] private float delay;
+    [SerializeField] private float randomExtension = 0f;
+
+    [SerializeField] private bool destroyAtEnd = false;
 
     private int currIteration = 0;
     private double timeSinceLastRun = 0;
@@ -71,7 +74,7 @@ public class FloodFilledExplosion : MonoBehaviour
         }
         else
         {
-            GameObject.Destroy(parent, 0);
+            if (destroyAtEnd) GameObject.Destroy(parent, 0);
         }
     }
 
