@@ -22,7 +22,7 @@ public class ApproachPlayer : Behavior
     {
         //this is to reduce the munber of path recalculations
         Vector2 playerV = player.position;
-        Vector2 enemyV = enemyTransform.position;
+        Vector2 enemyV = transform.position;
         float angle = Vector2.SignedAngle(Vector2.right, new Vector2(playerV.x - enemyV.x, playerV.y - enemyV.y));
         cone.setCenterAngle(angle);
         if (Mathf.Pow(playerV.x - oldPos.x, 2) + Mathf.Pow(playerV.y - oldPos.y, 2) > 1)
@@ -35,7 +35,7 @@ public class ApproachPlayer : Behavior
         }
 
         //checks if close enough to attack, and if so, does
-        if (attackPatterns.canAttack() && Mathf.Pow(newPos.x - oldPos.x, 2) + Mathf.Pow(newPos.y - oldPos.y, 2) > Mathf.Pow(attackPatterns.getMaxAttackRange(), 2))
+        if (attackPatterns.canAttack() && Mathf.Pow(playerV.x - oldPos.x, 2) + Mathf.Pow(playerV.y - oldPos.y, 2) > Mathf.Pow(attackPatterns.getMaxAttackRange(), 2))
         {
             attackPatterns.chooseAttack();
         }
