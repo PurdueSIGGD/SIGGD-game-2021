@@ -8,6 +8,7 @@ public class ApproachPlayer : Behavior
 
     private Vector2 oldPos;
     [SerializeField] private NavmeshAgent navmeshAgent;
+    [SerializeField] private EnemyAttackPatterns attackPatterns;
 
     public float approachSpeed = 1f;
 
@@ -27,6 +28,12 @@ public class ApproachPlayer : Behavior
         } else
         {
             navmeshAgent.navigateTo(oldPos);
+        }
+
+        //checks if close enough to attack, and if so, does
+        if (attackPatterns.canAttack() && Mathf.Pow(newPos.x - oldPos.x, 2) + Mathf.Pow(newPos.y - oldPos.y, 2) > Mathf.Pow(attackPatterns.getMaxAttackRange(), 2))
+        {
+            attackPatterns.chooseAttack();
         }
     }
 
