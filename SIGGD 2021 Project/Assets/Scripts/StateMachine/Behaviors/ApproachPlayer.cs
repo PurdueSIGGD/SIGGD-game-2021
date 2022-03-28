@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class ApproachPlayer : Behavior
 {
-    public Transform player;
+    private Transform player;
+
     private Vector2 oldPos;
     [SerializeField] private NavmeshAgent navmeshAgent;
 
     public float approachSpeed = 1f;
+
+    private void Start()
+    {
+        player = GameObject.FindObjectOfType<playerNavPos>().transform;
+    }
+
     public override void run()
     {
         //this is to reduce the munber of path recalculations
