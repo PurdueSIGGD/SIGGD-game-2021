@@ -12,7 +12,8 @@ public class FloodFilledExplosion : MonoBehaviour
     [SerializeField] private LayerMask layer;
     [SerializeField] private int maxIteration;
     [SerializeField] private float delay;
-    [SerializeField] private float randomExtension = 0f;
+    [SerializeField] private float chance = 1f;
+    [SerializeField] private int minRandomIteration;
 
     [SerializeField] private bool destroyAtEnd = false;
 
@@ -23,15 +24,14 @@ public class FloodFilledExplosion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-            explosions.Add(origin);
-            FloodFill();
+        explosions.Add(origin);
+        FloodFill();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-            FloodFill();
+        FloodFill();
     }
 
     void FloodFill()
@@ -55,18 +55,15 @@ public class FloodFilledExplosion : MonoBehaviour
 
             for (int index = 0; index < explosions.Count; index++) 
             {
-            Vector3 explosionPos = explosions[index].transform.position;
-            Quaternion rotation = explosions[index].transform.rotation;
-            float colliderSize = explosions[index].GetComponent<BoxCollider2D>().size.x;
+                Vector3 explosionPos = explosions[index].transform.position;
+                Quaternion rotation = explosions[index].transform.rotation;
+                float colliderSize = explosions[index].GetComponent<BoxCollider2D>().size.x;
 
-            addToList(tempList, Clone(explosions[index],
-                explosionPos + colliderSize * Vector3.up, rotation));
-            addToList(tempList, Clone(explosions[index],
-                explosionPos + colliderSize * Vector3.down, rotation));
-            addToList(tempList, Clone(explosions[index],
-                explosionPos + colliderSize * Vector3.right, rotation));
-            addToList(tempList, Clone(explosions[index],
-                explosionPos + colliderSize * Vector3.left, rotation));
+                float chance = (currIteration > minRandomIteration) ? this.chance : 1f;
+                if (Random.Range(0f, 1f) < chance) addToList(tempList, Clone(explosions[index], explosionPos + colliderSize * Vector3.up, rotation));
+                if (Random.Range(0f, 1f) < chance) addToList(tempList, Clone(explosions[index], explosionPos + colliderSize * Vector3.down, rotation));
+                if (Random.Range(0f, 1f) < chance) addToList(tempList, Clone(explosions[index], explosionPos + colliderSize * Vector3.right, rotation));
+                if (Random.Range(0f, 1f) < chance) addToList(tempList, Clone(explosions[index], explosionPos + colliderSize * Vector3.left, rotation));
             }  // Runs through every element in the list and clones itself 4 times (north, south, east, west)
 
             explosions.Clear();
@@ -93,6 +90,7 @@ public class FloodFilledExplosion : MonoBehaviour
         {
             return null;
         } //checks if a wall is in the way
+
         GameObject clone = GameObject.Instantiate(explosion, explosionPos,
                 rotation, parent.transform);
         return clone;
