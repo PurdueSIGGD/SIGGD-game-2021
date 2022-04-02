@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class ConeRaycaster : MonoBehaviour
 {
-    [Range(1, 10)] [SerializeField] private int rayNum;
+    [Range(1, 100)] [SerializeField] private int rayNum;
 
     [Range(10f, 180f)] [SerializeField] private float fov;
     [Range(0f, 360f)] [SerializeField] private float angleOffset;
@@ -17,12 +17,13 @@ public class ConeRaycaster : MonoBehaviour
     [SerializeField] private UnityEvent hit;
     [SerializeField] private NavmeshAgent navmeshAgent;
     private float centerAngle = 361;
+    private List<Vector3> points;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        points = new List<Vector3>();
     }
 
     // public bool raycast() {
@@ -43,7 +44,8 @@ public class ConeRaycaster : MonoBehaviour
             maxAngle = centerAngle + angleOffset - fov / 2f;
             minAngle = centerAngle + angleOffset + fov / 2f;
         }
-        
+
+        List<Vector3> temp = new List<Vector3>();
         for (int i = 0; i < rayNum; i++) {
             var interpo = (float)i / (float)(rayNum-1);
 
@@ -52,14 +54,25 @@ public class ConeRaycaster : MonoBehaviour
             var rayDir = new Vector2(Mathf.Cos(theta), Mathf.Sin(theta));
             var result = Physics2D.Raycast(rayOrigin.position, rayDir, maxDistance, layerMask);
 
+            if (result.transform != null)
+            {
+                temp.Add(Vector2.zero + rayDir * result.distance);
+            } else { 
+                temp.Add(Vector2.zero + rayDir * maxDistance);
+            }
+
+            /*
             if (result && isValid(result)) {
                 Debug.DrawRay(rayOrigin.position, rayDir * result.distance, Color.green);
                 hit.Invoke();
                 return result;
             }
             Debug.DrawRay(rayOrigin.position, rayDir * maxDistance, Color.red);
+            */
+
 
         }
+        points = temp;
 
         return new RaycastHit2D();
     }
@@ -67,6 +80,11 @@ public class ConeRaycaster : MonoBehaviour
     public void setCenterAngle(float value)
     {
         centerAngle = value;
+    }
+
+    public List<Vector3> getData()
+    {
+        return points;
     }
 
     // Update is called once per frame
