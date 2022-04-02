@@ -61,18 +61,19 @@ public class ConeRaycaster : MonoBehaviour
                 temp.Add(Vector2.zero + rayDir * maxDistance);
             }
 
-            /*
+            
             if (result && isValid(result)) {
                 Debug.DrawRay(rayOrigin.position, rayDir * result.distance, Color.green);
                 hit.Invoke();
                 return result;
             }
             Debug.DrawRay(rayOrigin.position, rayDir * maxDistance, Color.red);
-            */
+            
 
 
         }
         points = temp;
+        points.Insert(0, Vector3.zero);
 
         return new RaycastHit2D();
     }
@@ -84,7 +85,21 @@ public class ConeRaycaster : MonoBehaviour
 
     public List<Vector3> getData()
     {
+        /*
+        while (true)
+        {
+            if (points.Count == 50)
+            {
+                return points;
+            }
+        }
+        */
         return points;
+    }
+
+    public int getRayCount()
+    {
+        return rayNum;
     }
 
     // Update is called once per frame

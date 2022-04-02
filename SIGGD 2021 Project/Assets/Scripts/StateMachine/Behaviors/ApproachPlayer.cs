@@ -30,7 +30,7 @@ public class ApproachPlayer : Behavior
 
     public override void OnBehaviorEnter()
     {
-        
+        navmeshAgent.setAgentSpeed(approachSpeed);
     }
     public override void OnBehaviorExit()
     {

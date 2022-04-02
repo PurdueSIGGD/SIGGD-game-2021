@@ -9,34 +9,38 @@ public class ConeVisualizer : MonoBehaviour
     [SerializeField] private List<Vector3> vertices;
     [SerializeField] private List<int> triangles;
     [SerializeField] private Transform transform;
+    [SerializeField] private SeeFaction seePlayer;
     private Mesh mesh;
 
-    // makes accessing data array more readable
-
-    // Start is called before the first frame update
     void Start()
     {
         mesh = new Mesh();
         
         GetComponent<MeshFilter>().mesh = mesh;
         triangles = new List<int>();
-        vertices = new List<Vector3>();
-        vertices = cone.getData();
-        for (int i = 2; i < vertices.Count; i++)
+        //vertices = new List<Vector3>();
+        for (int i = 2; i <= cone.getRayCount(); i++)
         {
             triangles.Add(0);
             triangles.Add(i - 1);
             triangles.Add(i);
-        }
+        }       
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<MeshFilter>().mesh != null && seePlayer.isActive())
+        {
+            GetComponent<MeshFilter>().mesh = null;
+            return;
+        } 
+        else if (GetComponent<MeshFilter>().mesh == null)
+        {
+            GetComponent<MeshFilter>().mesh = mesh;
+        }
         vertices = cone.getData();
-        vertices.Insert(0, Vector3.zero);
         mesh.vertices = vertices.ToArray();
         mesh.triangles = triangles.ToArray();
-        GetComponent<MeshFilter>().mesh = mesh;
     }
 }
