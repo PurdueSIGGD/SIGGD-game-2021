@@ -11,7 +11,8 @@ public class TutorialManager : MonoBehaviour
     public GameObject checkpoints;
 	public GameObject navmesh; 
 	public Navmesh navmeshScript;
-
+    public GameObject doors; 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,7 @@ public class TutorialManager : MonoBehaviour
        
     }
 
-    public void playerCaught()
+    public void playerCaught()  
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -42,13 +43,14 @@ public class TutorialManager : MonoBehaviour
         {
             tutorialTextObject.transform.GetChild(2).GetComponent<TMP_Text>().text = "And Ctrl to Sneak";
         }
+
+        //if (doors.transform.GetChild(0).GetComponent <
     }
 
-	public void updateNavmash() {
+    public void updateNavmash() {
 		navmeshScript.center = GlobalControl.Instance.checkpoint;
 		navmeshScript.navmeshNodes = navmeshScript.generateNavmesh();
 		// move center of navmash to position of checkpoint
 		// re-generate navmesh
 	}
-
 }
