@@ -2080,6 +2080,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4657704982392358076, guid: 440c6a36490a47c4a8ef58a4bd09f0ab, type: 3}
+      propertyPath: enemyTransform
+      value: 
+      objectReference: {fileID: 1637226813}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 440c6a36490a47c4a8ef58a4bd09f0ab, type: 3}
 --- !u!1 &773312196
@@ -35820,6 +35824,11 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!4 &1637226813 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1991591118802146899, guid: 440c6a36490a47c4a8ef58a4bd09f0ab, type: 3}
+  m_PrefabInstance: {fileID: 752462022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1643315061
 GameObject:
   m_ObjectHideFlags: 0

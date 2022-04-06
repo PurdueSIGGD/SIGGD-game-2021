@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1500011320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1500011321}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1500011321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500011320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6822884762957773741}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1749528213772082957
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,12 +60,13 @@ Transform:
   m_GameObject: {fileID: 1749528213772082957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.26, y: 1.49, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7226509699260909195}
   - {fileID: 7226509699001259445}
   - {fileID: 7226509699262808265}
   - {fileID: 7226509699426218664}
+  - {fileID: 1500011321}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -129,6 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agentSpeed: 2
+  currentPath: []
+  bodyHolder: {fileID: 1500011321}
   compassDirection: 0
 --- !u!61 &1749528213772082956
 BoxCollider2D:
@@ -200,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCollider: {fileID: 1749528213772082956}
+  enemyAgent: {fileID: 7487840279563340150}
 --- !u!1 &7226509698790306237
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behavior: {fileID: 7226509699260909206}
   transitions:
-  - toState: {fileID: 7226509699005761665}
+  - toState: {fileID: 7226509700470474442}
     triggers:
     - {fileID: 7226509698644363280}
     onTriggered:
@@ -263,10 +297,16 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 7226509699484983146}
-          m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-          m_MethodName: StartTimer
-          m_Mode: 1
+  - toState: {fileID: 7226509699266071211}
+    triggers:
+    - {fileID: 7226509699326831375}
+    onTriggered:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5230328586933754992}
+          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -368,6 +408,12 @@ MonoBehaviour:
     onTriggered:
       m_PersistentCalls:
         m_Calls: []
+  - toState: {fileID: 7226509699266071211}
+    triggers:
+    - {fileID: 7226509699326831375}
+    onTriggered:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &7226509699260909196
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +464,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyTransform: {fileID: 6822884762957773741}
   navmeshAgent: {fileID: 7487840279563340150}
+  cone: {fileID: 7226509699426218679}
   approachSpeed: 1
 --- !u!114 &7226509699260909207
 MonoBehaviour:
@@ -432,7 +479,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HearSound: {fileID: 7226509700426925994}
-  currentLocation: {fileID: 6822884762957773741}
   navmeshAgent: {fileID: 7487840279563340150}
   destinationReached: {fileID: 7226509698644363280}
 --- !u!114 &7226509699260909194
@@ -459,6 +505,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad640557bcdc0af4b90bf7f1018aac7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  navmeshAgent: {fileID: 7487840279563340150}
+  destinationReached: {fileID: 7226509698644363280}
 --- !u!114 &7226509699260909206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +524,7 @@ MonoBehaviour:
   destinationReached: {fileID: 7226509698644363280}
   navmeshAgent: {fileID: 0}
   traps:
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &7226509699262808266
 GameObject:
@@ -721,7 +771,7 @@ MonoBehaviour:
   eyeTransform: {fileID: 6822884762957773741}
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 448
   targetFaction: 0
 --- !u!1 &7226509699426218665
 GameObject:
@@ -766,7 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3589f649bb028408767ab03ad74483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayNum: 5
+  rayNum: 8
   fov: 60
   angleOffset: 0
   layerMask:
@@ -1068,5 +1118,5 @@ MonoBehaviour:
   eyeTransform: {fileID: 6822884762957773741}
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 448
   targetFaction: 0
