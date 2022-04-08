@@ -904,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a384ba01616b47b0aa7ccda1e98e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCollider: {fileID: 4774858618725560132}
+  enemyTransform: {fileID: 0}
   enemyAgent: {fileID: 7027549526086520167}
 --- !u!1 &4657704983152863494
 GameObject:
@@ -1381,7 +1381,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f108991fa23181d4e880d85c21ad58b6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c9c65004e35b5d946b8f4530cbd04485, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1861,7 +1861,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 638fdccbcbec56245adacad0da8749cc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 673fb0f54121b5944b929f50c9bbb3ac, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
