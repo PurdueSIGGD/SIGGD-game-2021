@@ -28,15 +28,25 @@ public class Interact : MonoBehaviour
             interactReady = false;
             timer.StartTimer();
 
-            // Interact with everything marked as interactable (via the component)
+            // Interact with the single nearest object marked as interactable (via the component)
             Collider2D[] objectsFound = Physics2D.OverlapCircleAll(transform.position, range, interactLayers);
+            Interactable interactable = null;
+            float minDistance = float.MaxValue;
             foreach (Collider2D obj in objectsFound) {
-                var interactable = obj.gameObject.GetComponent<Interactable>();
-                interactable?.interact();
-
-                if (interactable != null) {
-                    onInteract.Invoke(obj.gameObject);
+                float currDistance = (obj.transform.position - transform.parent.position).sqrMagnitude;
+                if (currDistance < minDistance)
+                {
+                    interactable = obj.gameObject.GetComponent<Interactable>();
+                    minDistance = currDistance;
                 }
+
+                //var interactable = obj.gameObject.GetComponent<Interactable>();
+            }
+            interactable?.interact();
+
+            if (interactable != null)
+            {
+                onInteract.Invoke(interactable.gameObject);
             }
         }
     }

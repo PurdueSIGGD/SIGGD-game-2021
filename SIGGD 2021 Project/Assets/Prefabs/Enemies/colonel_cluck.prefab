@@ -1628,7 +1628,7 @@ MonoBehaviour:
   angleOffset: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 1033
   rayOrigin: {fileID: 9080596068130542716}
   maxDistance: 8
   hit:
@@ -2111,7 +2111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  enemyTransform: {fileID: 6302307713262752372}
   navmeshAgent: {fileID: 3265982621882468672}
   approachSpeed: 2
 --- !u!114 &6302307711946148619

@@ -55,4 +55,12 @@ public class ItemMeta : MonoBehaviour
         var bMeta = b.GetComponent<ItemMeta>();
         return a != null && b != null && aMeta.id.Equals(bMeta.id);
     }
+
+    public static string GetID(GameObject item)
+    {
+        if (item == null) return null;
+
+        ItemMeta iMeta = item.GetComponent<ItemMeta>();
+        return iMeta?.id;
+    }
 }
