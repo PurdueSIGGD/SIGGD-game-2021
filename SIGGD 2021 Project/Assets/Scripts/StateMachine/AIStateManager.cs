@@ -5,8 +5,7 @@ using UnityEngine;
 public class AIStateManager : MonoBehaviour
 {
 
-    [SerializeField]
-    private AIState activeState; //the state that is currently active
+    public AIState activeState; //the state that is currently active
 
 
     private void Start()

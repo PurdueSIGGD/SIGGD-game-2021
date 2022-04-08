@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class EscapeToLocation : Behavior
 {
-    public Transform player;
+    private Transform player;
     [SerializeField] private Transform[] escapeLocations;
     [SerializeField] private NavmeshAgent navmeshAgent;
     public Vector2 escapeTarget = new Vector2(0,0);
+
+    private void Start()
+    {
+        player = GameObject.FindObjectOfType<playerNavPos>().transform;
+    }
 
     public override void run()
     {
