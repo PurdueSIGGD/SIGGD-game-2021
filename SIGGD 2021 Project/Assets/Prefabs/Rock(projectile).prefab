@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   signalTransform: {fileID: 62169476955600583}
+  soundType: 2
 --- !u!50 &7794423707457484190
 Rigidbody2D:
   serializedVersion: 4
