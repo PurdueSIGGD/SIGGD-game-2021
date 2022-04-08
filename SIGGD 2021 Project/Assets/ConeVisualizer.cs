@@ -8,7 +8,6 @@ public class ConeVisualizer : MonoBehaviour
     [SerializeField] private ConeRaycaster cone;
     [SerializeField] private List<Vector3> vertices;
     [SerializeField] private List<int> trianglesList;
-    [SerializeField] private Transform transform;
     [SerializeField] private Mesh mesh;
     private int[] triangles;
 
