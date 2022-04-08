@@ -34,6 +34,7 @@ public class ApproachPlayer : Behavior
     }
     public override void OnBehaviorExit()
     {
+        cone.setCenterAngle(361);
         navmeshAgent.stopNavigation();
     }
 }

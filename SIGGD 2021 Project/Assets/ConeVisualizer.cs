@@ -7,40 +7,38 @@ public class ConeVisualizer : MonoBehaviour
 {
     [SerializeField] private ConeRaycaster cone;
     [SerializeField] private List<Vector3> vertices;
-    [SerializeField] private List<int> triangles;
+    [SerializeField] private List<int> trianglesList;
     [SerializeField] private Transform transform;
-    [SerializeField] private SeeFaction seePlayer;
-    private Mesh mesh;
+    [SerializeField] private Mesh mesh;
+    private int[] triangles;
 
     void Start()
     {
         mesh = new Mesh();
         
         GetComponent<MeshFilter>().mesh = mesh;
-        triangles = new List<int>();
+        trianglesList = new List<int>();
         //vertices = new List<Vector3>();
         for (int i = 2; i <= cone.getRayCount(); i++)
         {
-            triangles.Add(0);
-            triangles.Add(i - 1);
-            triangles.Add(i);
-        }       
+            trianglesList.Add(0);
+            trianglesList.Add(i - 1);
+            trianglesList.Add(i);
+        }
+        triangles = trianglesList.ToArray();
+        Debug.Log(mesh.triangles);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<MeshFilter>().mesh != null && seePlayer.isActive())
-        {
-            GetComponent<MeshFilter>().mesh = null;
-            return;
-        } 
-        else if (GetComponent<MeshFilter>().mesh == null)
-        {
-            GetComponent<MeshFilter>().mesh = mesh;
-        }
         vertices = cone.getData();
         mesh.vertices = vertices.ToArray();
-        mesh.triangles = triangles.ToArray();
+        if (mesh.triangles.Length == 0 && vertices.Count - 1 == cone.getRayCount())
+        {
+            Debug.Log("Debug");
+            mesh.triangles = triangles;
+        }
+        GetComponent<MeshFilter>().mesh = mesh;
     }
 }

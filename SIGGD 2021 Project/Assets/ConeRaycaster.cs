@@ -16,7 +16,7 @@ public class ConeRaycaster : MonoBehaviour
 
     [SerializeField] private UnityEvent hit;
     [SerializeField] private NavmeshAgent navmeshAgent;
-    private float centerAngle = 361;
+    [SerializeField] private float centerAngle = 361;
     private List<Vector3> points;
 
 
@@ -45,6 +45,9 @@ public class ConeRaycaster : MonoBehaviour
             minAngle = centerAngle + angleOffset + fov / 2f;
         }
 
+        var closest = new RaycastHit2D();
+        closest.distance = -1;
+
         List<Vector3> temp = new List<Vector3>();
         for (int i = 0; i < rayNum; i++) {
             var interpo = (float)i / (float)(rayNum-1);
@@ -64,8 +67,13 @@ public class ConeRaycaster : MonoBehaviour
             
             if (result && isValid(result)) {
                 Debug.DrawRay(rayOrigin.position, rayDir * result.distance, Color.green);
-                hit.Invoke();
-                return result;
+                if (closest.distance == -1)
+                {
+                    closest = result;
+                } else if (closest.distance > result.distance)
+                {
+                    closest = result;
+                }
             }
             Debug.DrawRay(rayOrigin.position, rayDir * maxDistance, Color.red);
             
@@ -74,6 +82,12 @@ public class ConeRaycaster : MonoBehaviour
         }
         points = temp;
         points.Insert(0, Vector3.zero);
+
+        if (closest.distance != -1)
+        {
+            hit.Invoke();
+            return closest;
+        }
 
         return new RaycastHit2D();
     }

@@ -58,5 +58,6 @@ public class Circling : Behavior
     public override void OnBehaviorExit()
     {
         timerStart = false;
+        cone.setCenterAngle(361);
     }
 }
