@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ApproachSound : Behavior
 {
-    [SerializeField] private HearSound HearSound;
+    [SerializeField] private HearSound[] hearSound;
     [SerializeField] private NavmeshAgent navmeshAgent;
     [SerializeField] private DestinationReached destinationReached;
 
@@ -17,7 +17,14 @@ public class ApproachSound : Behavior
 
     public override void OnBehaviorEnter()
     {
-        soundOrigin = HearSound.position.Value;
+        soundOrigin = transform.position;
+        foreach (HearSound sound in hearSound)
+        {
+            if (sound.position != null)
+            {
+                soundOrigin = sound.position.Value;
+            }
+        }
         destinationReached.setDestination(soundOrigin);
     }
 
