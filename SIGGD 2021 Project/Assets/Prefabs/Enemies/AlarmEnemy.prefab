@@ -2064,7 +2064,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 32
+          m_FloatArgument: 16
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -2355,6 +2355,10 @@ PrefabInstance:
       propertyPath: signalTransform
       value: 
       objectReference: {fileID: 2796392857679373087}
+    - target: {fileID: 8007440608872115700, guid: 5847f5fe40e01a247b3055c0a391ed43, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2ad30f8e2479df44eb4b9012c746240a, type: 2}
     - target: {fileID: 8222535126886966302, guid: 5847f5fe40e01a247b3055c0a391ed43, type: 3}
       propertyPath: m_Name
       value: Sound Source

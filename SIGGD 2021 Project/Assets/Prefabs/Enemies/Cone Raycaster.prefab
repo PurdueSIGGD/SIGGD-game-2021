@@ -51,7 +51,7 @@ MonoBehaviour:
   angleOffset: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 1289
+    m_Bits: 197897
   rayOrigin: {fileID: 5983309451646205087}
   maxDistance: 5
   hit:
@@ -124,6 +124,7 @@ MonoBehaviour:
   vertices: []
   trianglesList: 
   mesh: {fileID: 0}
+  manager: {fileID: 0}
   coneColors:
   - {fileID: 2100000, guid: ad07169dccdfc8d4993acfe156dd9a31, type: 2}
   - {fileID: 2100000, guid: b7d41d8587a89b049be140e125e646cd, type: 2}

@@ -74,6 +74,6 @@ public class EnemyAttackPatterns : MonoBehaviour
 
     public bool canAttack()
     {
-        return attackCooldown > 0;
+        return attackCooldown == 0;
     }
 }

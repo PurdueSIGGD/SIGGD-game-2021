@@ -43,7 +43,7 @@ public class soundVisualizer : MonoBehaviour
             {
                 Vector3 pointPos = new Vector3(Mathf.Sin((2 * Mathf.PI * i) / resolution), Mathf.Cos((2 * Mathf.PI * i) / resolution), 0) * signal.radius;
                 vertices.Add(pointPos);
-                Debug.DrawRay(transform.position, pointPos, Color.green);
+                //Debug.DrawRay(transform.position, pointPos, Color.green);
             }
             vertices.Insert(0, Vector3.zero);
 

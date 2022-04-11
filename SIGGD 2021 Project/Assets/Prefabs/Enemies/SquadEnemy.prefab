@@ -823,8 +823,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d772c87f3f6dfb343b6fc2d24c59a882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacks: []
-  attackAnimName: 
+  attacks:
+  - {fileID: 6186644314395922289, guid: 090c601cb7213784186080be4fecb82b, type: 3}
+  attackAnimName: attack
 --- !u!1 &3432279668006283911
 GameObject:
   m_ObjectHideFlags: 0
