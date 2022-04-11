@@ -29,7 +29,7 @@ public class soundVisualizer : MonoBehaviour
         trianglesList.Add(1);
         trianglesList.Add((int)resolution);
         triangles = trianglesList.ToArray();
-        Debug.Log(mesh.triangles);
+        //Debug.Log(mesh.triangles);
     }
 
     // Update is called once per frame
