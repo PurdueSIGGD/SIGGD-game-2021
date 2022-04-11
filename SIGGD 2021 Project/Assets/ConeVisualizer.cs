@@ -9,11 +9,16 @@ public class ConeVisualizer : MonoBehaviour
     [SerializeField] private List<Vector3> vertices;
     [SerializeField] private List<int> trianglesList;
     [SerializeField] private Mesh mesh;
+    [SerializeField] private AIStateManager manager;
+    private Behavior behavior;
+    [SerializeField] private Material[] coneColors;
     private int[] triangles;
 
     void Start()
     {
         mesh = new Mesh();
+
+        behavior = manager.activeState.behavior;
         
         GetComponent<MeshFilter>().mesh = mesh;
         trianglesList = new List<int>();
@@ -39,5 +44,17 @@ public class ConeVisualizer : MonoBehaviour
             mesh.triangles = triangles;
         }
         GetComponent<MeshFilter>().mesh = mesh;
+        Behavior newBehavior = manager.activeState.behavior;
+        if (newBehavior != behavior) {
+            if (newBehavior is ApproachPlayer) {
+                GetComponent<MeshRenderer>().material = coneColors[2];
+            } else if (newBehavior is ApproachSound || newBehavior is SearchForPlayer)
+            {
+                GetComponent<MeshRenderer>().material = coneColors[1];
+            } else
+            {
+                GetComponent<MeshRenderer>().material = coneColors[0];
+            }
+        }
     }
 }

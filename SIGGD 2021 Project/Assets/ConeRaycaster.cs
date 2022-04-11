@@ -66,7 +66,7 @@ public class ConeRaycaster : MonoBehaviour
 
             
             if (result && isValid(result)) {
-                Debug.DrawRay(rayOrigin.position, rayDir * result.distance, Color.green);
+                //Debug.DrawRay(rayOrigin.position, rayDir * result.distance, Color.green);
                 if (closest.distance == -1)
                 {
                     closest = result;
@@ -75,7 +75,7 @@ public class ConeRaycaster : MonoBehaviour
                     closest = result;
                 }
             }
-            Debug.DrawRay(rayOrigin.position, rayDir * maxDistance, Color.red);
+            //Debug.DrawRay(rayOrigin.position, rayDir * maxDistance, Color.red);
             
 
 

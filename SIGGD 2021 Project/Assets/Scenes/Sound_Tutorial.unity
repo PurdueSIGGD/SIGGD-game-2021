@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff073af1ebed094b8437bd49534a442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerCheckpointScript: {fileID: 0}
-  manager: {fileID: 0}
+  player: {fileID: 75409610}
+  playerCheckpointScript: {fileID: 75409612}
+  manager: {fileID: 553723636}
 --- !u!61 &632453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -448,6 +448,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6302307713262752372, guid: 66c259d2af1ee6f45839a41bdeaee7cc, type: 3}
   m_PrefabInstance: {fileID: 1938664622}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &75409610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5314529853658650855, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+  m_PrefabInstance: {fileID: 1693163195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &75409612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1565440992926331942, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+  m_PrefabInstance: {fileID: 1693163195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75409610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237fe92b0f9636f45a43ea24bef9f4a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &297916399
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,12 +3610,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cf3de3de7ae7d4b990aff8e23610c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  tutorialTextObject: {fileID: 0}
-  checkpoints: {fileID: 0}
-  navmesh: {fileID: 0}
-  navmeshScript: {fileID: 0}
-  doors: {fileID: 0}
+  player: {fileID: 75409610}
+  tutorialTextObject: {fileID: 1458666107}
+  checkpoints: {fileID: 673227157}
+  navmesh: {fileID: 1674520357}
+  navmeshScript: {fileID: 1674520359}
+  doors: {fileID: 562553008}
 --- !u!1 &562553008
 GameObject:
   m_ObjectHideFlags: 0
@@ -4720,9 +4736,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff073af1ebed094b8437bd49534a442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerCheckpointScript: {fileID: 0}
-  manager: {fileID: 0}
+  player: {fileID: 75409610}
+  playerCheckpointScript: {fileID: 75409612}
+  manager: {fileID: 553723636}
 --- !u!4 &933402587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5314529853658650849, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}

@@ -51,13 +51,14 @@ MonoBehaviour:
   angleOffset: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 265
+    m_Bits: 1289
   rayOrigin: {fileID: 5983309451646205087}
   maxDistance: 5
   hit:
     m_PersistentCalls:
       m_Calls: []
   navmeshAgent: {fileID: 0}
+  centerAngle: 361
 --- !u!33 &1501202728208938229
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -85,7 +86,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82b2138d813527f41a66c3ac7837eef9, type: 2}
+  - {fileID: 2100000, guid: ad07169dccdfc8d4993acfe156dd9a31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,5 +122,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cone: {fileID: 5983309451646205086}
   vertices: []
-  triangles: 
-  transform: {fileID: 0}
+  trianglesList: 
+  mesh: {fileID: 0}
+  coneColors:
+  - {fileID: 2100000, guid: ad07169dccdfc8d4993acfe156dd9a31, type: 2}
+  - {fileID: 2100000, guid: b7d41d8587a89b049be140e125e646cd, type: 2}
+  - {fileID: 2100000, guid: 82b2138d813527f41a66c3ac7837eef9, type: 2}
