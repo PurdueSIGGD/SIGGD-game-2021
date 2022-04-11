@@ -2103,6 +2103,10 @@ PrefabInstance:
       propertyPath: graphics
       value: 
       objectReference: {fileID: 1555982806}
+    - target: {fileID: 670803119420507790, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 1509750065647818724, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0
@@ -2350,10 +2354,6 @@ PrefabInstance:
     - target: {fileID: 6106342996408606601, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: -42.2485
-      objectReference: {fileID: 0}
-    - target: {fileID: 6576273694072479440, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
-      propertyPath: m_Radius
-      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6588923857468008323, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
       propertyPath: m_Distance
