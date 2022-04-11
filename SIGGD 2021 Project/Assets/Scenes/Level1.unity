@@ -2351,6 +2351,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: -42.2485
       objectReference: {fileID: 0}
+    - target: {fileID: 6576273694072479440, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6588923857468008323, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
       propertyPath: m_Distance
       value: 0.027996063

@@ -21,10 +21,12 @@ public class TailMover : MonoBehaviour
     private void moveTailParts(Transform prev, Transform current)
     {
         Vector3 dragPos = prev.position + (current.position - prev.position).normalized * dist;
-        Vector3 followPos = prev.position - prev.up * dist;
+        Vector3 followPos = prev.position - prev.parent.up * dist;
         Vector3 targetPos = Vector3.Lerp(dragPos, followPos, flex);
         current.position = Vector3.Lerp(current.position, targetPos, Time.deltaTime * spring);
-        current.rotation = Quaternion.Euler(new Vector3(0, 0, Vector3.SignedAngle(prev.parent.right, prev.position - current.position, Vector3.forward) - 90));
+        float rotAngle = Vector3.SignedAngle(prev.parent.right, prev.position - current.position, Vector3.forward);
+        Debug.Log(rotAngle);
+        current.localRotation = Quaternion.Euler(new Vector3(0, 0, rotAngle - 90));
         current.localScale = Vector3.Lerp(current.localScale, new Vector3(1, 2 * Vector3.Distance(prev.position, current.position)/dist, 1), Time.deltaTime * spring);
     }
 }

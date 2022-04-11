@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerAnims : MonoBehaviour
 {
-    Attack attack;
-    Movement movement;
-    SpriteRenderer spriteRenderer;
+    [SerializeField] private Attack attack;
+    [SerializeField] private Movement movement;
+    [SerializeField] private Animator animator;
 
-    public Sprite idleSprite;
-    public Sprite sneakSprite;
-    public Sprite walkSprite;
-    public Sprite runSprite;
-    public Sprite attackSprite;
+    [SerializeField] private string idle;
+    [SerializeField] private string sneak;
+    [SerializeField] private string walk;
+    [SerializeField] private string run;
+    [SerializeField] private string attacking;
 
     bool isFacingRight = false;
 
@@ -21,7 +21,7 @@ public class PlayerAnims : MonoBehaviour
     {
         attack = GetComponent<Attack>();
         movement = GetComponent<Movement>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,35 +29,23 @@ public class PlayerAnims : MonoBehaviour
     {
         // Setting sprites based on player movement and attacking
         if (attack.isAttacking()) {
-            spriteRenderer.sprite = attackSprite;
+            animator.Play(attacking);
         }
         else if (movement.isRunning()) 
         {
-            spriteRenderer.sprite = runSprite;   
+            animator.Play(run);
         } 
         else if (movement.isSneaking()) 
         {
-            spriteRenderer.sprite = sneakSprite;
+            animator.Play(sneak);
         } 
         else if (movement.isMoving()) 
         {
-            spriteRenderer.sprite = walkSprite;
+            animator.Play(walk);
         } 
         else 
         {
-            spriteRenderer.sprite = idleSprite;
-        }
-
-        // Flipping sprites based on player movement direction
-        if (movement.isMovingRight() && !isFacingRight) 
-        {
-            spriteRenderer.flipX = true;
-            isFacingRight = true;
-        } 
-        else if (movement.isMovingLeft() && isFacingRight) 
-        {
-            spriteRenderer.flipX = false;
-            isFacingRight = false;
+            animator.Play(idle);
         }
     }
 }
