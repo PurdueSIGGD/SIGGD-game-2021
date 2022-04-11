@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
+    public KeyCode useKey = KeyCode.F;
+    public KeyCode dropKey = KeyCode.Q;
+
     // Event to be called right after the item in the inventory is changed
     public StringGameEvent onItemChange;
 
@@ -22,7 +25,7 @@ public class Inventory : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && useItemReady)
+        if (Input.GetKeyDown(useKey) && useItemReady)
         {
             useItemReady = false;
             useItemTimer.StartTimer();
@@ -31,7 +34,12 @@ public class Inventory : MonoBehaviour
             if (equippedItem) UseItem();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && useItemReady)
+        if (Input.GetKeyUp(useKey))
+        {
+            if (equippedItem) EndUseItem();
+        }
+
+        if (Input.GetKeyDown(dropKey) && useItemReady)
         {
             useItemReady = false;
             useItemTimer.StartTimer();
@@ -54,6 +62,15 @@ public class Inventory : MonoBehaviour
 
         ItemControl currentControl = equippedItem.GetComponent<ItemControl>();
         currentControl.use.Invoke();
+    }
+
+    // Stops using the current item
+    public void EndUseItem()
+    {
+        if (!equippedItem) return;
+
+        ItemControl currentControl = equippedItem.GetComponent<ItemControl>();
+        currentControl.endUse.Invoke();
     }
 
     // Equips a new item (dequipping and returning any old/extra item)
@@ -144,5 +161,10 @@ public class Inventory : MonoBehaviour
         if (IsValidItemPickup(gameObj)) {
             EquipItem(gameObj);
         }
+
+        IdCheck idCheck = gameObj.GetComponent<IdCheck>();
+        idCheck?.CheckId(ItemMeta.GetID(equippedItem));
+        // Call checkId event with the item's id (multiple keycards have different IDs)
+        //id?.CheckId(equippedItem.GetComponent<ItemMeta>().id)
     }
 }

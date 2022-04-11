@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &455733790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466160502543356773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4ccc29d9e19594692d03ed7bdbf715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventsToCall:
+  - {fileID: 11400000, guid: 352a8fe6e19a6f545a3ae2ecdfd0c293, type: 2}
+--- !u!114 &455733791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466160502543356773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55565d65e7b17cb4e9d151d1a3dc39fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  successEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 455733790}
+        m_TargetAssemblyTypeName: CallGameEvent, Assembly-CSharp
+        m_MethodName: Call
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  failureEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  itemIDToAllow: keycard
+--- !u!1001 &7748081775368539512
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2730924599775089464, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730924599775089464, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.565626
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730924599775089464, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -42.82015
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730924599775089464, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730924599775089464, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730924599775089464, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730924599775089464, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730924599775089464, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730924599775089464, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730924599775089464, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730924599775089464, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438356046345725046, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_Color.b
+      value: 0.495283
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438356046345725046, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_Color.g
+      value: 0.97496694
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438356046345725046, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213923277755063837, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+      propertyPath: m_Name
+      value: Keycard Switch Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+--- !u!1 &1466160502543356773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9213923277755063837, guid: 9ddfab3326de40f419dbef6c31bcccfc, type: 3}
+  m_PrefabInstance: {fileID: 7748081775368539512}
+  m_PrefabAsset: {fileID: 0}
