@@ -8,8 +8,8 @@ public class AvoidSound : Behavior
     [SerializeField] private NavmeshAgent navmeshAgent;
     [SerializeField] private DestinationReached destinationReached;
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private float stepSize = 1f;
-
+    [SerializeField] private Route[] validPointViaRoutes;
+    private bool pathing = false;
     private Vector2 soundOrigin;
 
     public override void run()
@@ -18,21 +18,19 @@ public class AvoidSound : Behavior
         {
             soundOrigin = HearSound.position.Value;
         }
-        Vector2 dir = (Vector2)transform.position - soundOrigin;
-        Vector2 avoidLocation = (Vector2)transform.position + dir.normalized * stepSize;
-        var result = Physics2D.Raycast(transform.position, dir, stepSize, layerMask);
-        if (!result)
+        if (pathing)
         {
-            navmeshAgent.navigateTo(avoidLocation);
-        } else
-        {
-            navmeshAgent.stopNavigation();
+            return;
         }
+        Transform[] nodes = validPointViaRoutes[Random.Range(0, validPointViaRoutes.Length)].transformNodes;
+        navmeshAgent.navigateTo(nodes[Random.Range(0, nodes.Length)].position);
+        pathing = true;
     }
 
     public override void OnBehaviorEnter()
     {
         destinationReached.setDestination(soundOrigin);
+        pathing = false;
     }
 
     public override void OnBehaviorExit()

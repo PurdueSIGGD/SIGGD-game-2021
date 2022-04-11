@@ -51,7 +51,7 @@ MonoBehaviour:
   angleOffset: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 197897
+    m_Bits: 197641
   rayOrigin: {fileID: 5983309451646205087}
   maxDistance: 5
   hit:

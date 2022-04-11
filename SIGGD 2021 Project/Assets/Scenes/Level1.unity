@@ -35721,6 +35721,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8541109979413218194, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
+      propertyPath: validPointViaRoutes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541109979413218194, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
+      propertyPath: validPointViaRoutes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1151701764}
+    - target: {fileID: 8541109979413218194, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
+      propertyPath: validPointViaRoutes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1339991954}
+    - target: {fileID: 8541109979413218194, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
+      propertyPath: validPointViaRoutes.Array.data[2]
+      value: 
+      objectReference: {fileID: 820171364}
+    - target: {fileID: 8541109979413218194, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
+      propertyPath: validPointViaRoutes.Array.data[3]
+      value: 
+      objectReference: {fileID: 797470376}
+    - target: {fileID: 8541109979413218194, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
+      propertyPath: validPointViaRoutes.Array.data[4]
+      value: 
+      objectReference: {fileID: 765212710}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
 --- !u!114 &1480054000 stripped
