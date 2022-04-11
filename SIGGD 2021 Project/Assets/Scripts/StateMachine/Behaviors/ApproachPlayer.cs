@@ -15,7 +15,7 @@ public class ApproachPlayer : Behavior
 
     private void Start()
     {
-        player = GameObject.FindObjectOfType<playerNavPos>().transform;
+        player = FindObjectOfType<playerNavPos>().transform;
     }
 
     public override void run()
@@ -35,18 +35,21 @@ public class ApproachPlayer : Behavior
         }
 
         //checks if close enough to attack, and if so, does
-        if (attackPatterns.canAttack() && Mathf.Pow(playerV.x - oldPos.x, 2) + Mathf.Pow(playerV.y - oldPos.y, 2) > Mathf.Pow(attackPatterns.getMaxAttackRange(), 2))
+        float sqrDistanceToPlayer = Mathf.Pow(enemyV.x - oldPos.x, 2) + Mathf.Pow(enemyV.y - oldPos.y, 2);
+        if (attackPatterns.canAttack() && sqrDistanceToPlayer <= Mathf.Pow(attackPatterns.getMaxAttackRange(), 2))
         {
-            attackPatterns.chooseAttack();
+            //Debug.Log("Attacking");
+            attackPatterns.chooseAttack(sqrDistanceToPlayer, player);
         }
     }
 
     public override void OnBehaviorEnter()
     {
-        
+        navmeshAgent.setAgentSpeed(approachSpeed);
     }
     public override void OnBehaviorExit()
     {
+        cone.setCenterAngle(361);
         navmeshAgent.stopNavigation();
     }
 }
