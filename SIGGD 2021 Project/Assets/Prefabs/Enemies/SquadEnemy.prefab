@@ -202,6 +202,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 6166202827521995454}
     triggers:
     - {fileID: 8404028887139207051}
@@ -248,6 +260,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: move1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1019049498451615572
@@ -425,6 +449,18 @@ MonoBehaviour:
             m_StringArgument: idle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 6672950518674449037}
     triggers:
     - {fileID: 4860069377118584932}
@@ -453,6 +489,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: idle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   - toState: {fileID: 6672950518674449037}
@@ -485,6 +533,18 @@ MonoBehaviour:
             m_StringArgument: idle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 8404028887767001648}
     triggers:
     - {fileID: 8404028888620175704}
@@ -513,6 +573,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: idle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   - toState: {fileID: 8404028887767001648}
@@ -545,6 +617,18 @@ MonoBehaviour:
             m_StringArgument: idle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 7314073851601346827}
     triggers:
     - {fileID: 986465654884766774}
@@ -573,6 +657,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: idle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &3432279666744612192
@@ -728,6 +824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks: []
+  attackAnimName: 
 --- !u!1 &3432279668006283911
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,6 +1083,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: aggroIdle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &4398946262217824427
@@ -1593,6 +1702,18 @@ MonoBehaviour:
             m_StringArgument: aggroIdle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 6672950518674449037}
     triggers:
     - {fileID: 4860069377118584932}
@@ -1633,6 +1754,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: aggroIdle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &7755624829268233505
@@ -1889,6 +2022,18 @@ MonoBehaviour:
             m_StringArgument: aggroIdle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 6166202827521995454}
     triggers:
     - {fileID: 8404028887139207051}
@@ -1959,6 +2104,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: aggroIdle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &8404028888620175705
@@ -2098,6 +2255,18 @@ MonoBehaviour:
             m_StringArgument: aggroIdle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 6672950518674449037}
     triggers:
     - {fileID: 4860069377118584932}
@@ -2126,6 +2295,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: aggroIdle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   - toState: {fileID: 8404028887767001648}
@@ -2158,6 +2339,18 @@ MonoBehaviour:
             m_StringArgument: move1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 8404028887767001648}
     triggers:
     - {fileID: 1469113864697131151}
@@ -2188,6 +2381,18 @@ MonoBehaviour:
             m_StringArgument: aggroIdle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 7314073851601346827}
     triggers:
     - {fileID: 986465654884766774}
@@ -2216,6 +2421,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: move1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &8571568730164719688
@@ -2582,6 +2799,10 @@ PrefabInstance:
     - target: {fileID: 5983309451646205080, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
       propertyPath: m_Name
       value: Cone Raycaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205086, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: maxDistance
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5983309451646205086, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
       propertyPath: navmeshAgent

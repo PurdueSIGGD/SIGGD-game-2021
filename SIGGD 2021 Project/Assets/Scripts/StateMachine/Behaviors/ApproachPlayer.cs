@@ -35,9 +35,10 @@ public class ApproachPlayer : Behavior
         }
 
         //checks if close enough to attack, and if so, does
+        float sqrDistanceToPlayer = Mathf.Pow(enemyV.x - oldPos.x, 2) + Mathf.Pow(enemyV.y - oldPos.y, 2);
         if (attackPatterns.canAttack() && Mathf.Pow(playerV.x - oldPos.x, 2) + Mathf.Pow(playerV.y - oldPos.y, 2) > Mathf.Pow(attackPatterns.getMaxAttackRange(), 2))
         {
-            attackPatterns.chooseAttack();
+            attackPatterns.chooseAttack(sqrDistanceToPlayer, player);
         }
     }
 

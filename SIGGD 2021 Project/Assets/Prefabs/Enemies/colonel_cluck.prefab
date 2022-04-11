@@ -2300,6 +2300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks: []
+  attackAnimName: 
 --- !u!33 &3793355366774939028
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2928,6 +2929,14 @@ PrefabInstance:
     - target: {fileID: 5983309451646205080, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
       propertyPath: m_Name
       value: Cone Raycaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205086, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: fov
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205086, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: maxDistance
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5983309451646205086, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
       propertyPath: navmeshAgent
