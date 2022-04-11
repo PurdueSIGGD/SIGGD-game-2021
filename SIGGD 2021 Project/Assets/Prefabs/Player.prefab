@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c2896836bedd146bfb28b30e0a1b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useKey: 102
+  dropKey: 113
   onItemChange: {fileID: 11400000, guid: f774265f70340b84d8a65ba63768fb4c, type: 2}
   equippedItem: {fileID: 0}
 --- !u!114 &8040999499960881735
@@ -338,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32adf3e900452c94ca6f97780dd493a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 3
   healthChangeEvent:
     m_PersistentCalls:
       m_Calls:

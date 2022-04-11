@@ -54,7 +54,7 @@ public class EnemyAttackPatterns : MonoBehaviour
         }
         if (shortestAttack != null)
         {
-            Debug.Log("attack created");
+            //Debug.Log("attack created");
 
             animator.Play(attackAnimName);
             //create attack
