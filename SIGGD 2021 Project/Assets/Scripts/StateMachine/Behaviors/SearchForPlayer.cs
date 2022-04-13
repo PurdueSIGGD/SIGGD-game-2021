@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class SearchForPlayer : Behavior
 {
-    [SerializeField] private Transform player;
+    private Transform player;
     [SerializeField] private NavmeshAgent navmeshAgent;
     [SerializeField] private DestinationReached destinationReached;
 
     private Vector2 playerLocation;
+
+    private void Start()
+    {
+        player = GameObject.FindObjectOfType<playerNavPos>().transform;
+    }
 
     public override void run()
     {

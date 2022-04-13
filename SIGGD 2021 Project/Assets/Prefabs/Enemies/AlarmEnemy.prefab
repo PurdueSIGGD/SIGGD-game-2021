@@ -501,7 +501,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1135b4779cd6ad24e9fafbab819b2cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HearSound: {fileID: 4657704984409674351}
+  hearSound:
+  - {fileID: 4657704984409674351}
+  - {fileID: 2333202125435319224}
   navmeshAgent: {fileID: 7027549526086520167}
   destinationReached: {fileID: 4657704982392358076}
 --- !u!1 &3101382732247793289
@@ -552,7 +554,7 @@ MonoBehaviour:
   angleOffset: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 1033
   rayOrigin: {fileID: 2764130244981778759}
   maxDistance: 8
   hit:
@@ -902,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a384ba01616b47b0aa7ccda1e98e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCollider: {fileID: 4774858618725560132}
+  enemyTransform: {fileID: 0}
   enemyAgent: {fileID: 7027549526086520167}
 --- !u!1 &4657704983152863494
 GameObject:
@@ -1379,7 +1381,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f108991fa23181d4e880d85c21ad58b6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c9c65004e35b5d946b8f4530cbd04485, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1490,7 +1492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5095830167773351741}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.29, y: 33.11, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1991591119931238834}
@@ -1859,7 +1861,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 638fdccbcbec56245adacad0da8749cc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 673fb0f54121b5944b929f50c9bbb3ac, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
