@@ -953,7 +953,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  attackEvent:
+  missEvent:
     m_PersistentCalls:
       m_Calls: []
   offset: 1
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  attackEvent:
+  missEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6990889811834132462}
@@ -1520,10 +1520,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  offset: 1
-  range: 0.8
+  offset: 0.8
+  range: 1
   attackDamage: 1
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 5314529853658650853}
 --- !u!1 &6617640557159291696
 GameObject:
   m_ObjectHideFlags: 0
