@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     private int currHealth = 0; // changed at start method
     [SerializeField] private PlayerHealthGraphics graphics;
     [SerializeField] private UnityEvent<int> healthChangeEvent;
+    [SerializeField] private UnityEvent damageEvent;
     [SerializeField] private UnityEvent deathEvent;
 
     private void Start()
@@ -28,6 +29,8 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         SetCurrHealth(currHealth - damage);
+
+        damageEvent.Invoke();
 
         if (graphics)
         {
