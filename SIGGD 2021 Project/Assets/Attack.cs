@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Attack : MonoBehaviour
 {
     [SerializeField] private LayerMask enemyLayers;
+    [SerializeField] private UnityEvent missEvent;
 
     [SerializeField] private float offset = 1f;
     [SerializeField] private float range = .5f;
@@ -28,6 +30,8 @@ public class Attack : MonoBehaviour
                 }
 
                 Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(transform.position + lastMovement * offset, range, enemyLayers);
+
+                if (enemiesHit.Length == 0) missEvent.Invoke();
 
                 foreach (Collider2D enemy in enemiesHit)
                 {
