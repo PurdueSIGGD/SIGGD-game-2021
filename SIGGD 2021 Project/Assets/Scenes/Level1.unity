@@ -2359,6 +2359,14 @@ PrefabInstance:
       propertyPath: m_Distance
       value: 0.027996063
       objectReference: {fileID: 0}
+    - target: {fileID: 6599404643187351302, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+      propertyPath: range
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599404643187351302, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+      propertyPath: offset
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6602762487315420775, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0
