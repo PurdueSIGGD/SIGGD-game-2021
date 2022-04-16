@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
     [SerializeField] private PlayerHealthGraphics graphics;
     [SerializeField] private UnityEvent<int> healthChangeEvent;
     [SerializeField] private UnityEvent deathEvent;
+    [SerializeField] private bool isBoss = false;
 
     private void Start()
     {
@@ -42,6 +43,11 @@ public class Health : MonoBehaviour
             if (GetComponent<Movement>())
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            //if boss, next level
+            if (isBoss)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             Destroy(gameObject);
         }
