@@ -25,7 +25,6 @@ public class TailMover : MonoBehaviour
         Vector3 targetPos = Vector3.Lerp(dragPos, followPos, flex);
         current.position = Vector3.Lerp(current.position, targetPos, Time.deltaTime * spring);
         float rotAngle = Vector3.SignedAngle(prev.parent.right, prev.position - current.position, Vector3.forward);
-        //Debug.Log(rotAngle);
         current.localRotation = Quaternion.Euler(new Vector3(0, 0, rotAngle - 90));
         current.localScale = Vector3.Lerp(current.localScale, new Vector3(1, 2 * Vector3.Distance(prev.position, current.position)/dist, 1), Time.deltaTime * spring);
     }
