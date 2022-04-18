@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
         }
         else if (isSneaking())
         {
-            moveSpeed = 2.5f;
+            moveSpeed = 3f;
         }
         else
         {
@@ -58,7 +58,29 @@ public class Movement : MonoBehaviour
 
         if (isMoving())
         {
-            soundHitbox.radius = moveSpeed;
+            soundHitbox.radius = Mathf.Lerp(soundHitbox.radius + Random.Range(0f, moveSpeed / 16), moveSpeed, Time.deltaTime*8);
+            float angle = 0;
+            if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
+            {
+                if (movement.x > 0)
+                {
+                    angle = -90;
+                } else
+                {
+                    angle = 90;
+                }
+            } else
+            {
+                if (movement.y > 0)
+                {
+                    angle = 0;
+                }
+                else
+                {
+                    angle = 180;
+                }
+            }
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             //attackHitbox.position = new Vector2(rigidBody.position.x, rigidBody.position.y) + facing * 0.5f;
             //interactHitbox.position = new Vector2(rigidBody.position.x, rigidBody.position.y) + facing * 0.5f;
         } 
@@ -79,13 +101,5 @@ public class Movement : MonoBehaviour
 
     public bool isMoving() {
         return (movement.x != 0) || (movement.y != 0);
-    }
-
-    public bool isMovingRight() {
-        return movement.x > 0;
-    }
-
-    public bool isMovingLeft() {
-        return movement.x < 0;
     }
 }

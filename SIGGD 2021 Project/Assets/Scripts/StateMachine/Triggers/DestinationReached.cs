@@ -5,7 +5,7 @@ using UnityEngine;
 public class DestinationReached : Trigger
 {
     
-    [SerializeField] private Transform enemyTransform;
+    private Transform enemyTransform;
     [SerializeField] private NavmeshAgent enemyAgent;
     private Vector2 destination;
 
@@ -27,7 +27,7 @@ public class DestinationReached : Trigger
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyTransform = transform.parent.parent;
     }
 
     // Update is called once per frame
