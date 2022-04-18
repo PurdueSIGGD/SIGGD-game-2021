@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
     {
         SetCurrHealth(currHealth - damage);
 
-        damageEvent.Invoke();
+        damageEvent?.Invoke();
 
         if (graphics)
         {

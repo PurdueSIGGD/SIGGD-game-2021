@@ -710,6 +710,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
+--- !u!82 &1050588344 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1050588344, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+  m_PrefabInstance: {fileID: 6816328359400481120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1077963359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5314529853658650849, guid: c6be1a8bd2713db409007928c3ab64bb, type: 3}
@@ -1106,6 +1111,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!4 &1660111099 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6822884762957773741, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+  m_PrefabInstance: {fileID: 6816328359400481120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1766818171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,9 +2411,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1050588344, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 309a762b69b00ee4aae4987e9580c683, type: 3}
     - target: {fileID: 1749528213772082957, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
       propertyPath: m_Name
       value: Ninja
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481937234751901397, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481937234751901397, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481937234751901397, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1050588344}
+    - target: {fileID: 4481937234751901397, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481937234751901397, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481937234751901397, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481937234751901397, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481937234751901399, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6816328359400481122}
+    - target: {fileID: 4481937234751901399, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: spawnObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481937234751901399, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpawnObject, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5353972272590834970, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
       propertyPath: manager
@@ -2457,8 +2511,28 @@ PrefabInstance:
       propertyPath: traps.Array.data[0]
       value: 
       objectReference: {fileID: 1830075052}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2428531487761848344, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+--- !u!1 &6816328359400481121 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7926740517655050226, guid: bf12b69d88593174585ca40394eb6d3f, type: 3}
+  m_PrefabInstance: {fileID: 6816328359400481120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6816328359400481122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816328359400481121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f862bb1a029d17c4fbc09a18a9d9f812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: {fileID: 1660111099}
+  gameObject: {fileID: 8102590159393588897, guid: 0586136a8ae79bc4b975f1499908ada2, type: 3}
 --- !u!4 &7467628143004285004
 Transform:
   m_ObjectHideFlags: 0
@@ -2526,6 +2600,9 @@ MonoBehaviour:
   maxHealth: 0
   graphics: {fileID: 0}
   healthChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  damageEvent:
     m_PersistentCalls:
       m_Calls: []
   deathEvent:
