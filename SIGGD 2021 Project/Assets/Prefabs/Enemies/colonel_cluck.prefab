@@ -2502,6 +2502,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isBoss: 1
 --- !u!95 &7202345605651071920
 Animator:
   serializedVersion: 3
