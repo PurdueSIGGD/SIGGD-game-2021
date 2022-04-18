@@ -17,7 +17,9 @@ public class Health : MonoBehaviour
     private int currHealth = 0; // changed at start method
     [SerializeField] private PlayerHealthGraphics graphics;
     [SerializeField] private UnityEvent<int> healthChangeEvent;
+    [SerializeField] private UnityEvent damageEvent;
     [SerializeField] private UnityEvent deathEvent;
+    [SerializeField] private bool isBoss = false;
 
     private void Start()
     {
@@ -28,6 +30,8 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         SetCurrHealth(currHealth - damage);
+
+        damageEvent.Invoke();
 
         if (graphics)
         {
@@ -42,6 +46,11 @@ public class Health : MonoBehaviour
             if (GetComponent<Movement>())
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            //if boss, next level
+            if (isBoss)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             Destroy(gameObject);
         }
