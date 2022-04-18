@@ -59,7 +59,7 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 7
+            m_FloatArgument: 4
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -78,18 +78,6 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 3601481112007301783}
-          m_TargetAssemblyTypeName: UnityEngine.CircleCollider2D, UnityEngine
-          m_MethodName: set_radius
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 4
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -414,72 +402,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behavior: {fileID: 6302307711946148635}
   transitions:
-  - toState: {fileID: 8701293405730492513}
-    triggers:
-    - {fileID: 8701293406633197901}
-    onTriggered:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 247812226777656673}
-          m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-          m_MethodName: StartTimer
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 3265982621882468672}
-          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
-          m_MethodName: setAgentSpeed
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 5
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - toState: {fileID: 286097206048912254}
     triggers:
     - {fileID: 6370207962678396741}
     onTriggered:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3265982621882468672}
-          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
-          m_MethodName: setAgentSpeed
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 3
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - toState: {fileID: 286097206048912254}
-    triggers:
-    - {fileID: 286097207363554429}
-    onTriggered:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3265982621882468672}
-          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
-          m_MethodName: setAgentSpeed
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 3
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!1 &1066996586609594537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,7 +1029,7 @@ GameObject:
   - component: {fileID: 6302307713262752375}
   - component: {fileID: 1734832149}
   m_Layer: 6
-  m_Name: Tutorial Enemy
+  m_Name: Vision Tutorial Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,7 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06809b81113251a47a819d38640a6d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeState: {fileID: 1012359127}
+  activeState: {fileID: 4066545866900315848}
 --- !u!58 &8165086688731034997
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1377,30 +1305,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behavior: {fileID: 2370583163265350537}
   transitions:
-  - toState: {fileID: 286097206048912254}
+  - toState: {fileID: 1012359127}
     triggers:
     - {fileID: 8701293406633197901}
     onTriggered:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3265982621882468672}
-          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
-          m_MethodName: setAgentSpeed
-          m_Mode: 4
+        - m_Target: {fileID: 247812226777656673}
+          m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+          m_MethodName: StartTimer
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 7
+            m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - toState: {fileID: 1012359127}
-    triggers:
-    - {fileID: 7401725175820300722}
-    onTriggered:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!1 &8231894245281494279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7422e23b50543fe468e6b6b9e308463a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 5
+  period: 3
   _time: 0
   loop: 0
   OnPeriodDone:
@@ -1786,7 +1708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8875096493982653265, guid: 6931ebd593cdafa4dbda98362822b69f, type: 3}
       propertyPath: m_Radius
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6931ebd593cdafa4dbda98362822b69f, type: 3}

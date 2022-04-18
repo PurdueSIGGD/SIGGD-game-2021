@@ -720,7 +720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e2fb7ce68bcda48a83c2fe30e735cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behavior: {fileID: 6302307711946148619}
+  behavior: {fileID: 0}
   transitions:
   - toState: {fileID: 3112976408115588072}
     triggers:
@@ -913,7 +913,6 @@ GameObject:
   - component: {fileID: 6302307711946148613}
   - component: {fileID: 6302307711946148635}
   - component: {fileID: 6302307711946148612}
-  - component: {fileID: 6302307711946148619}
   - component: {fileID: 8541109979413218194}
   - component: {fileID: 51934967}
   - component: {fileID: 2370583163265350537}
@@ -966,30 +965,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df22c2f16c93104f86845d777618e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  enemyTransform: {fileID: 6302307713262752372}
   navmeshAgent: {fileID: 3265982621882468672}
+  attackPatterns: {fileID: 0}
   cone: {fileID: 6910032380932819964}
   approachSpeed: 2
---- !u!114 &6302307711946148619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6302307711946148615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9952af71ecb85924ea6e1efaa07c2db0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  escapeLocations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  navmeshAgent: {fileID: 3265982621882468672}
-  escapeTarget: {x: 0, y: 0}
 --- !u!114 &8541109979413218194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,7 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1135b4779cd6ad24e9fafbab819b2cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HearSound: {fileID: 4719747539790858239}
+  hearSound: []
   navmeshAgent: {fileID: 3265982621882468672}
   destinationReached: {fileID: 7401725175820300722}
 --- !u!1 &6302307712377007511
@@ -1097,7 +1076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6302307713262752372
 Transform:
   m_ObjectHideFlags: 0
@@ -1429,7 +1408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a384ba01616b47b0aa7ccda1e98e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCollider: {fileID: 8165086688731034997}
+  enemyTransform: {fileID: 0}
   enemyAgent: {fileID: 3265982621882468672}
 --- !u!1 &8571413644034660420
 GameObject:

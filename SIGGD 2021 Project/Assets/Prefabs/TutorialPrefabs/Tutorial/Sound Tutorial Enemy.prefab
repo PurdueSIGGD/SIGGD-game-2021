@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 6302307713262752375}
   - component: {fileID: 1734832149}
   m_Layer: 6
-  m_Name: Tutorial Enemy
+  m_Name: Sound Tutorial Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

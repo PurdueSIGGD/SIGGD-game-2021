@@ -8,14 +8,15 @@ public class ApproachPlayer : Behavior
 
     private Vector2 oldPos;
     [SerializeField] private NavmeshAgent navmeshAgent;
-    //[SerializeField] private EnemyAttackPatterns attackPatterns;
+    [SerializeField] private EnemyAttackPatterns attackPatterns;
     [SerializeField] private ConeRaycaster cone;
 
     public float approachSpeed = 1f;
 
     private void Start()
     {
-        player = GameObject.FindObjectOfType<playerNavPos>().transform;
+        //        player = GameObject.FindObjectOfType<playerNavPos>().transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public override void run()
@@ -35,11 +36,11 @@ public class ApproachPlayer : Behavior
         }
 
         //checks if close enough to attack, and if so, does
-        /*
+        
         if (attackPatterns.canAttack() && Mathf.Pow(playerV.x - oldPos.x, 2) + Mathf.Pow(playerV.y - oldPos.y, 2) > Mathf.Pow(attackPatterns.getMaxAttackRange(), 2))
         {
             attackPatterns.chooseAttack();
-        }*/
+        }
     }
 
     public override void OnBehaviorEnter()
