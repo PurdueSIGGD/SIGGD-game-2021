@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5512058578350090242}
   - component: {fileID: 7271335613756265422}
   - component: {fileID: 1653626018167756158}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41a00d1c5e5bdb4d87121dd12828678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startOpen: 0
+  open: 0
+  sprite: {fileID: 0}
   openEvent: {fileID: 0}
   closeEvent: {fileID: 0}
 --- !u!114 &1653626018167756158
