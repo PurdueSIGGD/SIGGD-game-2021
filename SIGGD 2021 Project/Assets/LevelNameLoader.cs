@@ -38,4 +38,9 @@ public class LevelNameLoader : MonoBehaviour
         var lvlMeta = lvlCollection.getLevel(this.theme, this.actNumber - 1);
         SceneManager.LoadScene(lvlMeta.sceneName);
     }
+
+    public void exitGame()
+    {
+        Application.Quit();
+    }
 }

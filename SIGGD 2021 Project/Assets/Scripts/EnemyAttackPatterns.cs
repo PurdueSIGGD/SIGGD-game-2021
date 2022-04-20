@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyAttackPatterns : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class EnemyAttackPatterns : MonoBehaviour
     private float attackCooldown = 0f;
     [SerializeField] private string attackAnimName;
     private Animator animator;
+    [SerializeField] private UnityEvent onAttack;
 
     private void Start()
     {
@@ -55,7 +57,7 @@ public class EnemyAttackPatterns : MonoBehaviour
         if (shortestAttack != null)
         {
             //Debug.Log("attack created");
-
+            onAttack?.Invoke();
             animator.Play(attackAnimName);
             //create attack
             GameObject g = Instantiate(shortestAttack.projectileToSpawn, transform.position + (attackTarget.position - transform.position) * 0.5f, Quaternion.Euler(0, 0, Vector3.SignedAngle(Vector3.up, attackTarget.position - transform.position, Vector3.forward)));
