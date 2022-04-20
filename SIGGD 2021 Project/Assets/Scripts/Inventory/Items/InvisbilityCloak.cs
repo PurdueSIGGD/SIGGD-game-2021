@@ -10,22 +10,53 @@ public class InvisbilityCloak : MonoBehaviour
     [SerializeField]
     private string playerLayerName = "Player";
 
+    [SerializeField]
+    List<SpriteRenderer> visibilityList;
+
     GameObject playerObject;
 
     private void Start()
     {
         playerObject = transform.parent.parent.gameObject;
+        visibilityList.AddRange(playerObject.GetComponentsInChildren<SpriteRenderer>());
     }
 
     public void StartInvisibility()
     {
         playerObject.layer = LayerMask.NameToLayer(invisibleLayerName);
-        playerObject.GetComponent<SpriteRenderer>().enabled = false;
+        List<SpriteRenderer> removeList = new List<SpriteRenderer>();
+        foreach (SpriteRenderer sr in visibilityList) {
+            if (!sr) { 
+                removeList.Add(sr); 
+            } else
+            {
+                sr.enabled = false;
+            }
+        }
+        foreach (SpriteRenderer sr in removeList)
+        {
+            visibilityList.Remove(sr);
+        }
     }
 
     public void EndInvisibility()
     {
         playerObject.layer = LayerMask.NameToLayer(playerLayerName);
-        playerObject.GetComponent<SpriteRenderer>().enabled = true;
+        List<SpriteRenderer> removeList = new List<SpriteRenderer>();
+        foreach (SpriteRenderer sr in visibilityList)
+        {
+            if (!sr)
+            {
+                removeList.Add(sr);
+            }
+            else
+            {
+                sr.enabled = true;
+            }
+        }
+        foreach (SpriteRenderer sr in removeList)
+        {
+            visibilityList.Remove(sr);
+        }
     }
 }

@@ -19,21 +19,21 @@ public class ExplosionDamage : MonoBehaviour
 
     void ProcessDamage(GameObject gm)
     {
-        Debug.Log("checking " + gm.name);
+       //Debug.Log("checking " + gm.name);
 
         // Don't damage things with no health
         Health hp = gm.GetComponent<Health>();
         if (!hp) return;
 
-        Debug.Log("Has HP");
+        //Debug.Log("Has HP");
 
         // Otherwise, check if there is a line of effect, then scale the damage based on radius
         Vector3 distanceVector = gm.transform.position - transform.position;
-        if (!Physics2D.Raycast(transform.position, distanceVector, radius, mask))
+        if (!Physics2D.Raycast(transform.position, distanceVector, distanceVector.magnitude, mask))
         {
             float scaledDamage = damage * (1 - (distanceVector.magnitude / radius));
 
-            Debug.Log("Taking " + (int)scaledDamage + " Damage");
+            //Debug.Log("Taking " + (int)scaledDamage + " Damage");
 
             hp.TakeDamage((int)scaledDamage);
         }
