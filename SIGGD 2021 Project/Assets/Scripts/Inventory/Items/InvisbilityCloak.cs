@@ -24,17 +24,39 @@ public class InvisbilityCloak : MonoBehaviour
     public void StartInvisibility()
     {
         playerObject.layer = LayerMask.NameToLayer(invisibleLayerName);
+        List<SpriteRenderer> removeList = new List<SpriteRenderer>();
         foreach (SpriteRenderer sr in visibilityList) {
-            sr.enabled = false;
+            if (!sr) { 
+                removeList.Add(sr); 
+            } else
+            {
+                sr.enabled = false;
+            }
+        }
+        foreach (SpriteRenderer sr in removeList)
+        {
+            visibilityList.Remove(sr);
         }
     }
 
     public void EndInvisibility()
     {
         playerObject.layer = LayerMask.NameToLayer(playerLayerName);
+        List<SpriteRenderer> removeList = new List<SpriteRenderer>();
         foreach (SpriteRenderer sr in visibilityList)
         {
-            sr.enabled = true;
+            if (!sr)
+            {
+                removeList.Add(sr);
+            }
+            else
+            {
+                sr.enabled = true;
+            }
+        }
+        foreach (SpriteRenderer sr in removeList)
+        {
+            visibilityList.Remove(sr);
         }
     }
 }
