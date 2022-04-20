@@ -9,6 +9,7 @@ public class SoundSignal : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other) {
         other.GetComponent<ISoundSignalListener>()?.Signal(signalTransform.position, soundType);
     }
+
 }
 
 public interface ISoundSignalListener {

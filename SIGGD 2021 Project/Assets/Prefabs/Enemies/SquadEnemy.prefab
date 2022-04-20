@@ -41,7 +41,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dc4007423ba2d0b49926dd671e600d12, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1532c47a826828f45a384bd144a1d882, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -202,6 +202,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 6166202827521995454}
     triggers:
     - {fileID: 8404028887139207051}
@@ -250,6 +262,18 @@ MonoBehaviour:
             m_StringArgument: move1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1019049498451615572
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,13 +318,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NOT: 0
-  cone: {fileID: 6369645039876118352}
+  cone: {fileID: 6560746870364545350}
   eyeTransform: {fileID: 3432279666744612196}
   layerMask:
     serializedVersion: 2
     m_Bits: 456
   targetFaction: 0
---- !u!1 &2236097240650579390
+--- !u!1 &2047805270497742928
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -308,53 +332,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1323579375841503856}
-  - component: {fileID: 6369645039876118352}
+  - component: {fileID: 377275867067178228}
+  - component: {fileID: 3517475376791118114}
   m_Layer: 0
-  m_Name: Cone Raycaster
+  m_Name: Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1323579375841503856
+--- !u!4 &377275867067178228
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2236097240650579390}
+  m_GameObject: {fileID: 2047805270497742928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -54.1, y: 1.8000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3432279666744612196}
-  m_RootOrder: 4
+  m_Father: {fileID: 4994308879038025213}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6369645039876118352
+--- !u!114 &3517475376791118114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2236097240650579390}
+  m_GameObject: {fileID: 2047805270497742928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c3589f649bb028408767ab03ad74483, type: 3}
+  m_Script: {fileID: 11500000, guid: f862bb1a029d17c4fbc09a18a9d9f812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayNum: 8
-  fov: 45
-  angleOffset: 0
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1033
-  rayOrigin: {fileID: 1323579375841503856}
-  maxDistance: 8
-  hit:
-    m_PersistentCalls:
-      m_Calls: []
-  navmeshAgent: {fileID: 6162255461195681360}
+  location: {fileID: 377275867067178228}
+  gameObject: {fileID: 8102590159393588897, guid: 0586136a8ae79bc4b975f1499908ada2, type: 3}
 --- !u!1 &2457939815283192173
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NOT: 1
-  cone: {fileID: 6369645039876118352}
+  cone: {fileID: 6560746870364545350}
   eyeTransform: {fileID: 3432279666744612196}
   layerMask:
     serializedVersion: 2
@@ -480,6 +494,18 @@ MonoBehaviour:
             m_StringArgument: idle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 6672950518674449037}
     triggers:
     - {fileID: 4860069377118584932}
@@ -508,6 +534,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: idle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   - toState: {fileID: 6672950518674449037}
@@ -540,6 +578,18 @@ MonoBehaviour:
             m_StringArgument: idle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 8404028887767001648}
     triggers:
     - {fileID: 8404028888620175704}
@@ -568,6 +618,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: idle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   - toState: {fileID: 8404028887767001648}
@@ -600,6 +662,18 @@ MonoBehaviour:
             m_StringArgument: idle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 7314073851601346827}
     triggers:
     - {fileID: 986465654884766774}
@@ -630,6 +704,18 @@ MonoBehaviour:
             m_StringArgument: idle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3432279666744612192
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +731,7 @@ GameObject:
   - component: {fileID: 4105189245378321520}
   - component: {fileID: 8521321920795569267}
   - component: {fileID: 3730882521173876266}
+  - component: {fileID: 2042238455077885539}
   m_Layer: 6
   m_Name: SquadEnemy
   m_TagString: Untagged
@@ -667,7 +754,7 @@ Transform:
   - {fileID: 3432279668006283909}
   - {fileID: 6644777177429722165}
   - {fileID: 8758033086403477459}
-  - {fileID: 1323579375841503856}
+  - {fileID: 6560746870364545351}
   - {fileID: 534824393114068263}
   - {fileID: 4994308879038025213}
   m_Father: {fileID: 0}
@@ -763,12 +850,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
+  graphics: {fileID: 0}
   healthChangeEvent:
     m_PersistentCalls:
       m_Calls: []
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1743784587233736284}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   deathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3517475376791118114}
+        m_TargetAssemblyTypeName: SpawnObject, Assembly-CSharp
+        m_MethodName: spawnObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2042238455077885539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432279666744612192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d772c87f3f6dfb343b6fc2d24c59a882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attacks:
+  - {fileID: 6186644314395922289, guid: 090c601cb7213784186080be4fecb82b, type: 3}
+  attackAnimName: attack
 --- !u!1 &3432279668006283911
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +1001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad640557bcdc0af4b90bf7f1018aac7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   navmeshAgent: {fileID: 6162255461195681360}
   destinationReached: {fileID: 8404028887139207051}
 --- !u!114 &7306663796068012208
@@ -915,8 +1044,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df22c2f16c93104f86845d777618e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   navmeshAgent: {fileID: 6162255461195681360}
+  attackPatterns: {fileID: 2042238455077885539}
+  cone: {fileID: 6560746870364545350}
   approachSpeed: 2
 --- !u!114 &8312319771114269679
 MonoBehaviour:
@@ -1027,6 +1157,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: aggroIdle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &4398946262217824427
@@ -1379,7 +1521,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 638fdccbcbec56245adacad0da8749cc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 673fb0f54121b5944b929f50c9bbb3ac, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1634,6 +1776,18 @@ MonoBehaviour:
             m_StringArgument: aggroIdle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 6672950518674449037}
     triggers:
     - {fileID: 4860069377118584932}
@@ -1674,6 +1828,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: aggroIdle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &7755624829268233505
@@ -1842,7 +2008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a384ba01616b47b0aa7ccda1e98e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCollider: {fileID: 8521321920795569267}
   enemyAgent: {fileID: 6162255461195681360}
 --- !u!1 &8404028887767001649
 GameObject:
@@ -1931,6 +2096,18 @@ MonoBehaviour:
             m_StringArgument: aggroIdle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 6166202827521995454}
     triggers:
     - {fileID: 8404028887139207051}
@@ -2001,6 +2178,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: aggroIdle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &8404028888620175705
@@ -2140,6 +2329,18 @@ MonoBehaviour:
             m_StringArgument: aggroIdle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 6672950518674449037}
     triggers:
     - {fileID: 4860069377118584932}
@@ -2168,6 +2369,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: aggroIdle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   - toState: {fileID: 8404028887767001648}
@@ -2200,6 +2413,18 @@ MonoBehaviour:
             m_StringArgument: move1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 8404028887767001648}
     triggers:
     - {fileID: 1469113864697131151}
@@ -2230,6 +2455,18 @@ MonoBehaviour:
             m_StringArgument: aggroIdle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - toState: {fileID: 7314073851601346827}
     triggers:
     - {fileID: 986465654884766774}
@@ -2258,6 +2495,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: move1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6162255461195681360}
+          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
+          m_MethodName: setAgentSpeed
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &8571568730164719688
@@ -2301,7 +2550,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f108991fa23181d4e880d85c21ad58b6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c9c65004e35b5d946b8f4530cbd04485, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2418,6 +2667,8 @@ Transform:
   - {fileID: 5345031871443709018}
   - {fileID: 7708453252958745546}
   - {fileID: 1730487742331629377}
+  - {fileID: 8985447090061722003}
+  - {fileID: 377275867067178228}
   m_Father: {fileID: 3432279666744612196}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2462,7 +2713,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dc6df9f84bef1194d81122547729d5d8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3d85cb6d478a8b046bc38018692cc7f5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2610,3 +2861,215 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!1 &9183686955576505521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8985447090061722003}
+  - component: {fileID: 1743784587233736284}
+  m_Layer: 0
+  m_Name: Hurt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8985447090061722003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9183686955576505521}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4994308879038025213}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1743784587233736284
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9183686955576505521}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 309a762b69b00ee4aae4987e9580c683, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1001 &577736986330029528
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3432279666744612196}
+    m_Modifications:
+    - target: {fileID: 1501202728208938226, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 9035923572398684043}
+    - target: {fileID: 5983309451646205080, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_Name
+      value: Cone Raycaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205086, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: maxDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205086, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: navmeshAgent
+      value: 
+      objectReference: {fileID: 6162255461195681360}
+    - target: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+--- !u!4 &6560746870364545351 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5983309451646205087, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+  m_PrefabInstance: {fileID: 577736986330029528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6560746870364545350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5983309451646205086, guid: fc0f4af7a4f048a4d8767b74f5e2ec27, type: 3}
+  m_PrefabInstance: {fileID: 577736986330029528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3589f649bb028408767ab03ad74483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

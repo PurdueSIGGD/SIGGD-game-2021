@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyAttackPatterns : MonoBehaviour
 {
     [SerializeField] private AttackData[] attacks;
     private float maxAttackRange = 1f;
     private float attackCooldown = 0f;
+    [SerializeField] private string attackAnimName;
+    private Animator animator;
+    [SerializeField] private UnityEvent onAttack;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        
         //calculate the max attack range
         float max = 0;
         foreach (AttackData attack in attacks)
@@ -35,9 +41,32 @@ public class EnemyAttackPatterns : MonoBehaviour
         }
     }
 
-    public void chooseAttack()
+    public void chooseAttack(float sqrDistToPlayer, Transform attackTarget)
     {
-        
+        //select closest viable attack
+        float min = float.PositiveInfinity;
+        AttackData shortestAttack = null;
+        foreach (AttackData attack in attacks)
+        {
+            if (attack.range < min && Mathf.Pow(attack.range, 2) >= sqrDistToPlayer)
+            {
+                min = attack.range;
+                shortestAttack = attack;
+            }
+        }
+        if (shortestAttack != null)
+        {
+            //Debug.Log("attack created");
+            onAttack?.Invoke();
+            animator.Play(attackAnimName);
+            //create attack
+            GameObject g = Instantiate(shortestAttack.projectileToSpawn, transform.position + (attackTarget.position - transform.position) * 0.5f, Quaternion.Euler(0, 0, Vector3.SignedAngle(Vector3.up, attackTarget.position - transform.position, Vector3.forward)));
+            attackCooldown += shortestAttack.cooldownAddition;
+            g.GetComponent<Rigidbody2D>().velocity = g.transform.forward * shortestAttack.speed;
+            g.GetComponent<enemyProjectile>().damage = shortestAttack.damage;
+            Destroy(g, shortestAttack.duration);
+        }
+
     }
 
     public float getMaxAttackRange()
@@ -47,6 +76,6 @@ public class EnemyAttackPatterns : MonoBehaviour
 
     public bool canAttack()
     {
-        return attackCooldown > 0;
+        return attackCooldown == 0;
     }
 }

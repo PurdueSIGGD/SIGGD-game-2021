@@ -17,7 +17,7 @@ public class NearAlerted : Trigger
     {
         foreach (AIStateManager enemy in enemies)
         {
-            if (enemy.GetComponent<FactionComponent>().faction.Equals(thisFaction))
+            if (enemy != null && enemy.GetComponent<FactionComponent>().faction.Equals(thisFaction))
             {
                 if (Mathf.Pow(transform.position.x - enemy.transform.position.x, 2) + Mathf.Pow(transform.position.y - enemy.transform.position.y, 2) < detectionRaidus*detectionRaidus) {
                     Behavior enemyBehavior = enemy.activeState.behavior;

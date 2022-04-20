@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 /**
  * Health.cs
@@ -14,8 +15,11 @@ public class Health : MonoBehaviour
     [SerializeField] private int maxHealth;
     // DO NOT CHANGE currHealth OUTSIDE OF THE SET METHOD
     private int currHealth = 0; // changed at start method
+    [SerializeField] private PlayerHealthGraphics graphics;
     [SerializeField] private UnityEvent<int> healthChangeEvent;
+    [SerializeField] private UnityEvent damageEvent;
     [SerializeField] private UnityEvent deathEvent;
+    [SerializeField] private bool isBoss = false;
 
     private void Start()
     {
@@ -26,11 +30,28 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         SetCurrHealth(currHealth - damage);
+
+        damageEvent?.Invoke();
+
+        if (graphics)
+        {
+            graphics.healthGraphicUpdate(currHealth);
+        }
         
         if (IsDead())
         {
             deathEvent?.Invoke();
             Debug.Log(string.Format("{0} is dead", name));
+            //if player, restart level
+            if (GetComponent<Movement>())
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            //if boss, next level
+            if (isBoss)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
             Destroy(gameObject);
         }
     }
