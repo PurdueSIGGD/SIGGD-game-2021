@@ -73,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 263232
   travelSpeed: 10
   terminatingDistance: 10
   unityEvent:
