@@ -17,7 +17,10 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        gameObject.transform.position = GetComponent<PixelPerfectCamera>().RoundToPixel(player.transform.position);
-        gameObject.transform.position += Vector3.back;
+        if (player != null)
+        {
+            gameObject.transform.position = GetComponent<PixelPerfectCamera>().RoundToPixel(player.transform.position);
+            gameObject.transform.position += Vector3.back;
+        }
     }
 }

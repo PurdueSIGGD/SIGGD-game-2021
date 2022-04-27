@@ -12,7 +12,7 @@ public class playerNavPos : MonoBehaviour
     void Update()
     {
         //if there is not a unreachable area around the player, set it to the player's location
-        if (!isInTunnel && !Physics2D.CircleCast(player.position, 0.5f, transform.forward, 0f, notInNavmesh))
+        if (!isInTunnel && player != null && !Physics2D.CircleCast(player.position, 0.5f, transform.forward, 0f, notInNavmesh))
         {
             transform.position = player.position;
         }
