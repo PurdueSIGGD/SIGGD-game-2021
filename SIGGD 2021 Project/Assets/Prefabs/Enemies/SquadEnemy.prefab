@@ -259,7 +259,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: move1
+            m_StringArgument: move
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 6162255461195681360}
@@ -884,6 +884,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isBoss: 0
 --- !u!114 &2042238455077885539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,6 +900,9 @@ MonoBehaviour:
   attacks:
   - {fileID: 6186644314395922289, guid: 090c601cb7213784186080be4fecb82b, type: 3}
   attackAnimName: attack
+  onAttack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3432279668006283911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1160,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: aggroIdle
+            m_StringArgument: idleArgo
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 6162255461195681360}
@@ -1341,7 +1345,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: aggroMove2
+          m_StringArgument: moveAgro
           m_BoolArgument: 1
         m_CallState: 2
   OnValueChanged:
@@ -1773,7 +1777,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: aggroIdle
+            m_StringArgument: idleArgo
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 6162255461195681360}
@@ -1827,7 +1831,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: aggroIdle
+            m_StringArgument: idleArgo
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 6162255461195681360}
@@ -2093,7 +2097,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: aggroIdle
+            m_StringArgument: idleArgo
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 6162255461195681360}
@@ -2135,7 +2139,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: aggroIdle
+            m_StringArgument: idleArgo
             m_BoolArgument: 0
           m_CallState: 2
   - toState: {fileID: 6672950518674449037}
@@ -2177,7 +2181,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: aggroIdle
+            m_StringArgument: idleArgo
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 6162255461195681360}
@@ -2326,7 +2330,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: aggroIdle
+            m_StringArgument: idleArgo
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 6162255461195681360}
@@ -2368,7 +2372,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: aggroIdle
+            m_StringArgument: idleArgo
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 6162255461195681360}
@@ -2410,7 +2414,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: move1
+            m_StringArgument: move
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 6162255461195681360}
@@ -2452,7 +2456,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: aggroIdle
+            m_StringArgument: idleArgo
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 6162255461195681360}
@@ -2494,7 +2498,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: move1
+            m_StringArgument: move
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 6162255461195681360}

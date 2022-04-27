@@ -31,7 +31,7 @@ public class areaDetector : MonoBehaviour
         if (onStay && (layers.value & (1 << collision.gameObject.layer)) > 0)
         {
             eventToCall.Invoke();
-            Debug.Log("Detected in area");
+            //Debug.Log("Detected in area");
         }
     }
 
@@ -40,7 +40,7 @@ public class areaDetector : MonoBehaviour
         if (onExit && (layers.value & (1 << collision.gameObject.layer)) > 0)
         {
             eventToCall.Invoke();
-            Debug.Log("Detected in area");
+            //Debug.Log("Detected in area");
         }
     }
 }

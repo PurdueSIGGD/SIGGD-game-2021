@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3589f649bb028408767ab03ad74483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayNum: 50
+  rayNum: 16
   fov: 90
   angleOffset: 0
   layerMask:
