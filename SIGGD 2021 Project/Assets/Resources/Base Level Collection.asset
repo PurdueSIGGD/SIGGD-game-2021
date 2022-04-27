@@ -28,3 +28,8 @@ MonoBehaviour:
     theme: mines
     description: default description
     priority: 6
+  - title: Jungle
+    sceneName: Level4
+    theme: mines
+    description: default description
+    priority: 4
