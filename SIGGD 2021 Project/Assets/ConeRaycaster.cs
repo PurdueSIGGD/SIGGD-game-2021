@@ -50,7 +50,7 @@ public class ConeRaycaster : MonoBehaviour
 
         List<Vector3> temp = new List<Vector3>();
         for (int i = 0; i < rayNum; i++) {
-            float interpo = i / (rayNum-1);
+            float interpo = (float)i / ((float)rayNum-1);
 
             float theta = Mathf.LerpAngle(minAngle, maxAngle, interpo) * Mathf.Deg2Rad;
 
