@@ -51,7 +51,7 @@ public class soundVisualizer : MonoBehaviour
             mesh.vertices = vertices.ToArray();
             if (mesh.triangles.Length == 0 && vertices.Count - 1 == resolution)
             {
-                Debug.Log("Debug 2");
+                //Debug.Log("Debug 2");
                 mesh.triangles = triangles;
             }
             GetComponent<MeshFilter>().mesh = mesh;

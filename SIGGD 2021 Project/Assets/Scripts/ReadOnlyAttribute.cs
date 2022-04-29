@@ -5,8 +5,9 @@ public class ReadOnlyAttribute : PropertyAttribute
  {
  
  }
- 
- [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
+
+#if UNITY_EDITOR
+[CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
  public class ReadOnlyDrawer : PropertyDrawer
  {
      public override float GetPropertyHeight(SerializedProperty property,
@@ -24,3 +25,4 @@ public class ReadOnlyAttribute : PropertyAttribute
          GUI.enabled = true;
      }
  }
+#endif
