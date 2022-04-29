@@ -59,7 +59,7 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 7
+            m_FloatArgument: 4
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -78,18 +78,6 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 3601481112007301783}
-          m_TargetAssemblyTypeName: UnityEngine.CircleCollider2D, UnityEngine
-          m_MethodName: set_radius
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 4
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -750,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e2fb7ce68bcda48a83c2fe30e735cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behavior: {fileID: 0}
+  behavior: {fileID: 6302307711946148619}
   transitions:
   - toState: {fileID: 3112976408115588072}
     triggers:
@@ -943,6 +931,7 @@ GameObject:
   - component: {fileID: 6302307711946148613}
   - component: {fileID: 6302307711946148635}
   - component: {fileID: 6302307711946148612}
+  - component: {fileID: 6302307711946148619}
   - component: {fileID: 8541109979413218194}
   - component: {fileID: 51934967}
   - component: {fileID: 2370583163265350537}
@@ -995,10 +984,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df22c2f16c93104f86845d777618e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemyTransform: {fileID: 6302307713262752372}
   navmeshAgent: {fileID: 3265982621882468672}
-  attackPatterns: {fileID: 0}
   cone: {fileID: 6910032380932819964}
   approachSpeed: 2
+--- !u!114 &6302307711946148619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6302307711946148615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9952af71ecb85924ea6e1efaa07c2db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  escapeLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  navmeshAgent: {fileID: 3265982621882468672}
+  escapeTarget: {x: 0, y: 0}
 --- !u!114 &8541109979413218194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,7 +1051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1135b4779cd6ad24e9fafbab819b2cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hearSound: []
+  HearSound: {fileID: 4719747539790858239}
+  currentLocation: {fileID: 6302307713262752372}
   navmeshAgent: {fileID: 3265982621882468672}
   destinationReached: {fileID: 7401725175820300722}
 --- !u!1 &6302307712377007511
@@ -1101,7 +1111,7 @@ GameObject:
   - component: {fileID: 6302307713262752375}
   - component: {fileID: 1734832149}
   m_Layer: 6
-  m_Name: Tutorial Enemy
+  m_Name: Old Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1233,8 +1243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agentSpeed: 2
-  currentPath: []
-  bodyHolder: {fileID: 6302307713262752372}
   compassDirection: 0
 --- !u!114 &6302307713262752375
 MonoBehaviour:
@@ -1377,30 +1385,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behavior: {fileID: 2370583163265350537}
   transitions:
-  - toState: {fileID: 286097206048912254}
+  - toState: {fileID: 1012359127}
     triggers:
     - {fileID: 8701293406633197901}
     onTriggered:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3265982621882468672}
-          m_TargetAssemblyTypeName: NavmeshAgent, Assembly-CSharp
-          m_MethodName: setAgentSpeed
-          m_Mode: 4
+        - m_Target: {fileID: 247812226777656673}
+          m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+          m_MethodName: StartTimer
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 7
+            m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - toState: {fileID: 1012359127}
-    triggers:
-    - {fileID: 7401725175820300722}
-    onTriggered:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!1 &8231894245281494279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,8 +1446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a384ba01616b47b0aa7ccda1e98e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTransform: {fileID: 6302307713262752372}
-  enemyAgent: {fileID: 3265982621882468672}
+  enemyCollider: {fileID: 8165086688731034997}
 --- !u!1 &8571413644034660420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7422e23b50543fe468e6b6b9e308463a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 5
+  period: 3
   _time: 0
   loop: 0
   OnPeriodDone:
@@ -1786,7 +1787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8875096493982653265, guid: 6931ebd593cdafa4dbda98362822b69f, type: 3}
       propertyPath: m_Radius
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6931ebd593cdafa4dbda98362822b69f, type: 3}

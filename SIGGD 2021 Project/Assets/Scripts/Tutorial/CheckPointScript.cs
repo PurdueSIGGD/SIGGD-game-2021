@@ -31,14 +31,21 @@ public class CheckPointScript : MonoBehaviour
 
             if (currScene.name == "Sound_Tutorial")
             {
-                if(gameObject == manager.checkpoints.transform.GetChild(0).gameObject)
+                if (gameObject == manager.checkpoints.transform.GetChild(0).gameObject)
                 {
                     manager.tutorialTextObject.transform.GetChild(1).GetComponent<TMP_Text>().text = "Press Shift to Run...";
                     enemies.transform.GetChild(0).gameObject.SetActive(false);
                 }
-                else if(gameObject == manager.checkpoints.transform.GetChild(1).gameObject)
+                else if (gameObject == manager.checkpoints.transform.GetChild(1).gameObject)
                 {
                     enemies.transform.GetChild(1).gameObject.SetActive(false);
+                }
+            }
+            else 
+            {
+                if(gameObject == manager.checkpoints.transform.GetChild(0).gameObject)
+                {
+                    enemies.transform.GetChild(0).gameObject.SetActive(false);
                 }
             }
         }
