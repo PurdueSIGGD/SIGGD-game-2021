@@ -3369,6 +3369,10 @@ MonoBehaviour:
   isPlayerInCollider: 1
   distance: 6
   player: {fileID: 0}
+  currScene:
+    m_Handle: 0
+  nextScene:
+    m_Handle: 0
 --- !u!61 &340383864
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4547,6 +4551,10 @@ MonoBehaviour:
   isPlayerInCollider: 1
   distance: 6
   player: {fileID: 0}
+  currScene:
+    m_Handle: 0
+  nextScene:
+    m_Handle: 0
 --- !u!61 &890989919
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5664,7 +5672,7 @@ GameObject:
   - component: {fileID: 1274958397}
   - component: {fileID: 1274958396}
   m_Layer: 9
-  m_Name: Door (2)
+  m_Name: SceneDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5713,6 +5721,10 @@ MonoBehaviour:
   isPlayerInCollider: 1
   distance: 6
   player: {fileID: 0}
+  currScene:
+    m_Handle: 0
+  nextScene:
+    m_Handle: 0
 --- !u!61 &1274958398
 BoxCollider2D:
   m_ObjectHideFlags: 0

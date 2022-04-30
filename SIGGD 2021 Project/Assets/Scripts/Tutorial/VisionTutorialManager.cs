@@ -36,7 +36,7 @@ public class VisionTutorialManager : MonoBehaviour
     }
     public void updateNavmash() {
 		navmeshScript.center = GlobalControl.Instance.checkpoint;
-		navmeshScript.navmeshNodes = navmeshScript.generateNavmesh();
+        navmeshScript.generateNavmesh();
 		// move center of navmash to position of checkpoint
 		// re-generate navmesh
 	}
