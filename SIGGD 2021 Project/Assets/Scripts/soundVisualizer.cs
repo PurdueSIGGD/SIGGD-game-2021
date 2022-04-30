@@ -29,7 +29,7 @@ public class soundVisualizer : MonoBehaviour
         trianglesList.Add(1);
         trianglesList.Add((int)resolution);
         triangles = trianglesList.ToArray();
-        Debug.Log(mesh.triangles);
+        //Debug.Log(mesh.triangles);
     }
 
     // Update is called once per frame
@@ -51,7 +51,7 @@ public class soundVisualizer : MonoBehaviour
             mesh.vertices = vertices.ToArray();
             if (mesh.triangles.Length == 0 && vertices.Count - 1 == resolution)
             {
-                Debug.Log("Debug 2");
+                //Debug.Log("Debug 2");
                 mesh.triangles = triangles;
             }
             GetComponent<MeshFilter>().mesh = mesh;

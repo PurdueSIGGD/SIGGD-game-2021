@@ -30,7 +30,7 @@ public class ConeVisualizer : MonoBehaviour
             trianglesList.Add(i);
         }
         triangles = trianglesList.ToArray();
-        Debug.Log(mesh.triangles);
+        //Debug.Log(mesh.triangles);
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class ConeVisualizer : MonoBehaviour
         mesh.vertices = vertices.ToArray();
         if (mesh.triangles.Length == 0 && vertices.Count - 1 == cone.getRayCount())
         {
-            Debug.Log("Debug");
+            //Debug.Log("Debug");
             mesh.triangles = triangles;
         }
         GetComponent<MeshFilter>().mesh = mesh;

@@ -45,17 +45,17 @@ public class ConeRaycaster : MonoBehaviour
             minAngle = centerAngle + angleOffset + fov / 2f;
         }
 
-        var closest = new RaycastHit2D();
+        RaycastHit2D closest = new RaycastHit2D();
         closest.distance = -1;
 
         List<Vector3> temp = new List<Vector3>();
         for (int i = 0; i < rayNum; i++) {
-            var interpo = (float)i / (float)(rayNum-1);
+            float interpo = (float)i / ((float)rayNum-1);
 
-            var theta = Mathf.LerpAngle(minAngle, maxAngle, interpo) * Mathf.Deg2Rad;
+            float theta = Mathf.LerpAngle(minAngle, maxAngle, interpo) * Mathf.Deg2Rad;
 
-            var rayDir = new Vector2(Mathf.Cos(theta), Mathf.Sin(theta));
-            var result = Physics2D.Raycast(rayOrigin.position, rayDir, maxDistance, layerMask);
+            Vector2 rayDir = new Vector2(Mathf.Cos(theta), Mathf.Sin(theta));
+            RaycastHit2D result = Physics2D.Raycast(rayOrigin.position, rayDir, maxDistance, layerMask);
 
             if (result.transform != null)
             {

@@ -22,9 +22,24 @@ MonoBehaviour:
     sceneName: Level3
     theme: mines
     description: default description
-    priority: 2
+    priority: 4
   - title: Drill Master
     sceneName: Level2
     theme: mines
     description: default description
-    priority: 6
+    priority: 10
+  - title: Jungle
+    sceneName: Level4
+    theme: jungle
+    description: default description
+    priority: 4
+  - title: Jungle
+    sceneName: Level4
+    theme: jungle
+    description: default description
+    priority: 2
+  - title: Jungle
+    sceneName: Level4
+    theme: jungle
+    description: default description
+    priority: 1

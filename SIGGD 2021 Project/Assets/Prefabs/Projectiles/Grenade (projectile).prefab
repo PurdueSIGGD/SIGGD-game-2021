@@ -73,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 263232
   travelSpeed: 10
   terminatingDistance: 10
   unityEvent:
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 1024
   radius: 5
   damage: 5
 --- !u!1 &9220020559192992922

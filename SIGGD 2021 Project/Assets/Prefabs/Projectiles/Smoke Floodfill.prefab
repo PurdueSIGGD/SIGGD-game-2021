@@ -48,7 +48,7 @@ MonoBehaviour:
   origin: {fileID: 2386208073479165511}
   layer:
     serializedVersion: 2
-    m_Bits: 34560
+    m_Bits: 296704
   maxIteration: 9
   delay: 0.01
   chance: 0.75
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2100783309
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 7db88db76d14efe42bd6643090989a2f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

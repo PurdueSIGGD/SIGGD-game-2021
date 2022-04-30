@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
     private Transform interactHitbox;
     private Transform attackHitbox;
 
+    [SerializeField] private bool crouchToggle = false;
+
     private void Start()
     {
         interactHitbox = transform.GetChild(1);
@@ -96,7 +98,11 @@ public class Movement : MonoBehaviour
     } 
 
     public bool isSneaking() {
-        return Input.GetKey(KeyCode.LeftControl);
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            crouchToggle = !crouchToggle;
+        }
+        return Input.GetKey(KeyCode.LeftControl) || crouchToggle;
     }
 
     public bool isMoving() {
