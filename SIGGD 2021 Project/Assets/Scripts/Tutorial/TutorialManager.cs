@@ -9,17 +9,15 @@ public class TutorialManager : MonoBehaviour
     public GameObject player;
     public GameObject tutorialTextObject;
     public GameObject checkpoints;
-	public GameObject navmesh; 
     private Scene currScene;
-	public Navmesh navmeshScript;
     public GameObject doors; 
     
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-		navmeshScript = navmesh.GetComponent<Navmesh>();
-        navmeshScript.center = new Vector2(GlobalControl.Instance.checkpoint.x, GlobalControl.Instance.checkpoint.y);
+		//navmeshScript = navmesh.GetComponent<Navmesh>();
+  //      navmeshScript.center = new Vector2(GlobalControl.Instance.checkpoint.x, GlobalControl.Instance.checkpoint.y);
         player.transform.position = GlobalControl.Instance.checkpoint;
         tutorialTextObject = GameObject.Find("Tutorial Text");
         updateText();
@@ -49,8 +47,8 @@ public class TutorialManager : MonoBehaviour
     }
 
     public void updateNavmash() {
-		navmeshScript.center = GlobalControl.Instance.checkpoint;
-		navmeshScript.navmeshNodes = navmeshScript.generateNavmesh();
+		//navmeshScript.center = GlobalControl.Instance.checkpoint;
+		//navmeshScript.navmeshNodes = navmeshScript.generateNavmesh();
 		// move center of navmash to position of checkpoint
 		// re-generate navmesh
 	}
