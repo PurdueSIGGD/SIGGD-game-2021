@@ -607,6 +607,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isBoss: 0
 --- !u!95 &4481937234751901398
 Animator:
   serializedVersion: 3
@@ -1350,7 +1351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trapOrigin: {fileID: 0}
   destinationReached: {fileID: 7226509698644363280}
-  navmeshAgent: {fileID: 0}
+  navmeshAgent: {fileID: 7487840279563340150}
   traps:
   - {fileID: 0}
 --- !u!1 &7226509699262808266
