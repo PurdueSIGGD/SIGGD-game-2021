@@ -23,6 +23,7 @@ public class CheckPointScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.tag == "Player")
         {
             playerCheckpointScript.checkpoint = new Vector2(gameObject.transform.position.x, 0);
@@ -40,6 +41,7 @@ public class CheckPointScript : MonoBehaviour
                 {
                     enemies.transform.GetChild(1).gameObject.SetActive(false);
                 }
+                
             }
             else 
             {

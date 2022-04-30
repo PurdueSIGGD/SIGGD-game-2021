@@ -31,12 +31,8 @@ public class TutorialDoor : MonoBehaviour
     {
         if (isPlayerInCollider && gameObject.name == "SceneDoor")
         {
+            GlobalControl.Instance.checkpoint = new Vector2(0, 0);
             SceneManager.LoadScene(nextScene);
-        }
-        else if(isPlayerInCollider)
-        {
-            player.transform.position = new Vector2(player.transform.position.x + distance, player.transform.position.y);
-            //Debug.Log("Works");
         }
     }
 

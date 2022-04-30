@@ -805,12 +805,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
+  graphics: {fileID: 0}
   healthChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  damageEvent:
     m_PersistentCalls:
       m_Calls: []
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
+  isBoss: 0
 --- !u!114 &2042238455077885539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,6 +831,9 @@ MonoBehaviour:
   attacks:
   - {fileID: 6186644314395922289, guid: 090c601cb7213784186080be4fecb82b, type: 3}
   attackAnimName: attack
+  onAttack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3432279668006283911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,6 +1943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a384ba01616b47b0aa7ccda1e98e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyTransform: {fileID: 0}
   enemyAgent: {fileID: 6162255461195681360}
 --- !u!1 &8404028887767001649
 GameObject:

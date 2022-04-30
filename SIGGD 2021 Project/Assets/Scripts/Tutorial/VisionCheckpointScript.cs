@@ -12,7 +12,7 @@ public class VisionCheckpointScript : MonoBehaviour
     private Scene currScene;
     public GameObject firstSectionEnemies;
     public GameObject secondSectionEnemies;
-    bool isExecuted = false;
+    public GameObject thirdSectionEnemies;
 
     private void Start()
     {
@@ -23,14 +23,22 @@ public class VisionCheckpointScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Player" && !isExecuted)
+        if (collision.gameObject.name == "Player")
         {
-            isExecuted = !isExecuted;
             playerCheckpointScript.checkpoint = new Vector2(gameObject.transform.position.x, 0);
             playerCheckpointScript.saveCheckpoint();
-            firstSectionEnemies.SetActive(false);
             manager.updateNavmash();
-            secondSectionEnemies.SetActive(true);
+
+            if (gameObject.transform.GetSiblingIndex() == 0)
+            {
+                firstSectionEnemies.SetActive(false);
+                secondSectionEnemies.SetActive(true);
+            }
+            else
+            {
+                secondSectionEnemies.SetActive(false);
+                thirdSectionEnemies.SetActive(true);
+            }
 
         }
     }
