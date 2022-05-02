@@ -1875,11 +1875,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1414648752544122136, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.b
-      value: 0.73018867
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1414648752544122136, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.g
-      value: 0.8638204
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1414648752544122136, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.r
@@ -1887,7 +1887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2098523667259358850, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.b
-      value: 0.94956064
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2098523667259358850, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.g
@@ -1895,15 +1895,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2098523667259358850, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.r
-      value: 0.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3746680829267996154, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.b
-      value: 0.73018867
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3746680829267996154, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.g
-      value: 0.8638204
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3746680829267996154, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.r
@@ -1911,11 +1911,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5601332910892724839, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.b
-      value: 0.73018867
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5601332910892724839, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.g
-      value: 0.8638204
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5601332910892724839, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Color.r
@@ -2008,7 +2008,7 @@ PrefabInstance:
     - target: {fileID: 6348674526031439140, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fb64248afae24e84fa795d88fc0c98c3, type: 3}
+      objectReference: {fileID: 21300000, guid: 91cc7900793264c42b289ff1aa23c482, type: 3}
     - target: {fileID: 8541109979413218194, guid: 0ff6d85f2ce813144b80893e8b802b5a, type: 3}
       propertyPath: validPointViaRoutes.Array.size
       value: 5
@@ -47528,7 +47528,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Objective:
 
-        Defeat Captain Clack'
+        Defeat Colonel Cluck'
       objectReference: {fileID: 0}
     - target: {fileID: 8318343125043746473, guid: de25f21707b0e61459829ce658a2d1c6, type: 3}
       propertyPath: m_Name

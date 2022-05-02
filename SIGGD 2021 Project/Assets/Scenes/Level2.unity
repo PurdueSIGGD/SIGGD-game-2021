@@ -8856,7 +8856,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Objective:
 
-        Defeat the soldier'
+        Defeat The Soldier'
       objectReference: {fileID: 0}
     - target: {fileID: 8318343125043746473, guid: de25f21707b0e61459829ce658a2d1c6, type: 3}
       propertyPath: m_Name
