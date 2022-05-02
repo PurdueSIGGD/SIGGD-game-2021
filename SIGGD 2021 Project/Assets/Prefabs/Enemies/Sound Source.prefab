@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c326da4ce73e18c40bd56c2801e00089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signalTransform: {fileID: 0}
+  signalTransform: {fileID: 1657153317563386021}
   soundType: 0
 --- !u!50 &786204870787372090
 Rigidbody2D:
