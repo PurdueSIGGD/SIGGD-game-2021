@@ -63081,6 +63081,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6337374014924328400, guid: de25f21707b0e61459829ce658a2d1c6, type: 3}
+      propertyPath: m_text
+      value: 'Objective:
+
+        Defeat Colonel Cluck'
+      objectReference: {fileID: 0}
     - target: {fileID: 8318343125043746473, guid: de25f21707b0e61459829ce658a2d1c6, type: 3}
       propertyPath: m_Name
       value: Main UI

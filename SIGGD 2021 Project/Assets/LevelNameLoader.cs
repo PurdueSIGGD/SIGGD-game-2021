@@ -43,4 +43,9 @@ public class LevelNameLoader : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void enterTutorial()
+    {
+        SceneManager.LoadScene("Sound_Tutorial");
+    }
 }

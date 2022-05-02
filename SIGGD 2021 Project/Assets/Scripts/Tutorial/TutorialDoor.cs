@@ -23,7 +23,7 @@ public class TutorialDoor : MonoBehaviour
         }
         else
         {
-            nextScene = ("Level1");
+            nextScene = ("startMenu");
         }
     }
 
