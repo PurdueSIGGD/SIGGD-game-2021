@@ -5,7 +5,7 @@ using UnityEngine;
 public class DestinationReached : Trigger
 {
     
-    private Transform enemyTransform;
+    public Transform enemyTransform;
     [SerializeField] private NavmeshAgent enemyAgent;
     private Vector2 destination;
 
